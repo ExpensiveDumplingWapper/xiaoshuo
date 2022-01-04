@@ -1,0 +1,20 @@
+server:
+  run-mode: debug
+  http-port: 8090
+  read-timeout: 60
+  write-timeout: 60
+  ipdb-path: /Users/lzz/Desktop
+
+logrus-config: &logrusConfig
+  code: logrus
+  level: info
+  format: json
+  enable-caller: false
+  file-name: /tmp/adms-go/adms.log
+  enable-kafka: true
+
+zookeeper: 10.9.158.210:2181,10.9.114.167:2181,10.9.105.4:2181
+# zookeeper: 10.10.182.158:2181,10.10.101.151:2181,10.10.102.25:2181
+
+
+log-config: *logrusConfig

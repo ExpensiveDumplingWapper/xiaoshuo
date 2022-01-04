@@ -1,0 +1,311 @@
+{
+	"info": {
+		"_postman_id": "d7c69318-031a-44c0-a371-cfcfd46a59e5",
+		"name": "xiaoshuo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getMenus（导航）",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://180.76.238.148:9093/getMenus",
+					"protocol": "http",
+					"host": [
+						"180",
+						"76",
+						"238",
+						"148"
+					],
+					"port": "9093",
+					"path": [
+						"getMenus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBooks（根据类型获取小说列表 ）",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://180.76.238.148:9093/getBooks?type=xuanhuanqihuan&size=10&page=1",
+					"protocol": "http",
+					"host": [
+						"180",
+						"76",
+						"238",
+						"148"
+					],
+					"port": "9093",
+					"path": [
+						"getBooks"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "xuanhuanqihuan",
+							"description": "可以不传type 则查询所有"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"description": "固定传1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getNewUpdateBooks(和getBooks区别是这个接口带最新章节而getBooks不带)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://180.76.238.148:9093/getNewUpdateBooks?type=xiandaiyanqing&size=10&page=1",
+					"protocol": "http",
+					"host": [
+						"180",
+						"76",
+						"238",
+						"148"
+					],
+					"port": "9093",
+					"path": [
+						"getNewUpdateBooks"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "xiandaiyanqing",
+							"description": "可以不传type 则查询所有"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"description": "固定传1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBookInfo（小说详情、目录）",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://180.76.238.148:9093/getBookInfoV2?bookId=480589",
+					"protocol": "http",
+					"host": [
+						"180",
+						"76",
+						"238",
+						"148"
+					],
+					"port": "9093",
+					"path": [
+						"getBookInfoV2"
+					],
+					"query": [
+						{
+							"key": "bookId",
+							"value": "480589"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getChapterDetail（章节详情）",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://180.76.238.148:9093/getChapterDetail?bookId=480589&chapterId=2455467",
+					"protocol": "http",
+					"host": [
+						"180",
+						"76",
+						"238",
+						"148"
+					],
+					"port": "9093",
+					"path": [
+						"getChapterDetail"
+					],
+					"query": [
+						{
+							"key": "bookId",
+							"value": "480589"
+						},
+						{
+							"key": "chapterId",
+							"value": "2455467"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search（查找小说）",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://180.76.238.148:9093/search?author=木苏里&page=1&size=1",
+					"protocol": "http",
+					"host": [
+						"180",
+						"76",
+						"238",
+						"148"
+					],
+					"port": "9093",
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "author",
+							"value": "木苏里"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "indexData（首页数据）",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://180.76.238.148:9093/indexData",
+					"protocol": "http",
+					"host": [
+						"180",
+						"76",
+						"238",
+						"148"
+					],
+					"port": "9093",
+					"path": [
+						"indexData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTopBooksByType（分类页上部的数据）",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://180.76.238.148:9093/getTopBooksByType?type=xuanhuanqihuan",
+					"protocol": "http",
+					"host": [
+						"180",
+						"76",
+						"238",
+						"148"
+					],
+					"port": "9093",
+					"path": [
+						"getTopBooksByType"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "xuanhuanqihuan"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "rank",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://180.76.238.148:9093/getRank",
+					"protocol": "http",
+					"host": [
+						"180",
+						"76",
+						"238",
+						"148"
+					],
+					"port": "9093",
+					"path": [
+						"getRank"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBookInfoV2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://180.76.238.148:9093/getChapters?bookId=480589&page=1&size=30",
+					"protocol": "http",
+					"host": [
+						"180",
+						"76",
+						"238",
+						"148"
+					],
+					"port": "9093",
+					"path": [
+						"getChapters"
+					],
+					"query": [
+						{
+							"key": "bookId",
+							"value": "480589"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

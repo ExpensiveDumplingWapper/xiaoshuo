@@ -1,0 +1,6 @@
+git.ourbluecity.com/overseas-server-tools/go-util-zconf v0.1.1 h1:Q6rZY4P1bpfaNj82H68X0C/luwosS/X7QW4RYDkjHMY=
+git.ourbluecity.com/overseas-server-tools/go-util-zconf v0.1.1/go.mod h1:0QY5yLbzuoFff2ro/2mfwX5Acab3miWKTjYPJ5ZT1a0=
+git.ourbluecity.com/overseas-server-tools/go-util-zconf v1.0.0 h1:lhmqKZU+PDtUvI5CqQmJuuNBVqe+fA5pBVmk3tv/+no=
+git.ourbluecity.com/overseas-server-tools/go-util-zconf v1.0.0/go.mod h1:0QY5yLbzuoFff2ro/2mfwX5Acab3miWKTjYPJ5ZT1a0=
+github.com/go-zookeeper/zk v1.0.2 h1:4mx0EYENAdX/B/rbunjlt5+4RTA/a9SMHBRuSKdGxPM=
+github.com/go-zookeeper/zk v1.0.2/go.mod h1:nOB03cncLtlp4t+UAkGSV+9beXP/akpekBwL+UX1Qcw=
