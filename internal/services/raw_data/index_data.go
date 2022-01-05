@@ -1,7 +1,7 @@
 /*
  * @Descripttion: 我见青山多妩媚
  * @Date: 2022-01-04 13:56:27
- * @LastEditTime: 2022-01-04 22:33:58
+ * @LastEditTime: 2022-01-05 15:28:47
  */
 package raw_data
 
@@ -36,18 +36,24 @@ type BooksByType struct {
 }
 
 type BookInfo struct {
-	Author     string   `json:"author"`
-	Desc       string   `json:"desc"`
-	Id         string   `json:"id"`
-	Name       string   `json:"name"`
-	Lastupdate string   `json:"lastupdate"`
-	Cover      string   `json:"cover"`
-	Read       int64    `json:"read"`
-	BookType   BookType `json:"type"`
+	Author        string        `json:"author"`
+	Desc          string        `json:"desc"`
+	Id            string        `json:"id"`
+	Name          string        `json:"name"`
+	Lastupdate    string        `json:"lastupdate"`
+	Cover         string        `json:"cover"`
+	Read          int64         `json:"read"`
+	BookType      BookType      `json:"type"`
+	LatestChapter LatestChapter `json:"latestChapter,omitempty"`
 }
 type BookType struct {
 	Text string `json:"text"`
 	Path string `json:"path"`
+}
+
+type LatestChapter struct {
+	Chapterid   string `json:"chapterid"`
+	Chaptername string `json:"chaptername"`
 }
 
 func GetindexData() (res IndexData) {
