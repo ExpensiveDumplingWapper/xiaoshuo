@@ -1,7 +1,7 @@
 /*
  * @Descripttion: 我见青山多妩媚
  * @Date: 2022-01-04 14:41:24
- * @LastEditTime: 2022-01-04 22:32:11
+ * @LastEditTime: 2022-01-06 18:38:35
  */
 package index
 
@@ -19,15 +19,8 @@ type HtmlData struct {
 	Data5 string `json:"data5"`
 }
 
-func Index(ctx *gin.Context) (data map[string][]HtmlData, indexData raw_data.IndexData, hotcontent []raw_data.BookInfo, err error) {
-	data = make(map[string][]HtmlData)
-	menu := raw_data.GetMenus()
-	var tmp HtmlData
-	for i := 0; i < len(menu); i++ {
-		tmp.Data1 = menu[i].Text
-		tmp.Data2 = menu[i].Path
-		data["menu"] = append(data["menu"], tmp)
-	}
+func Index(ctx *gin.Context) (indexData raw_data.IndexData, hotcontent []raw_data.BookInfo, err error) {
+	// data = make(map[string][]HtmlData)
 
 	indexData = raw_data.GetindexData()
 

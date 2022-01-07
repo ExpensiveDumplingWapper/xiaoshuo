@@ -1,7 +1,7 @@
 /*
  * @Descripttion: 我见青山多妩媚
  * @Date: 2022-01-04 14:32:34
- * @LastEditTime: 2022-01-06 16:04:49
+ * @LastEditTime: 2022-01-06 19:01:58
  */
 package index
 
@@ -14,12 +14,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-var Image = "http://180.76.238.148:8078/image"
+func BookRead(ctx *gin.Context) {
 
-func Index(ctx *gin.Context) {
-
-	indexData, hotcontent, _ := index.Index(ctx)
-
+	data, _ := index.BookRead(ctx)
 	menu := raw_data.GetMenus()
 	// if err != nil {
 	// 	ctx.JSON(http.StatusOK, controllers.NewErrResponse(err.Error()))
@@ -27,11 +24,10 @@ func Index(ctx *gin.Context) {
 	// }
 	// ctx.JSON(http.StatusOK, controllers.NewSucResponse(data))
 
-	ctx.HTML(http.StatusOK, "index.tmpl", gin.H{
-		"menu":       menu,
-		"indexData":  indexData,
-		"hotcontent": hotcontent,
-		"image":      Image,
+	ctx.HTML(http.StatusOK, "book_read.tmpl", gin.H{
+		"detail": data,
+		"image":  Image,
+		"menu":   menu,
 	})
 
 }

@@ -29,7 +29,7 @@
     <div class="nav">
       <ul>
       {{ range $v := .menu}}
-        <li><a href="{{$v.Data2}}">{{$v.Data1}}</a></li>
+        <li><a href="{{$v.Path}}">{{$v.Text}}</a></li>
       {{ end }}
       </ul>
     </div>
@@ -40,24 +40,17 @@
 <div id="hotcontent">
 <div class="l">
 
+  {{$image := .image}}
   {{ range $v := .hotcontent}}
   <div class="item">
-    <div class="image"><a href="{{$v.Id}}"><img src="https://www.xbiquge.la/files/article/image/84/84522/84522s.jpg" alt="{{$v.Name}}"  width="120" height="150" /></a></div>
+    <div class="image"><a href="book_detail/{{$v.Id}}"><img src="{{ $image }}/{{$v.Cover}}" alt="{{$v.Name}}"  width="120" height="150" /></a></div>
     <dl>
-       <dt><span>{{$v.Author}}</span><a href="{{$v.Id}}">{{$v.Name}}</a></dt>
+       <dt><span>{{$v.Author}}</span><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a></dt>
        <dd>   {{$v.Desc}}</dd>
     </dl>
     <div class="clear"></div>
   </div>  
   {{ end }}
-  <!-- <div class="item">
-        <div class="image"><a href="https://www.xbiquge.la/48/48900/"><img src="https://www.xbiquge.la/files/article/image/48/48900/48900s.jpg" alt="人道大圣"  width="120" height="150" /></a></div>
-        <dl>
-           <dt><span>莫默</span><a href="https://www.xbiquge.la/48/48900/">人道大圣</a></dt>
-           <dd>    弱者声嘶力竭，亦无人在乎，强者轻声细语，却能深入人心。一棵熊熊燃烧的天赋树，每一片叶子都承载着不同的灵纹，宗门被灭，沦为矿奴的陆叶凭此成为修士，搅动九州风云。</dd>
-        </dl>
-        <div class="clear"></div>
-      </div>   -->
 </div>
   
 
@@ -68,16 +61,9 @@
     </ul> 
    <h2>上期强推</h2>
     <ul>
-
              {{ range $v := .hotcontent}}
-             <li><span class="s1">{{$v.BookType.Text}}</span><span class="s2"><a href="{{$v.Id}}">{{$v.Name}}</a></span><span class="s5">{{$v.Author}}</span></li> 
+             <li><span class="s1">{{$v.BookType.Text}}</span><span class="s2"><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a></span><span class="s5">{{$v.Author}}</span></li> 
              {{ end }}
-             <!-- <li><span class="s1">[穿越]</span><span class="s2"><a href="https://www.xbiquge.la/0/885/">赘婿</a></span><span class="s5">愤怒的香蕉</span></li>
-              <li><span class="s1">[都市]</span><span class="s2"><a href="https://www.xbiquge.la/44/44367/">天降我才必有用</a></span><span class="s5">石章鱼</span></li> 
-              <li><span class="s1">[玄幻]</span><span class="s2"><a href="https://www.xbiquge.la/32/32626/">叶辰孙怡夏若雪</a></span><span class="s5">全文免费阅读</span></li> 
-              <li><span class="s1">[穿越]</span><span class="s2"><a href="https://www.xbiquge.la/31/31566/">数风流人物</a></span><span class="s5">瑞根</span></li> 
-              <li><span class="s1">[玄幻]</span><span class="s2"><a href="https://www.xbiquge.la/1/1606/">斗罗大陆II绝世唐门</a></span><span class="s5">唐家三少</span></li>     
-             -->
             </ul>
     </div>
     <div class="clear"></div>
@@ -96,27 +82,13 @@
   <h2>玄幻奇幻</h2>
   <div class="top">
     {{$vv:= index .indexData.BooksByType.Xuanhuanqihuan 0}}
-<div class="image"><img src="https://www.xbiquge.la/files/article/image/84/84522/84522s.jpg" alt="{{$vv.Name}}"  width="67" height="82" /></div>
-<dl><dt><a href="{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+<div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" /></div>
+<dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
-
   {{ range $v := .indexData.BooksByType.Xuanhuanqihuan}}
-  <li><a href="{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
+  <li><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
   {{ end }}
-
-<!-- <li><a href="https://www.xbiquge.la/0/951/">伏天氏</a>/净无痕</li>
-<li><a href="https://www.xbiquge.la/8/8345/">完美世界</a>/辰东</li>
-<li><a href="https://www.xbiquge.la/7/7877/">斗破苍穹</a>/天蚕土豆</li>
-<li><a href="https://www.xbiquge.la/23/23811/">一剑独尊</a>/青鸾峰上</li>
-<li><a href="https://www.xbiquge.la/82/82620/">不科学御兽</a>/轻泉流响</li>
-<li><a href="https://www.xbiquge.la/35/35356/">天启预报</a>/风月</li>
-<li><a href="https://www.xbiquge.la/75/75688/">人族镇守使</a>/白驹易逝</li>
-<li><a href="https://www.xbiquge.la/24/24770/">斗罗大陆5重生唐三</a>/唐家三少</li>
-<li><a href="https://www.xbiquge.la/41/41495/">全属性武道</a>/莫入江湖</li>
-<li><a href="https://www.xbiquge.la/20/20980/">叶尘池瑶小说全文免费阅读</a>/叶尘池瑶</li>
-<li><a href="https://www.xbiquge.la/84/84419/">星门</a>/老鹰吃小鸡</li>
-<li><a href="https://www.xbiquge.la/0/745/">雪中悍刀行</a>/烽火戏诸侯</li> -->
 </ul>
 </div>
 
@@ -124,12 +96,12 @@
    <h2>现代言情</h2>
    <div class="top">
     {{$vv:= index .indexData.BooksByType.Xiandaiyanqing 0}}
-<div class="image"><img src="https://www.xbiquge.la/files/article/image/84/84522/84522s.jpg" alt="{{$vv.Name}}"  width="67" height="82" /></div>
-<dl><dt><a href="{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+<div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" /></div>
+<dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Xiandaiyanqing}}
-<li><a href="{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
+<li><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
 {{ end }}
 </ul>
 </div>
@@ -138,12 +110,12 @@
   <h2>科幻灵异</h2>
   <div class="top">
    {{$vv:= index .indexData.BooksByType.Kehuanlingyi 0}}
-<div class="image"><img src="https://www.xbiquge.la/files/article/image/84/84522/84522s.jpg" alt="{{$vv.Name}}"  width="67" height="82" /></div>
-<dl><dt><a href="{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+<div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" /></div>
+<dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Kehuanlingyi}}
-<li><a href="{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
+<li><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
 {{ end }}
 </ul>
 </div>
@@ -155,12 +127,12 @@
   <h2>东方玄幻</h2>
   <div class="top">
    {{$vv:= index .indexData.BooksByType.Dongfangxuanhuan 0}}
-<div class="image"><img src="https://www.xbiquge.la/files/article/image/84/84522/84522s.jpg" alt="{{$vv.Name}}"  width="67" height="82" /></div>
-<dl><dt><a href="{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+<div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" /></div>
+<dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Dongfangxuanhuan}}
-<li><a href="{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
+<li><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
 {{ end }}
 </ul>
 </div>
@@ -169,12 +141,12 @@
   <h2>网游竞技</h2>
   <div class="top">
    {{$vv:= index .indexData.BooksByType.Wangyoujingji 0}}
-<div class="image"><img src="https://www.xbiquge.la/files/article/image/84/84522/84522s.jpg" alt="{{$vv.Name}}"  width="67" height="82" /></div>
-<dl><dt><a href="{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+<div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" /></div>
+<dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Wangyoujingji}}
-<li><a href="{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
+<li><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
 {{ end }}
 </ul>
 </div>
@@ -183,12 +155,12 @@
   <h2>武侠仙侠</h2>
   <div class="top">
    {{$vv:= index .indexData.BooksByType.Wuxiaxianxia 0}}
-<div class="image"><img src="https://www.xbiquge.la/files/article/image/84/84522/84522s.jpg" alt="{{$vv.Name}}"  width="67" height="82" /></div>
-<dl><dt><a href="{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+<div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" /></div>
+<dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Wuxiaxianxia}}
-<li><a href="{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
+<li><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
 {{ end }}
 </ul>
 </div>
@@ -202,12 +174,12 @@
     <h2>小说同人</h2>
     <div class="top">
      {{$vv:= index .indexData.BooksByType.Xiaoshuotongren 0}}
-  <div class="image"><img src="https://www.xbiquge.la/files/article/image/84/84522/84522s.jpg" alt="{{$vv.Name}}"  width="67" height="82" /></div>
-  <dl><dt><a href="{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+  <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" /></div>
+  <dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
   <div class="clear"></div></div>
   <ul>
   {{ range $v := .indexData.BooksByType.Xiaoshuotongren}}
-  <li><a href="{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
+  <li><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
   {{ end }}
   </ul>
   </div>
@@ -216,12 +188,12 @@
     <h2>女生频道</h2>
     <div class="top">
      {{$vv:= index .indexData.BooksByType.Nushengpindao 0}}
-  <div class="image"><img src="https://www.xbiquge.la/files/article/image/84/84522/84522s.jpg" alt="{{$vv.Name}}"  width="67" height="82" /></div>
-  <dl><dt><a href="{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+  <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" /></div>
+  <dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
   <div class="clear"></div></div>
   <ul>
   {{ range $v := .indexData.BooksByType.Nushengpindao}}
-  <li><a href="{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
+  <li><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
   {{ end }}
   </ul>
   </div>
@@ -230,12 +202,12 @@
     <h2>历史军事</h2>
     <div class="top">
      {{$vv:= index .indexData.BooksByType.Lishijunshi 0}}
-  <div class="image"><img src="https://www.xbiquge.la/files/article/image/84/84522/84522s.jpg" alt="{{$vv.Name}}"  width="67" height="82" /></div>
-  <dl><dt><a href="{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+  <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" /></div>
+  <dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
   <div class="clear"></div></div>
   <ul>
   {{ range $v := .indexData.BooksByType.Lishijunshi}}
-  <li><a href="{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
+  <li><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
   {{ end }}
   </ul>
   </div>
@@ -251,8 +223,7 @@
 
   {{ range $v := .indexData.LastupdateBooks}}
 
-  <li><span class="s1">[{{$v.BookType.Text}}]</span><span class="s2"><a href="{{$v.Id}}" target="_blank">{{$v.Name}}</a></span><span class="s3"><a href="{{$v.LatestChapter.Chapterid}}" target="_blank">{{$v.LatestChapter.Chaptername}}</a></span><span class="s4">{{$v.Author}}</span></li>
-  <!-- <li><span class="s1">[{{$v.BookType.Text}} ]</span><span class="s2"><a href="{{$v.Id}}">{{$v.Name}}</a></span><span class="s5">{{$v.Author}}</span></li> -->
+  <li><span class="s1">[{{$v.BookType.Text}}]</span><span class="s2"><a href="book_detail/{{$v.Id}}" target="_blank">{{$v.Name}}</a></span><span class="s3"><a href="{{$v.LatestChapter.Chapterid}}" target="_blank">{{$v.LatestChapter.Chaptername}}</a></span><span class="s4">{{$v.Author}}</span></li>
   {{ end }}
  </ul>
 </div>
@@ -265,43 +236,8 @@
 
   {{ range $v := .indexData.LastupdateBooks}}
 
-  <!-- <li><span class="s1">[{{$v.BookType.Text}} ]</span><span class="s2"><a href="{{$v.Id}}">{{$v.Name}}</a></span><span class="s5">{{$v.Author}}</span></li> -->
-  <li><span class="s2"><a href="{{$v.Id}}">{{$v.Name}}</a></span><span class="s5">{{$v.Author}}</span></li>
-  
+  <li><span class="s2"><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a></span><span class="s5">{{$v.Author}}</span></li>
   {{ end }}
-
-
-<!-- <li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93808/">漫漫时光只甜你</a></span><span class="s5">九霄云狐</span></li>
-<li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93795/">黄泉路81号</a></span><span class="s5">夜无声</span></li>
-<li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93809/">穆少他又毁我桃花</a></span><span class="s5">筱里</span></li>
-<li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93791/">追忆迟迟归</a></span><span class="s5">沈伊书</span></li>
-<li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93793/">带着总裁的亿万家产跑了</a></span><span class="s5">达布扭</span></li>
-<li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93790/">谁说爱情来得迟</a></span><span class="s5">猫儿冬</span></li>
-<li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93802/">当你热恋时</a></span><span class="s5">蠢萌小尾巴</span></li>
-<li><span class="s1">[都市]</span><span class="s2"><a href="https://www.xbiquge.la/93/93796/">全能天师</a></span><span class="s5">百宝嵌</span></li>
-<li><span class="s1">[网游]</span><span class="s2"><a href="https://www.xbiquge.la/93/93786/">斗罗之神级火影</a></span><span class="s5">舟师南下</span></li>
-<li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93805/">电竞教练：请大佬回归</a></span><span class="s5">末了玄七</span></li>
-<li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93804/">她的眼里有星光</a></span><span class="s5">冬日鱼悦</span></li>
-<li><span class="s1">[都市]</span><span class="s2"><a href="https://www.xbiquge.la/93/93799/">蛊王</a></span><span class="s5">万订巨</span></li>
-<li><span class="s1">[穿越]</span><span class="s2"><a href="https://www.xbiquge.la/93/93792/">五年为妃，终身为后</a></span><span class="s5">要好好哒</span></li>
-<li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93811/">晚风吹过了城南</a></span><span class="s5">谥风</span></li>
-<li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93787/">七日醉</a></span><span class="s5">楚褚</span></li>
-<li><span class="s1">[玄幻]</span><span class="s2"><a href="https://www.xbiquge.la/93/93785/">超越主角从斗罗开始</a></span><span class="s5">一缕魂烟</span></li>
-<li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93797/">红白喜煞</a></span><span class="s5">苏昭丹</span></li>
-<li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93812/">初见展颜</a></span><span class="s5">若闲若静</span></li>
-<li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93801/">电竞没有女，朋友！</a></span><span class="s5">潺潺蝉禅</span></li>
-<li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93784/">女汉子的学弟攻略手册</a></span><span class="s5">你家小酱</span></li>
-<li><span class="s1">[都市]</span><span class="s2"><a href="https://www.xbiquge.la/93/93810/">战爷，你家萌妻不是人</a></span><span class="s5">眸上心痕</span></li>
-<li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93800/">伪装单身</a></span><span class="s5">云上之栈</span></li>
-<li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93789/">我在妖界当家做主</a></span><span class="s5">菁泽</span></li>
-<li><span class="s1">[都市]</span><span class="s2"><a href="https://www.xbiquge.la/93/93794/">狂医归来</a></span><span class="s5">七大山人</span></li>
-<li><span class="s1">[玄幻]</span><span class="s2"><a href="https://www.xbiquge.la/93/93783/">玄亘漂泊</a></span><span class="s5">窃空</span></li>
-<li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93806/">这个王妃有点虎</a></span><span class="s5">玄琋</span></li>
-<li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93807/">小弟个个是大佬</a></span><span class="s5">我家两只喵</span></li>
-<li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93788/">叶总的小媳妇又撒娇了</a></span><span class="s5">大甜甜呀</span></li>
-<li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93803/">欢喜田园暴躁夫君</a></span><span class="s5">朵朵殿</span></li>
-<li><span class="s1">[其他]</span><span class="s2"><a href="https://www.xbiquge.la/93/93798/">偷吻野玫瑰</a></span><span class="s5">上官姜姜</span></li> -->
-
 </ul>
 
 </div><div class="clear"></div>

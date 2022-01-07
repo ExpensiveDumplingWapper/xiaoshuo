@@ -1,0 +1,131 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{{.detail.BookInfo.Name}}_白鹿学院</title>
+<meta name="keywords" content="{{.detail.BookInfo.Name}}最新章节" />
+<meta name="description" content="如果您喜欢小说{{.detail.BookInfo.Name}}最新章节目录加入收藏方便您下次阅读,白鹿学院将在第一时间更新小说这个明星很想退休，发现没及时更新，请告知我们,谢谢!" />
+<link rel="stylesheet" type="text/css" href="/static/css/biquge.css"/>
+<script type="text/javascript" src="//libs.baidu.com/jquery/1.4.2/jquery.min.js"></script>
+<!-- <script src="/js/pc_pf.js"></script> -->
+<!--<script type="text/javascript" src="//cbjs.baidu.com/js/m.js"></script>-->
+<script type="text/javascript" src="/static/js/bqg.js"></script>
+<script language="javascript" type="text/javascript">var bookid = "84522"; var booktitle = "{{.detail.BookInfo.Name}}";</script>
+<!-- <meta name="mobile-agent" content="format=html5;url=https://wap.xbiquge.la/wapbook/84522.html"/> -->
+<!-- <meta name="mobile-agent" content="format=xhtml;url=https://wap.xbiquge.la/wapbook/84522.html"/> -->
+<meta property="og:type" content="novel"/>
+<meta property="og:title" content="{{.detail.BookInfo.Desc}}"/>
+<meta property="og:description" content=" {{.detail.BookInfo.Name}}"/>
+<meta property="og:image" content="https://www.xbiquge.la/files/article/image/84/84522/84522s.jpg"/>
+<meta property="og:novel:category" content="{{.detail.BookInfo.BookType.Text}}"/>
+<meta property="og:novel:author" content="{{.detail.BookInfo.Author}}"/>
+<meta property="og:novel:book_name" content="{{.detail.BookInfo.Name}}"/>
+<meta property="og:novel:read_url" content="https://www.xbiquge.la/84/84522/"/>
+</head>
+<body>
+    <div id="wrapper">
+        <!-- <script>login();</script> -->
+        <div class="header">
+            <div class="header_logo">
+                <a href="#">白鹿学院</a>
+            </div>
+            <script>bqg_panel();</script>
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <!-- <li><a href="/modules/article/bookcase.php">我的书架</a></li> -->
+                <!-- <li><a href="/xuanhuanxiaoshuo/">玄幻小说</a></li>
+                <li><a href="/xiuzhenxiaoshuo/">修真小说</a></li>
+                <li><a href="/dushixiaoshuo/">都市小说</a></li>
+                <li><a href="/chuanyuexiaoshuo/">穿越小说</a></li>
+                <li><a href="/wangyouxiaoshuo/">网游小说</a></li>
+                <li><a href="/kehuanxiaoshuo/">科幻小说</a></li>
+                <li><a href="/paihangbang/">排行榜单</a></li>
+                <li><a href="/xiaoshuodaquan/">全部小说</a></li> -->
+                {{ range $v := .menu}}
+                <li><a href="{{$v.Path}}">{{$v.Text}}</a></li>
+               {{ end }}
+            </ul>
+        </div>
+<script type="text/javascript">list_top();</script>
+{{$image := .image}}
+        <div class="box_con">
+            <div class="con_top">
+                <div id="bdshare" class="bdshare_b" style="line-height: 12px;"><img src="" /><a class="shareCount"></a></div>
+                <a href="/">白鹿学院</a> &gt; <a href="{{.detail.BookInfo.BookType.Path}}">{{.detail.BookInfo.BookType.Text}}</a>  &gt; {{.detail.BookInfo.Name}}最新章节目录
+            </div>
+            <div id="maininfo">
+                <div id="info">
+                    <h1>{{.detail.BookInfo.Name}}</h1>
+                    <p>作&nbsp;&nbsp;&nbsp;&nbsp;者：{{.detail.BookInfo.Author}}</p>
+                    <!-- <p>动&nbsp;&nbsp;&nbsp;&nbsp;作：<a href="javascript:;" onClick="showpop_addcase(84522);">加入书架</a>,  <a href="javascript:;" onClick="showpop_vote(84522);">投推荐票</a>,  <a href="#footer">直达底部</a></p> -->
+                    <p>最后更新：{{.detail.BookInfo.Lastupdate}}</p>
+                    <p>最新章节：<a href="/{{.detail.BookInfo.Id}}/{{.detail.BookInfo.LatestChapter.Chapterid}}">{{.detail.BookInfo.LatestChapter.Chaptername}}</a></p>
+                </div>
+                <div id="intro">
+                                        <p><font style="color:#0066FF"><a href='https://wap.xbiquge.la/wapbook/84522.html' target='_blank'>手机阅读《这个明星很想退休》无弹窗纯文字全文免费阅读</a></font>
+ 
+                                        </p>
+                                        
+                    <p>{{.detail.BookInfo.Desc}}</p>
+                </div>
+            </div>
+            <div id="sidebar">
+                <div id="fmimg"><img alt="{{.detail.BookInfo.Name}}" src="{{ $image }}/{{.detail.BookInfo.Cover}}" width="120" height="150" /><span class="b"></span></div>
+            </div> 
+            <div id="listtj">&nbsp;推荐阅读：
+                {{ range $v := .detail.Recommend}}
+                <a href="/book_detail/{{$v.Id}}" target="_blank">{{$v.Name}}</a>、
+                <!-- <a href="{{$v.Id}}" target="_blank">{{$v.Name}}</a>、 -->
+                {{ end }}
+            </div>
+        </div>
+        
+        <div class="dahengfu"><script type="text/javascript">list_mid();</script></div>
+        
+
+        {{$bookID := .detail.BookInfo.Id}}
+        <div class="box_con">
+            <div id="list">
+                <dl>  
+                    {{ range $v := .detail.BookInfo.ChapterList}}
+                    <!-- <a href="{{ $bookID }}/{{$v.Chapterid}}" target="_blank">{{$v.Chaptername}}</a>、 -->
+
+                    <dd><a href='{{ $bookID }}/{{$v.Chapterid}}' >{{$v.Chaptername}}</a></dd>
+                    {{ end }}
+
+
+
+                <!-- <dd><a href='/84/84522/32754540.html' >第一章 蝴蝶</a></dd> -->
+                      
+
+                </dl>
+            </div>
+        </div>
+        
+        <div class="dahengfu"><script type="text/javascript">list_bot();</script></div>
+        
+        <div id="footer" name="footer">
+            <div class="footer_link">&nbsp;新书推荐：
+                {{ range $v := .detail.Recommend}}
+                <!-- <a href="book_detail/{{$v.Id}}" target="_blank">{{$v.Name}}</a>、 -->
+                <a href="/book_detail/{{$v.Id}}" target="_blank">{{$v.Name}}</a>、
+                {{ end }}
+            </div>
+            <div class="footer_cont">
+                <p>《{{.detail.BookInfo.Name}}》情节跌宕起伏、扣人心弦，是一本情节与文笔俱佳的{{.detail.BookInfo.BookType.Text}}小说，白鹿学院转载收集{{.detail.BookInfo.Name}}最新章节。</p>
+                <script>footer();right();dl();</script>
+            </div>
+        </div>
+        <script>
+    (function(){
+        var bp = document.createElement('script');
+        bp.src = '//push.zhanzhang.baidu.com/push.js';
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>

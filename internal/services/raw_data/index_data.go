@@ -1,7 +1,7 @@
 /*
  * @Descripttion: 我见青山多妩媚
  * @Date: 2022-01-04 13:56:27
- * @LastEditTime: 2022-01-05 15:28:47
+ * @LastEditTime: 2022-01-06 19:11:34
  */
 package raw_data
 
@@ -16,6 +16,24 @@ type IndexDataRes struct {
 	Code    int       `json:"code"`
 	Message string    `json:"message"`
 	Data    IndexData `json:"data"`
+}
+type BookInfoDataRes struct {
+	Code    int          `json:"code"`
+	Message string       `json:"message"`
+	Data    BookInfoData `json:"data"`
+}
+type BookContentDataRes struct {
+	Code    int             `json:"code"`
+	Message string          `json:"message"`
+	Data    BookContentData `json:"data"`
+}
+type BookContentData struct {
+}
+type BookInfoData struct {
+	BookInfo  BookInfo   `json:"bookInfo"`
+	Recommend []BookInfo `json:"recommend"`
+}
+type Recommend struct {
 }
 type IndexData struct {
 	BooksByType       BooksByType `json:"booksByType"`
@@ -37,14 +55,15 @@ type BooksByType struct {
 
 type BookInfo struct {
 	Author        string        `json:"author"`
-	Desc          string        `json:"desc"`
+	Desc          string        `json:"desc,omitempty"`
 	Id            string        `json:"id"`
 	Name          string        `json:"name"`
-	Lastupdate    string        `json:"lastupdate"`
-	Cover         string        `json:"cover"`
-	Read          int64         `json:"read"`
-	BookType      BookType      `json:"type"`
+	Lastupdate    string        `json:"lastupdate,omitempty"`
+	Cover         string        `json:"cover,omitempty"`
+	Read          int64         `json:"read,omitempty"`
+	BookType      BookType      `json:"type,omitempty"`
 	LatestChapter LatestChapter `json:"latestChapter,omitempty"`
+	ChapterList   []ChapterList `json:"chapterList,omitempty"`
 }
 type BookType struct {
 	Text string `json:"text"`
@@ -56,6 +75,12 @@ type LatestChapter struct {
 	Chaptername string `json:"chaptername"`
 }
 
+type ChapterList struct {
+	Chapterid   string `json:"chapterid"`
+	Chaptername string `json:"chaptername"`
+}
+
+//首页数据
 func GetindexData() (res IndexData) {
 	url := "http://180.76.238.148:9093/indexData"
 	client := &http.Client{
@@ -77,6 +102,63 @@ func GetindexData() (res IndexData) {
 		return
 	}
 	var resData IndexDataRes
+	err = json.Unmarshal(body, &resData)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	// fmt.Println(resData.Data)
+	return resData.Data
+}
+
+// 小说详情页
+func GetBookeInfo(id string) (res BookInfoData) {
+	url := "http://180.76.238.148:9093/getBookInfoV2?bookId="
+	client := &http.Client{
+		// Timeout:   readTimeout,
+	}
+	url = url + id
+	resp, err := client.Get(url)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	var resData BookInfoDataRes
+	err = json.Unmarshal(body, &resData)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	// fmt.Println(resData.Data)
+	return resData.Data
+}
+
+// 小说内容返回
+func GetBookeRead(bookId, chapterId string) (res BookInfoData) {
+	// url := "http://180.76.238.148:9093/getChapterDetail?bookId=480589&chapterId=2455467"
+	url := "http://180.76.238.148:9093/getChapterDetail?bookId="
+	client := &http.Client{
+		// Timeout:   readTimeout,
+	}
+	url = url + bookId + "&chapterId=" + chapterId
+	resp, err := client.Get(url)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	var resData BookInfoDataRes
 	err = json.Unmarshal(body, &resData)
 	if err != nil {
 		fmt.Println(err.Error())
