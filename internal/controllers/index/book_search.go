@@ -1,7 +1,7 @@
 /*
  * @Descripttion: 我见青山多妩媚
  * @Date: 2022-01-04 14:32:34
- * @LastEditTime: 2022-01-10 16:51:48
+ * @LastEditTime: 2022-01-10 17:37:11
  */
 package index
 
@@ -28,12 +28,13 @@ func BookSearch(ctx *gin.Context) {
 	page := "1"
 	finalPage, _ := strconv.Atoi(page)
 	nextPage := strconv.Itoa(finalPage + 1)
-
+	keyWord := ctx.PostForm("searchkey")
 	ctx.HTML(http.StatusOK, "book_search.tmpl", gin.H{
 		"detail":   data,
 		"image":    Image,
 		"menu":     menu,
 		"nextPage": nextPage,
+		"keyWord":  keyWord,
 	})
 
 }
