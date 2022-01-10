@@ -1,7 +1,7 @@
 /*
  * @Descripttion: 我见青山多妩媚
  * @Date: 2021-09-29 14:30:50
- * @LastEditTime: 2022-01-10 16:55:11
+ * @LastEditTime: 2022-01-10 18:01:21
  */
 package routers
 
@@ -25,6 +25,7 @@ func InitRouter() *gin.Engine {
 	router := gin.New()
 	router.Use(middlewares.Debug())
 	router.Use(middlewares.Runtime())
+	router.Use(middlewares.ParseUa())
 	router.ForwardedByClientIP = true
 
 	// 开启 gzip
