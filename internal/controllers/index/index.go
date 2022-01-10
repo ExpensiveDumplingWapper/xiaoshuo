@@ -1,7 +1,7 @@
 /*
  * @Descripttion: 我见青山多妩媚
  * @Date: 2022-01-04 14:32:34
- * @LastEditTime: 2022-01-06 16:04:49
+ * @LastEditTime: 2022-01-10 19:18:27
  */
 package index
 
@@ -27,11 +27,21 @@ func Index(ctx *gin.Context) {
 	// }
 	// ctx.JSON(http.StatusOK, controllers.NewSucResponse(data))
 
-	ctx.HTML(http.StatusOK, "index.tmpl", gin.H{
-		"menu":       menu,
-		"indexData":  indexData,
-		"hotcontent": hotcontent,
-		"image":      Image,
-	})
+	// fmt.Println()
+	if ctx.GetBool("isMobile") {
+		ctx.HTML(http.StatusOK, "m_index.tmpl", gin.H{
+			"menu":       menu,
+			"indexData":  indexData,
+			"hotcontent": hotcontent,
+			"image":      Image,
+		})
+	} else {
+		ctx.HTML(http.StatusOK, "index.tmpl", gin.H{
+			"menu":       menu,
+			"indexData":  indexData,
+			"hotcontent": hotcontent,
+			"image":      Image,
+		})
+	}
 
 }
