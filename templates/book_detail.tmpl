@@ -37,17 +37,8 @@
         <div class="nav">
             <ul>
                 <li><a href="#">首页</a></li>
-                <!-- <li><a href="/modules/article/bookcase.php">我的书架</a></li> -->
-                <!-- <li><a href="/xuanhuanxiaoshuo/">玄幻小说</a></li>
-                <li><a href="/xiuzhenxiaoshuo/">修真小说</a></li>
-                <li><a href="/dushixiaoshuo/">都市小说</a></li>
-                <li><a href="/chuanyuexiaoshuo/">穿越小说</a></li>
-                <li><a href="/wangyouxiaoshuo/">网游小说</a></li>
-                <li><a href="/kehuanxiaoshuo/">科幻小说</a></li>
-                <li><a href="/paihangbang/">排行榜单</a></li>
-                <li><a href="/xiaoshuodaquan/">全部小说</a></li> -->
                 {{ range $v := .menu}}
-                <li><a href="{{$v.Path}}">{{$v.Text}}</a></li>
+                <li><a href="/book_type/{{$v.Path}}/1">{{$v.Text}}</a></li>
                {{ end }}
             </ul>
         </div>
@@ -64,7 +55,7 @@
                     <p>作&nbsp;&nbsp;&nbsp;&nbsp;者：{{.detail.BookInfo.Author}}</p>
                     <!-- <p>动&nbsp;&nbsp;&nbsp;&nbsp;作：<a href="javascript:;" onClick="showpop_addcase(84522);">加入书架</a>,  <a href="javascript:;" onClick="showpop_vote(84522);">投推荐票</a>,  <a href="#footer">直达底部</a></p> -->
                     <p>最后更新：{{.detail.BookInfo.Lastupdate}}</p>
-                    <p>最新章节：<a href="/{{.detail.BookInfo.Id}}/{{.detail.BookInfo.LatestChapter.Chapterid}}">{{.detail.BookInfo.LatestChapter.Chaptername}}</a></p>
+                    <p>最新章节：<a href="/book_read/{{.detail.BookInfo.Id}}/{{.detail.BookInfo.LatestChapter.Chapterid}}">{{.detail.BookInfo.LatestChapter.Chaptername}}</a></p>
                 </div>
                 <div id="intro">
                                         <p><font style="color:#0066FF"><a href='https://wap.xbiquge.la/wapbook/84522.html' target='_blank'>手机阅读《这个明星很想退休》无弹窗纯文字全文免费阅读</a></font>
@@ -95,7 +86,7 @@
                     {{ range $v := .detail.BookInfo.ChapterList}}
                     <!-- <a href="{{ $bookID }}/{{$v.Chapterid}}" target="_blank">{{$v.Chaptername}}</a>、 -->
 
-                    <dd><a href='{{ $bookID }}/{{$v.Chapterid}}' >{{$v.Chaptername}}</a></dd>
+                    <dd><a href='/book_read/{{ $bookID }}/{{$v.Chapterid}}' >{{$v.Chaptername}}</a></dd>
                     {{ end }}
 
 

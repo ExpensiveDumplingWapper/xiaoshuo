@@ -1,7 +1,7 @@
 /*
  * @Descripttion: 我见青山多妩媚
  * @Date: 2022-01-04 14:32:34
- * @LastEditTime: 2022-01-06 19:01:58
+ * @LastEditTime: 2022-01-10 11:19:08
  */
 package index
 
@@ -24,7 +24,7 @@ func BookRead(ctx *gin.Context) {
 	// }
 	// ctx.JSON(http.StatusOK, controllers.NewSucResponse(data))
 
-	ctx.HTML(http.StatusOK, "book_read.tmpl", gin.H{
+	ctx.HTML(http.StatusOK, "book_content.tmpl", gin.H{
 		"detail": data,
 		"image":  Image,
 		"menu":   menu,

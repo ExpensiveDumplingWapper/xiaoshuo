@@ -1,0 +1,153 @@
+
+<!doctype html>
+<html>
+<head>
+  {{$image := .image}}
+  {{$vv:= index .hotData 0}}
+<title>{{$vv.BookType.Text}}_好看的{{$vv.BookType.Text}}_2022{{$vv.BookType.Text}}排行榜_白鹿书院</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="白鹿书院,网络小说,小说阅读网,小说" />
+<meta name="description" content="白鹿书院是广大书友最值得收藏的网络小说阅读网，网站收录了当前最火热的网络小说，免费提供高质量的小说最新章节，是广大网络小说爱好者必备的小说阅读网。" />
+<link rel="stylesheet" type="text/css" href="/static/css/biquge.css"/>
+<script type="text/javascript" src="//libs.baidu.com/jquery/1.4.2/jquery.min.js"></script>
+<!-- <script src="/js/pc_pf.js"></script> -->
+<!--<script type="text/javascript" src="//cbjs.baidu.com/js/m.js"></script>-->
+<script type="text/javascript" src="/static/js/bqg.js"></script>
+</head>
+<body>
+  <div id="wrapper">
+    <!-- <script>login();</script> -->
+
+    <div class="header">
+    
+      <div class="header_logo">
+        <a href="#" >白鹿书院</a>
+      </div>
+      <script>bqg_panel();</script>
+    
+    </div>
+    <div class="nav">
+      <ul>
+        <li><a href="#">首页</a></li>
+
+        {{ range $v := .menu}}
+        <li><a href="/book_type/{{$v.Path}}/1">{{$v.Text}}</a></li>
+       {{ end }}
+      </ul>
+    </div>
+<script type="text/javascript">top_bar();</script>
+ 
+  <div id="main">
+    <div id="content">
+      <div id="hotcontent"><div class="ll">
+      {{ range $v := .hotData}}
+      <div class="item">
+        <div class="image"><a href="/book_detail/{{$v.Id}}"><img src="{{ $image }}/{{$v.Cover}}" alt="{{$v.Name}}"  width="120" height="150" /></a></div>
+        <dl>
+           <dt><span>{{$v.Author}}</span><a href="/book_detail/{{$v.Id}}">{{$v.Name}}</a></dt>
+           <dd>{{$v.Desc}}</dd>
+        </dl>
+        <div class="clear"></div>
+      </div>
+     {{ end }}
+     </div>
+  </div>
+
+<div class="dahengfu"><script type="text/javascript">common_mid();</script></div>
+
+<div id="newscontent">
+<div class="l">
+<h2>好看的{{$vv.BookType.Text}}最近更新列表</h2>
+<ul>
+
+<!-- <li><span class="s2">《<a href="https://www.xbiquge.la/89/89334/" target="_blank">穿梭千年的救世主</a>》</span><span class="s3"><a href="/89/89334/35976498.html" target="_blank">第二百零九章  第一次与杀冥界交手</a>(01-10)</span><span class="s5">寒门老酒</span></li> -->
+{{ range $v := .detail}}
+<li><span class="s2">《<a href="/book_detail/{{$v.Id}}" target="_blank">{{$v.Name}}</a>》</span><span class="s3"><a href="/book_read/{{$v.Id}}/{{$v.LatestChapter.Chapterid}}" target="_blank">{{$v.LatestChapter.Chaptername}}</a>(01-10)</span><span class="s5">{{$v.Author}}</span></li>
+{{ end }}
+
+
+</ul>
+
+<div class="page_b">
+<table style="">
+  <tr><td>
+    <div class="pagelink" id="pagelink">
+      <!-- <em id="pagestats">1/619</em>
+      <a href="https://www.xbiquge.la/fenlei/3_1.html" class="first">1</a>
+      <a href="https://www.xbiquge.la/fenlei/3_1.html" class="pgroup">&lt;&lt;</a>
+      <strong>1</strong>
+      <a href="https://www.xbiquge.la/fenlei/3_2.html">2</a>
+      <a href="https://www.xbiquge.la/fenlei/3_3.html">3</a>
+      <a href="https://www.xbiquge.la/fenlei/3_4.html">4</a>
+    <a href="https://www.xbiquge.la/fenlei/3_5.html">5</a>
+    <a href="https://www.xbiquge.la/fenlei/3_6.html">6</a>
+    <a href="https://www.xbiquge.la/fenlei/3_2.html" class="next">&gt;</a>
+    <a href="https://www.xbiquge.la/fenlei/3_619.html" class="ngroup">&gt;&gt;</a>
+    <a href="https://www.xbiquge.la/fenlei/3_619.html" class="last">619</a> -->
+    <a href="/book_type/category/{{$vv.BookType.Path}}/{{.prevPage}}">上一页</a>
+    <a href="/book_type/category/{{$vv.BookType.Path}}/{{.nextPage}}">下一页</a>
+    <kbd>
+      <!-- <input name="page" type="text" size="4" maxlength="6" onkeydown="if(event.keyCode==13){window.location='https://www.xbiquge.la/fenlei/3_<{$page}>.html'.replace('<{$page|subdirectory}>', '/' + Math.floor(this.value / 1000)).replace('<{$page}>', this.value); return false;}" /> -->
+    </kbd>
+  </div>
+</td></tr></table>
+</div>
+</div>
+<div class="r">
+<h2>好看的{{$vv.BookType.Text}}</h2>
+<ul>
+<!-- <li><span class="s2"><a href="https://www.xbiquge.la/1/1989/">我的老婆是双胞胎</a></span><span class="s5">明日复明日</span></li> -->
+{{ range $v := .detail}}
+<li><span class="s2"><a href="/book_detail/{{$v.Id}}">{{$v.Name}}</a></span><span class="s5">{{$v.Author}}</span></li>
+{{ end }}
+
+</ul>
+<div class="page_b page_b2">喜欢就收藏我们</div>
+</div>
+<div class="clear"></div></div>
+</div>
+</div>
+        </div>
+
+    </div>
+
+    
+        <div class="dahengfu"><script type="text/javascript">bottom();</script></div>
+
+<div class="footer">
+    <div class="footer_link"></div>
+    <div class="footer_cont">
+      
+    <script>footer();right();dl();</script>
+    <script charset="utf-8" src="//www.baidu.com/js/opensug.js"></script>
+  </div>
+</div>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        bp.src = '//push.zhanzhang.baidu.com/push.js';
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+        
+  </div>
+</body>
+</html>

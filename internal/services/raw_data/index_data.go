@@ -1,7 +1,7 @@
 /*
  * @Descripttion: 我见青山多妩媚
  * @Date: 2022-01-04 13:56:27
- * @LastEditTime: 2022-01-06 19:11:34
+ * @LastEditTime: 2022-01-10 15:53:36
  */
 package raw_data
 
@@ -27,7 +27,20 @@ type BookContentDataRes struct {
 	Message string          `json:"message"`
 	Data    BookContentData `json:"data"`
 }
+type BookTypeDataRes struct {
+	Code    int        `json:"code"`
+	Message string     `json:"message"`
+	Data    []BookInfo `json:"data"`
+}
 type BookContentData struct {
+	BookInfo       BookInfo `json:"book"`
+	Chapterid      string   `json:"chapterid"`
+	Chaptername    string   `json:"chaptername"`
+	Chaptercontent string   `json:"chaptercontent"`
+	Time           string   `json:"time"`
+	Order          int64    `json:"order"`
+	Next           string   `json:"next,omitempty"`
+	Prev           string   `json:"prev,omitempty"`
 }
 type BookInfoData struct {
 	BookInfo  BookInfo   `json:"bookInfo"`
@@ -140,13 +153,14 @@ func GetBookeInfo(id string) (res BookInfoData) {
 }
 
 // 小说内容返回
-func GetBookeRead(bookId, chapterId string) (res BookInfoData) {
+func GetBookeRead(bookId, chapterId string) (res BookContentData) {
 	// url := "http://180.76.238.148:9093/getChapterDetail?bookId=480589&chapterId=2455467"
 	url := "http://180.76.238.148:9093/getChapterDetail?bookId="
 	client := &http.Client{
 		// Timeout:   readTimeout,
 	}
 	url = url + bookId + "&chapterId=" + chapterId
+	fmt.Println(url)
 	resp, err := client.Get(url)
 	if err != nil {
 		fmt.Println(err.Error())
@@ -158,12 +172,68 @@ func GetBookeRead(bookId, chapterId string) (res BookInfoData) {
 		fmt.Println(err.Error())
 		return
 	}
-	var resData BookInfoDataRes
+	var resData BookContentDataRes
 	err = json.Unmarshal(body, &resData)
 	if err != nil {
 		fmt.Println(err.Error())
 		return
 	}
-	// fmt.Println(resData.Data)
+	return resData.Data
+}
+
+// 小说类型分页
+func GetBookeType(bookType, page string) (res []BookInfo) {
+	// url := "http://180.76.238.148:9093/getBooks?type=xuanhuanqihuan&size=10&page=1"
+	url := "http://180.76.238.148:9093/getBooks?type=" + bookType + "&size=25&page=" + page
+	client := &http.Client{
+		// Timeout:   readTimeout,
+	}
+	// url = url + bookId + "&chapterId=" + chapterId
+	fmt.Println(url)
+	resp, err := client.Get(url)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	var resData BookTypeDataRes
+	err = json.Unmarshal(body, &resData)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	return resData.Data
+}
+
+// 小说类型 热门小说返回
+func GetBookeTypeHot(bookType string) (res []BookInfo) {
+	// url := "http://180.76.238.148:9093/getTopBooksByType?type=xuanhuanqihuan"
+	url := "http://180.76.238.148:9093/getTopBooksByType?type=" + bookType
+	client := &http.Client{
+		// Timeout:   readTimeout,
+	}
+	fmt.Println(url)
+	resp, err := client.Get(url)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	var resData BookTypeDataRes
+	err = json.Unmarshal(body, &resData)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
 	return resData.Data
 }

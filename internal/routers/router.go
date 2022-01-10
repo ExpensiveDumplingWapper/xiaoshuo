@@ -1,7 +1,7 @@
 /*
  * @Descripttion: 我见青山多妩媚
  * @Date: 2021-09-29 14:30:50
- * @LastEditTime: 2022-01-06 19:00:01
+ * @LastEditTime: 2022-01-10 15:06:50
  */
 package routers
 
@@ -53,6 +53,7 @@ func InitRouter() *gin.Engine {
 	router.GET("/favicon.ico", hello)
 	router.GET("/book_detail/:id", index.BookInfo)
 	router.GET("/book_read/:bookid/:chapterid", index.BookRead)
+	router.GET("/book_type/category/:booktype/:paga", index.BookType)
 
 	// router.Use(middlewares.Log())
 	// 开启 Recover

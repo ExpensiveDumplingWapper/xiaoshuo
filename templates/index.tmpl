@@ -29,7 +29,8 @@
     <div class="nav">
       <ul>
       {{ range $v := .menu}}
-        <li><a href="{{$v.Path}}">{{$v.Text}}</a></li>
+        <!-- <li><a href="{{$v.Path}}">{{$v.Text}}</a></li> -->
+        <li><a href="/book_type/{{$v.Path}}/1">{{$v.Text}}</a></li>
       {{ end }}
       </ul>
     </div>
