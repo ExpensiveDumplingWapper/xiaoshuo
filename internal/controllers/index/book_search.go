@@ -1,0 +1,39 @@
+/*
+ * @Descripttion: 我见青山多妩媚
+ * @Date: 2022-01-04 14:32:34
+ * @LastEditTime: 2022-01-10 16:51:48
+ */
+package index
+
+import (
+	"net/http"
+	"strconv"
+
+	"xiaoshuo/internal/services/index"
+	"xiaoshuo/internal/services/raw_data"
+
+	"github.com/gin-gonic/gin"
+)
+
+func BookSearch(ctx *gin.Context) {
+	data, _ := index.BookSearch(ctx)
+	menu := raw_data.GetMenus()
+	// if err != nil {
+	// 	ctx.JSON(http.StatusOK, controllers.NewErrResponse(err.Error()))
+	// 	return
+	// }
+	// ctx.JSON(http.StatusOK, controllers.NewSucResponse(data))
+
+	// page := ctx.Query("page")
+	page := "1"
+	finalPage, _ := strconv.Atoi(page)
+	nextPage := strconv.Itoa(finalPage + 1)
+
+	ctx.HTML(http.StatusOK, "book_search.tmpl", gin.H{
+		"detail":   data,
+		"image":    Image,
+		"menu":     menu,
+		"nextPage": nextPage,
+	})
+
+}

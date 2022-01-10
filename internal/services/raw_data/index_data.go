@@ -1,7 +1,7 @@
 /*
  * @Descripttion: 我见青山多妩媚
  * @Date: 2022-01-04 13:56:27
- * @LastEditTime: 2022-01-10 15:53:36
+ * @LastEditTime: 2022-01-10 16:46:13
  */
 package raw_data
 
@@ -214,6 +214,45 @@ func GetBookeType(bookType, page string) (res []BookInfo) {
 func GetBookeTypeHot(bookType string) (res []BookInfo) {
 	// url := "http://180.76.238.148:9093/getTopBooksByType?type=xuanhuanqihuan"
 	url := "http://180.76.238.148:9093/getTopBooksByType?type=" + bookType
+	client := &http.Client{
+		// Timeout:   readTimeout,
+	}
+	fmt.Println(url)
+	resp, err := client.Get(url)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	var resData BookTypeDataRes
+	err = json.Unmarshal(body, &resData)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	return resData.Data
+}
+
+// 小说查询 作者和书名 然后合并返回
+func GetBookSearch(keyWord, page string) (res []BookInfo) {
+	// url := "http://180.76.238.148:9093/search?name=烽火&page=1&size=10"
+	// url := "http://180.76.238.148:9093/search?author=烽火&page=1&size=10"
+	urlAuthor := "http://180.76.238.148:9093/search?size=30&author=" + keyWord + "&page=" + page
+	urlName := "http://180.76.238.148:9093/search?size=30&name=" + keyWord + "&page=" + page
+
+	urlAuthorData := GetBookSearchData(urlAuthor)
+	urlurlName := GetBookSearchData(urlName)
+	res = append(res, urlurlName...)
+	res = append(res, urlAuthorData...)
+	return
+}
+
+func GetBookSearchData(url string) (res []BookInfo) {
 	client := &http.Client{
 		// Timeout:   readTimeout,
 	}
