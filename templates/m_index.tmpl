@@ -1,7 +1,7 @@
 <!--
  * @Descripttion: 我见青山多妩媚
  * @Date: 2022-01-10 19:15:58
- * @LastEditTime: 2022-01-11 17:20:02
+ * @LastEditTime: 2022-01-12 10:46:22
 -->
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
 <meta name="MobileOptimized" content="240"/>
 <meta name="applicable-device" content="mobile"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="shortcut icon" href="/static/images/favicon.ico" />
 <meta http-equiv="Cache-Control" content="max-age=300" />
 <meta http-equiv="Cache-Control" content="no-transform " />
 <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
@@ -47,7 +47,7 @@
 {{ range $v := .indexData}}
 {{$first := index $v 0}}
 <div class="article">
-    <h2 class="title"><span><a href="/book_type/{{$first.BookType.Path}}/1">玄幻小说</a></span>
+    <h2 class="title"><span><a href="/book_type/{{$first.BookType.Path}}/1">{{$first.BookType.Text}}</a></span>
         
         <!-- <a href="/wapsort/1_1/">更多...</a> -->
     </h2>

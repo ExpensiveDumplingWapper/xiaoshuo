@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+{{$image := .image}}
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -19,11 +20,11 @@
 <meta property="og:type" content="novel"/>
 <meta property="og:title" content="{{.detail.BookInfo.Desc}}"/>
 <meta property="og:description" content=" {{.detail.BookInfo.Name}}"/>
-<meta property="og:image" content="https://www.xbiquge.la/files/article/image/84/84522/84522s.jpg"/>
+<meta property="og:image" content="{{ $image }}/{{.detail.BookInfo.Cover}}"/>
 <meta property="og:novel:category" content="{{.detail.BookInfo.BookType.Text}}"/>
 <meta property="og:novel:author" content="{{.detail.BookInfo.Author}}"/>
 <meta property="og:novel:book_name" content="{{.detail.BookInfo.Name}}"/>
-<meta property="og:novel:read_url" content="https://www.xbiquge.la/84/84522/"/>
+<meta property="og:novel:read_url" content="/book_detail/{{.detail.BookInfo.Id}}"/>
 </head>
 <body>
     <div id="wrapper">
@@ -43,7 +44,6 @@
             </ul>
         </div>
 <script type="text/javascript">list_top();</script>
-{{$image := .image}}
         <div class="box_con">
             <div class="con_top">
                 <div id="bdshare" class="bdshare_b" style="line-height: 12px;"><img src="" /><a class="shareCount"></a></div>

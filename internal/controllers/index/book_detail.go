@@ -1,7 +1,7 @@
 /*
  * @Descripttion: 我见青山多妩媚
  * @Date: 2022-01-04 14:32:34
- * @LastEditTime: 2022-01-06 18:48:32
+ * @LastEditTime: 2022-01-11 18:32:44
  */
 package index
 
@@ -24,10 +24,18 @@ func BookInfo(ctx *gin.Context) {
 	// }
 	// ctx.JSON(http.StatusOK, controllers.NewSucResponse(data))
 
-	ctx.HTML(http.StatusOK, "book_detail.tmpl", gin.H{
-		"detail": data,
-		"image":  Image,
-		"menu":   menu,
-	})
+	if ctx.GetBool("isMobile") {
+		ctx.HTML(http.StatusOK, "m_book_detail.tmpl", gin.H{
+			"detail": data,
+			"image":  Image,
+			"menu":   menu,
+		})
+	} else {
+		ctx.HTML(http.StatusOK, "book_detail.tmpl", gin.H{
+			"detail": data,
+			"image":  Image,
+			"menu":   menu,
+		})
+	}
 
 }

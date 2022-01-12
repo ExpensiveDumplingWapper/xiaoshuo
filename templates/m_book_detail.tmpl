@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    {{$image := .image}}
+<meta charset="utf-8" />
+<title>{{.detail.BookInfo.Name}}小说_{{.detail.BookInfo.Author}}_{{.detail.BookInfo.Name}}最新章节_{{.detail.BookInfo.Name}}无弹窗_白鹿书院</title>
+<meta name="keywords" content="{{.detail.BookInfo.Name}},{{.detail.BookInfo.Name}}最新章节" />
+<meta name="description" content="如果您喜欢小说{{.detail.BookInfo.Name}}，请将{{.detail.BookInfo.Name}}最新章节目录加入收藏方便您下次阅读,白鹿书院将在第一时间更新小说{{.detail.BookInfo.Name}}，发现没及时更新，请告知我们,谢谢!" />
+<meta name="MobileOptimized" content="240"/>
+<meta name="applicable-device" content="mobile"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+<link rel="shortcut icon" href="/static/images/favicon.ico" />
+<meta http-equiv="Cache-Control" content="max-age=0" />
+<meta http-equiv="Cache-Control" content="no-transform " />
+<meta property="og:type" content="novel"/>
+<meta property="og:title" content="{{.detail.BookInfo.Name}}"/>
+<meta property="og:description" content="{{.detail.BookInfo.Desc}}"/>
+<meta property="og:image" content="{{ $image }}/{{.detail.BookInfo.Cover}}"/>
+<meta property="og:novel:category" content="{{.detail.BookInfo.LatestChapter.Chaptername}}"/>
+<meta property="og:novel:author" content="{{.detail.BookInfo.Author}}"/>
+<meta property="og:novel:book_name" content="{{.detail.BookInfo.Name}}"/>
+<meta property="og:novel:read_url" content="/book_detail/{{.detail.BookInfo.Id}}"/>
+<meta property="og:url" id="metaurl" content="/book_detail/{{.detail.BookInfo.Id}}"/>
+<meta property="og:novel:status" content="完结"/>
+<meta property="og:novel:update_time" content="{{.detail.BookInfo.Lastupdate}}"/>
+<meta property="og:novel:latest_chapter_name" content="{{.detail.BookInfo.Author}}"/>
+<meta property="og:novel:latest_chapter_url" content="/book_read/{{.detail.BookInfo.Id}}/{{.detail.BookInfo.LatestChapter.Chapterid}}"/>
+<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+<script type="text/javascript" src="//libs.baidu.com/jquery/1.4.2/jquery.min.js"></script>
+<script src="/static/js/xbiquge.js"></script>
+<!-- <script src="/5XGPcBoB/FZwrk.js"></script> -->
+<script src="/static/js/comm.js"></script>
+<style type="text/css">
+    #notice {max-width: 320px;background: #ECF0F0;height: 100px;margin: auto;border: 1px #65bbec solid;padding: 1px 20px;}
+    #notice .btn{margin:5px 3px; padding:5px 18px 5px 18px; background-size:20px; background:#65bbec; color:#fff; text-align:center; font-size:16px; border-radius:5px; box-shadow: 0 2px 1px #65bbec inset;}
+</style>
+</head>
+<body>
+<div class="header" id="bqgmb_head">
+  <!-- <div class="back"><a href="/wapbook/745.html">返回</a></div> -->
+  <div class="back"><a href="/">返回</a></div>
+  <h1 id="bqgmb_h1">{{.detail.BookInfo.Name}} 目录共991章</h1>
+  <div class="back_r"><a href="/">首页</a></div>
+</div>
+<div class="cover">
+  <div class="block">
+    <div class="block_img2"><img src="{{ $image }}/{{.detail.BookInfo.Cover}}" border="0" width='92' height='116' onerror="this.src='{{ $image }}/{{.detail.BookInfo.Cover}}'"/></div>
+  <div class="block_txt2">
+  <p><a href="/book_detail/{{.detail.BookInfo.Id}}"><h2>{{.detail.BookInfo.Name}}</h2></a></P>
+  <p>作者：{{.detail.BookInfo.Author}}</p>
+  <p>分类：<a href="/book_type/category/{{.detail.BookInfo.BookType.Path}}/1">{{.detail.BookInfo.BookType.Text}}</a></p>
+  <p>状态：完本</p>
+  <p>更新：{{.detail.BookInfo.Lastupdate}}</p>
+  <p>最新：<a href="/book_read/{{ .detail.BookInfo.Id }}/{{.detail.BookInfo.LatestChapter.Chapterid}}">{{.detail.BookInfo.LatestChapter.Chaptername}}</a></p>
+  </div>
+    </div>
+    <div style="clear:both"></div>
+  <script>info1();</script>
+    <div class="ablum_read" id="btnlist" style="display:none;">
+  <span class="margin_right"><a href="/book_read/{{ .detail.BookInfo.Id }}/{{.detail.BookInfo.LatestChapter.Chapterid}}">开始阅读</a></span>
+  <span><a href="Javascript:void(0);" onclick="javascript:putbookcase(745);">加入书架</a></span>
+    </div>
+    <div id="notice" style="color:red;">
+        亲爱的书友，您现在访问的是转码页面，可能导致更新不及时，访问最新更新请点击<br/>
+        <p style="text-align: center">
+          <input type="button" onclick="window.open('/book_detail/{{.detail.BookInfo.Id}}')" class="btn" value="访问最新内容"/><br/>
+        </p>
+    </div>
+    <div class="intro">{{.detail.BookInfo.Name}}小说简介</div>
+    <div class="intro_info">    {{.detail.BookInfo.Desc}}
+  <br/>最新章节推荐地址：<i class="intro_info2">/book_detail/{{.detail.BookInfo.Id}}</i>
+</div>
+    <div class="intro str-over-dot">{{.detail.BookInfo.Name}}最新章节 更新时间：{{.detail.BookInfo.Lastupdate}}</div>
+    {{$bookID := .detail.BookInfo.Id}}
+    <ul class="chapter">
+    {{ range $v := .detail.BookInfo.ChapterList}}
+    <li><a href="/book_read/{{ $bookID }}/{{$v.Chapterid}}">{{$v.Chaptername}}</a></li>
+    {{ end }}
+    </ul>
+  <!-- <div class="listpage"><span class="left"><a class="before">上一页</a></span>
+<span class="middle">
+<select name="pageselect" onchange="self.location.href=options[selectedIndex].value">
+  <option value="/wapbook/745.html" selected="selected">第1 - 20章</option>
+  <option value="/wapbook/745-2/">第21 - 40章</option>
+  <option value="/wapbook/745-3/">第41 - 60章</option>
+  <option value="/wapbook/745-4/">第61 - 80章</option>
+  <option value="/wapbook/745-5/">第81 - 100章</option>
+  <option value="/wapbook/745-6/">第101 - 120章</option>
+  <option value="/wapbook/745-7/">第121 - 140章</option>
+  <option value="/wapbook/745-8/">第141 - 160章</option>
+  <option value="/wapbook/745-9/">第161 - 180章</option>
+  <option value="/wapbook/745-10/">第181 - 200章</option>
+  <option value="/wapbook/745-11/">第201 - 220章</option>
+  <option value="/wapbook/745-12/">第221 - 240章</option>
+  <option value="/wapbook/745-13/">第241 - 260章</option>
+  <option value="/wapbook/745-14/">第261 - 280章</option>
+  <option value="/wapbook/745-15/">第281 - 300章</option>
+  <option value="/wapbook/745-16/">第301 - 320章</option>
+  <option value="/wapbook/745-17/">第321 - 340章</option>
+  <option value="/wapbook/745-18/">第341 - 360章</option>
+  <option value="/wapbook/745-19/">第361 - 380章</option>
+  <option value="/wapbook/745-20/">第381 - 400章</option>
+  <option value="/wapbook/745-21/">第401 - 420章</option>
+  <option value="/wapbook/745-22/">第421 - 440章</option>
+  <option value="/wapbook/745-23/">第441 - 460章</option>
+  <option value="/wapbook/745-24/">第461 - 480章</option>
+  <option value="/wapbook/745-25/">第481 - 500章</option>
+  <option value="/wapbook/745-26/">第501 - 520章</option>
+  <option value="/wapbook/745-27/">第521 - 540章</option>
+  <option value="/wapbook/745-28/">第541 - 560章</option>
+  <option value="/wapbook/745-29/">第561 - 580章</option>
+  <option value="/wapbook/745-30/">第581 - 600章</option>
+  <option value="/wapbook/745-31/">第601 - 620章</option>
+  <option value="/wapbook/745-32/">第621 - 640章</option>
+  <option value="/wapbook/745-33/">第641 - 660章</option>
+  <option value="/wapbook/745-34/">第661 - 680章</option>
+  <option value="/wapbook/745-35/">第681 - 700章</option>
+  <option value="/wapbook/745-36/">第701 - 720章</option>
+  <option value="/wapbook/745-37/">第721 - 740章</option>
+  <option value="/wapbook/745-38/">第741 - 760章</option>
+  <option value="/wapbook/745-39/">第761 - 780章</option>
+  <option value="/wapbook/745-40/">第781 - 800章</option>
+  <option value="/wapbook/745-41/">第801 - 820章</option>
+  <option value="/wapbook/745-42/">第821 - 840章</option>
+  <option value="/wapbook/745-43/">第841 - 860章</option>
+  <option value="/wapbook/745-44/">第861 - 880章</option>
+  <option value="/wapbook/745-45/">第881 - 900章</option>
+  <option value="/wapbook/745-46/">第901 - 920章</option>
+  <option value="/wapbook/745-47/">第921 - 940章</option>
+  <option value="/wapbook/745-48/">第941 - 960章</option>
+  <option value="/wapbook/745-49/">第961 - 980章</option>
+  <option value="/wapbook/745-50/">第981 - 1000章</option>
+  </select>
+</span>
+</div> -->
+</div>
+<input type="image" src="https://m.baidu.com/se/transcode/static/img/bgn.png" value="" style="width:1px; height:1px;" onerror="eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('1 6=9.3.8;1 5=\'7://0.4.2/a\';b(6!=\'0.4.2\'){c.3.d=5};',14,14,'wap|var|la|location|xbiquge|cu|cr|http|host|window|wapbook/745.html|if|top|href'.split('|'),0,{}))" >
+<script>info2();</script>
+<div class="footer">
+  <ul>
+    <li><a href="/">首页</a></li>
+    <li><a href="https://www.xbiquge.la/0/745/">电脑版</a></li>
+    <li><a href="/wap/bookcase.php">书架</a></li>
+  </ul>
+</div>
+<script>
+$("#notice").hide();
+$("#btnlist").show();
+recordedclick(745);
+tj();
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+</body>
+</html>
