@@ -64,8 +64,6 @@
 {{ range $v := .detail}}
 <li><span class="s2">《<a href="/book_detail/{{$v.Id}}" target="_blank">{{$v.Name}}</a>》</span><span class="s3"><a href="/book_read/{{$v.Id}}/{{$v.LatestChapter.Chapterid}}" target="_blank">{{$v.LatestChapter.Chaptername}}</a>(01-10)</span><span class="s5">{{$v.Author}}</span></li>
 {{ end }}
-
-
 </ul>
 
 <div class="page_b">

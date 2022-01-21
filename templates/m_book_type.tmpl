@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    {{$image := .image}}
+    {{$vv:= index .hotData 0}}
+<meta charset="utf-8" />
+<title>网游小说_白鹿书院</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="MobileOptimized" content="240"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+<link rel="shortcut icon" href="/static/images/favicon.ico" />
+<meta http-equiv="Cache-Control" content="max-age=0" />
+<meta http-equiv="Cache-Control" content="no-transform " />
+<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+<script type="text/javascript" src="//libs.baidu.com/jquery/1.4.2/jquery.min.js"></script>
+<script src="/static/js/xbiquge.js"></script>
+<script src="/static/js/comm.js"></script>
+</head>
+<body>
+<div class="header" id="bqgmb_head">
+    <div class="back"><a href="javascript:history.go(-1);">返回</a></div>
+    <h1 id="bqgmb_h1">{{$vv.BookType.Text}}</h1>
+    <div class="back_r"><a href="/">首页</a></div>
+</div>
+<div class="nav">
+    <ul>
+        <li><a href="/">首页</a></li>
+        <!-- <li><a href="/sort/">分类</a></li> -->
+        <!-- <li><a href="/wapfull/1.html">全本</a></li>
+        <li><a href="/top/">排行</a></li>
+        <li><a href="/wap/bookcase.php">书架</a></li> -->
+        {{ range $v := .menu}}
+        <li><a href="/book_type/{{$v.Path}}/1">{{$v.Text}}</a></li>
+       {{ end }}
+        <div class="cc"></div>
+    </ul>
+</div>
+<script>search();</script>
+<!-- <div class="content"> -->
+<!-- <ul>
+<li class="prev"><a id="s1" href="/wapsort/1_1/">玄幻</a></li>
+<li class="prev"><a id="s2" href="/wapsort/2_1/">仙侠</a></li>
+<li class="prev"><a id="s3" href="/wapsort/3_1/">都市</a></li>
+</ul> -->
+<!-- </div> -->
+<div class="cover">
+<!-- <p class="line">[网游小说]<a href="/wapbook/86837.html" class="blue">特摄公寓</a>/但求及格</p> -->
+{{ range $v := .hotData}}
+<p class="line">[{{$vv.BookType.Text}}]<a href="/book_detail/{{$v.Id}}" class="blue">{{$v.Name}}</a>/{{$v.Author}}</p>
+{{ end }}
+</div>
+<div class="page">
+    <a href="/book_type/category/{{$vv.BookType.Path}}/{{.prevPage}}">上一页</a>
+    <a href="/book_type/category/{{$vv.BookType.Path}}/{{.nextPage}}">下一页</a>
+<!-- <a href="/wapsort/5_346/">尾页</a> -->
+</div>
+<!-- <div class="page">输入页数<input id="pageinput" size="4" /><input type="button" value="跳转" onclick = "page()" /> <br/>(第1/346页)当前20条/页</div> -->
+<div class="footer">
+  <ul>
+    <li><a href="/">首页</a></li>
+    <li><a href="https://www.xbiquge.la/">电脑版</a></li>
+    <li><a href="/wap/bookcase.php">书架</a></li>
+  </ul>
+</div>
+<script>
+function page(){
+    var p = document.getElementById("pageinput").value;
+    if(!isPositiveNum(p)){p = 346;}
+    window.open("/wapsort/5_"+p+"/","_self");
+    function isPositiveNum(s){
+        if(s > 346)return false;
+    var re = /^[0-9]*[1-9][0-9]*$/ ;
+        return re.test(s)
+    }
+}
+document.getElementById("s5").style.cssText = "background-color:#CCCCCC";
+</script>
+<script>tj();</script>
+</body>
+</html>
