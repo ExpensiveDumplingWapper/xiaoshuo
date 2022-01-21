@@ -18,16 +18,18 @@ func BookRead(ctx *gin.Context) {
 
 	data, _ := index.BookRead(ctx)
 	menu := raw_data.GetMenus()
-	// if err != nil {
-	// 	ctx.JSON(http.StatusOK, controllers.NewErrResponse(err.Error()))
-	// 	return
-	// }
-	// ctx.JSON(http.StatusOK, controllers.NewSucResponse(data))
-
-	ctx.HTML(http.StatusOK, "book_content.tmpl", gin.H{
-		"detail": data,
-		"image":  Image,
-		"menu":   menu,
-	})
+	if ctx.GetBool("isMobile") {
+		ctx.HTML(http.StatusOK, "m_book_content.tmpl", gin.H{
+			"detail": data,
+			"image":  Image,
+			"menu":   menu,
+		})
+	} else {
+		ctx.HTML(http.StatusOK, "book_content.tmpl", gin.H{
+			"detail": data,
+			"image":  Image,
+			"menu":   menu,
+		})
+	}
 
 }
