@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    {{$image := .image}}
+<meta charset="utf-8"/>
+<title>搜索小说"{{.keyWord}}"_白鹿书院</title>
+<meta name="keywords" content="{{.keyWord}}" />
+<meta name="description" content="" />
+<meta name="MobileOptimized" content="240"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+<link rel="shortcut icon" href="/static/images/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+<script type="text/javascript" src="//libs.baidu.com/jquery/1.4.2/jquery.min.js"></script>
+<script src="/static/js/xbiquge.js"></script>
+<script src="/static/js/comm.js"></script>
+</head>
+<body>
+<div class="header" id="bqgmb_head">
+    <div class="back"><a href="javascript:history.go(-1);">返回</a></div>
+    <h1 id="bqgmb_h1">与“{{.keyWord}}”相关的小说</h1>
+    <div class="back_r"><a href="/">首页</a></div>
+</div> 
+<div class="nav">
+    <ul>
+        {{ range $v := .menu}}
+        <li><a href="/book_type/{{$v.Path}}/1">{{$v.Text}}</a></li>
+       {{ end }}
+        <div class="cc"></div>
+    </ul>
+</div>
+<script>search();</script>
+<div class="toptab"><span class="active">与“{{.keyWord}}”相关的小说</span></div>
+<div class="read_book">
+
+
+    <!-- <div class="block">
+<div class="block_txt">
+<p><a href="/wapbook/24309.html"><h2>映照万界</h2></a></p>
+<p>分类：玄幻小说</p>
+<p>作者：你好再见见</p>
+<p>最新章节：<a href="/wapbook/24309_24765884.html">完本感言</a></p>
+</div>
+<div style="clear:both"></div>
+</div>    -->
+
+
+{{ range $v := .detail}}
+<div class="block">
+    <div class="block_img"><a href="/book_detail/{{$v.Id}}"><img height=100 width=80 src='{{ $image }}/{{$v.Cover}}'  onerror="this.src='/static/images/nocover.jpg'"/></a></div>
+    <div class="block_txt">
+    <p><a href="/book_detail/{{$v.Id}}"><h2>{{$v.Name}}</h2></a></p>
+    <p>分类：{{$v.BookType.Text}}</p>
+    <p>作者：{{$v.Author}}</p>
+    <!-- <p>最新章节：<a href="/book_read/{{$v.Id}}/{{$v.LatestChapter.Chapterid}}">{{$v.LatestChapter.Chaptername}}</a></p> -->
+    </div>
+    <div style="clear:both"></div>
+    </div>   
+{{ end }}
+
+
+</div>
+<div class="footer">
+  <ul>
+    <li><a href="/">首页</a></li>
+    <!-- <li><a href="https://www.xbiquge.la/">电脑版</a></li> -->
+    <!-- <li><a href="/wap/bookcase.php">书架</a></li> -->
+  </ul>
+</div>
+<script>tj();</script>
+</body>
+</html>

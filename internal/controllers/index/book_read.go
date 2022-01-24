@@ -15,7 +15,6 @@ import (
 )
 
 func BookRead(ctx *gin.Context) {
-
 	data, _ := index.BookRead(ctx)
 	menu := raw_data.GetMenus()
 	if ctx.GetBool("isMobile") {
