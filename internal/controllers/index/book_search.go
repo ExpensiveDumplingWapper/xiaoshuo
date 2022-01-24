@@ -29,22 +29,25 @@ func BookSearch(ctx *gin.Context) {
 	finalPage, _ := strconv.Atoi(page)
 	nextPage := strconv.Itoa(finalPage + 1)
 	keyWord := ctx.PostForm("searchkey")
+	host := ctx.ClientIP() + ":9999"
 
 	if ctx.GetBool("isMobile") {
 		ctx.HTML(http.StatusOK, "m_book_search.tmpl", gin.H{
-			"detail":   data,
-			"image":    Image,
-			"menu":     menu,
-			"nextPage": nextPage,
-			"keyWord":  keyWord,
+			"detail":     data,
+			"image":      Image,
+			"hostServer": host,
+			"menu":       menu,
+			"nextPage":   nextPage,
+			"keyWord":    keyWord,
 		})
 	} else {
 		ctx.HTML(http.StatusOK, "book_search.tmpl", gin.H{
-			"detail":   data,
-			"image":    Image,
-			"menu":     menu,
-			"nextPage": nextPage,
-			"keyWord":  keyWord,
+			"detail":     data,
+			"image":      Image,
+			"menu":       menu,
+			"hostServer": host,
+			"nextPage":   nextPage,
+			"keyWord":    keyWord,
 		})
 	}
 

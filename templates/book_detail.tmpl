@@ -37,7 +37,7 @@
         </div>
         <div class="nav">
             <ul>
-                <li><a href="#">首页</a></li>
+                <li><a href="/">首页</a></li>
                 {{ range $v := .menu}}
                 <li><a href="/book_type/{{$v.Path}}/1">{{$v.Text}}</a></li>
                {{ end }}
@@ -66,7 +66,8 @@
                 </div>
             </div>
             <div id="sidebar">
-                <div id="fmimg"><img alt="{{.detail.BookInfo.Name}}" src="{{ $image }}/{{.detail.BookInfo.Cover}}" width="120" height="150" onerror="this.src='/static/images/nocover.jpg'" /><span class="b"></span></div>
+                <!-- <div id="fmimg"><img alt="{{.detail.BookInfo.Name}}" src="{{ $image }}/{{.detail.BookInfo.Cover}}" width="120" height="150" onerror="this.src='/static/images/nocover.jpg'" /><span class="b"></span></div> -->
+                <div id="fmimg"><img alt="{{.detail.BookInfo.Name}}" src="{{ $image }}/{{.detail.BookInfo.Cover}}" width="120" height="150" /><span class="b"></span></div>
             </div> 
             <div id="listtj">&nbsp;推荐阅读：
                 {{ range $v := .detail.Recommend}}

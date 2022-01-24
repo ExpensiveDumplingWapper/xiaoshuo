@@ -1,8 +1,3 @@
-/*
- * @Descripttion: 我见青山多妩媚
- * @Date: 2022-01-04 14:32:34
- * @LastEditTime: 2022-01-12 10:50:36
- */
 package index
 
 import (
@@ -28,6 +23,7 @@ func Index(ctx *gin.Context) {
 	// ctx.JSON(http.StatusOK, controllers.NewSucResponse(data))
 
 	// fmt.Println(ctx.GetBool("isMobile"), 999999)
+	host := ctx.ClientIP() + ":9999"
 	if ctx.GetBool("isMobile") {
 
 		var datas [][]raw_data.BookInfo
@@ -64,9 +60,11 @@ func Index(ctx *gin.Context) {
 		if len(indexData.BooksByType.Lishijunshi) > 0 {
 			datas = append(datas, indexData.BooksByType.Lishijunshi)
 		}
+
 		ctx.HTML(http.StatusOK, "m_index.tmpl", gin.H{
 			"menu":       menu,
 			"indexData":  datas,
+			"hostServer": host,
 			"hotcontent": hotcontent,
 			"image":      Image,
 		})
@@ -74,6 +72,7 @@ func Index(ctx *gin.Context) {
 		ctx.HTML(http.StatusOK, "index.tmpl", gin.H{
 			"menu":       menu,
 			"indexData":  indexData,
+			"hostServer": host,
 			"hotcontent": hotcontent,
 			"image":      Image,
 		})

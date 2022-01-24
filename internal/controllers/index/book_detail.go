@@ -18,6 +18,7 @@ func BookInfo(ctx *gin.Context) {
 
 	data, _ := index.BookInfo(ctx)
 	menu := raw_data.GetMenus()
+	host := ctx.ClientIP() + ":9999"
 	// if err != nil {
 	// 	ctx.JSON(http.StatusOK, controllers.NewErrResponse(err.Error()))
 	// 	return
@@ -26,15 +27,17 @@ func BookInfo(ctx *gin.Context) {
 
 	if ctx.GetBool("isMobile") {
 		ctx.HTML(http.StatusOK, "m_book_detail.tmpl", gin.H{
-			"detail": data,
-			"image":  Image,
-			"menu":   menu,
+			"detail":     data,
+			"hostServer": host,
+			"image":      Image,
+			"menu":       menu,
 		})
 	} else {
 		ctx.HTML(http.StatusOK, "book_detail.tmpl", gin.H{
-			"detail": data,
-			"image":  Image,
-			"menu":   menu,
+			"detail":     data,
+			"hostServer": host,
+			"image":      Image,
+			"menu":       menu,
 		})
 	}
 

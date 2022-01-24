@@ -44,7 +44,7 @@
   {{$image := .image}}
   {{ range $v := .hotcontent}}
   <div class="item">
-    <div class="image"><a href="book_detail/{{$v.Id}}"><img src="{{ $image }}/{{$v.Cover}}" alt="{{$v.Name}}"  width="120" height="150" onerror="this.src='/static/images/nocover.jpg'"/></a></div>
+    <div class="image"><a href="book_detail/{{$v.Id}}"><img src="{{ $image }}/{{$v.Cover}}" alt="{{$v.Name}}"  width="120" height="150" /></a></div>
     <dl>
        <dt><span>{{$v.Author}}</span><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a></dt>
        <dd>   {{$v.Desc}}</dd>
@@ -83,7 +83,7 @@
   <h2>玄幻奇幻</h2>
   <div class="top">
     {{$vv:= index .indexData.BooksByType.Xuanhuanqihuan 0}}
-<div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" onerror="this.src='/static/images/nocover.jpg'"/></div>
+<div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
 <dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
@@ -97,7 +97,7 @@
    <h2>现代言情</h2>
    <div class="top">
     {{$vv:= index .indexData.BooksByType.Xiandaiyanqing 0}}
-<div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" onerror="this.src='/static/images/nocover.jpg'"/></div>
+<div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
 <dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
@@ -111,7 +111,7 @@
   <h2>科幻灵异</h2>
   <div class="top">
    {{$vv:= index .indexData.BooksByType.Kehuanlingyi 0}}
-<div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" onerror="this.src='/static/images/nocover.jpg'"/></div>
+<div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
 <dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
@@ -128,7 +128,7 @@
   <h2>东方玄幻</h2>
   <div class="top">
    {{$vv:= index .indexData.BooksByType.Dongfangxuanhuan 0}}
-<div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" onerror="this.src='/static/images/nocover.jpg'"/></div>
+<div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
 <dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
@@ -142,7 +142,7 @@
   <h2>网游竞技</h2>
   <div class="top">
    {{$vv:= index .indexData.BooksByType.Wangyoujingji 0}}
-<div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" onerror="this.src='/static/images/nocover.jpg'"/></div>
+<div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
 <dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
@@ -156,7 +156,7 @@
   <h2>武侠仙侠</h2>
   <div class="top">
    {{$vv:= index .indexData.BooksByType.Wuxiaxianxia 0}}
-<div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" onerror="this.src='/static/images/nocover.jpg'"/></div>
+<div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
 <dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
@@ -175,7 +175,7 @@
     <h2>小说同人</h2>
     <div class="top">
      {{$vv:= index .indexData.BooksByType.Xiaoshuotongren 0}}
-  <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" onerror="this.src='/static/images/nocover.jpg'"/></div>
+  <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
   <dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
   <div class="clear"></div></div>
   <ul>
@@ -189,7 +189,7 @@
     <h2>女生频道</h2>
     <div class="top">
      {{$vv:= index .indexData.BooksByType.Nushengpindao 0}}
-  <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" onerror="this.src='/static/images/nocover.jpg'"/></div>
+  <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
   <dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
   <div class="clear"></div></div>
   <ul>
@@ -203,7 +203,7 @@
     <h2>历史军事</h2>
     <div class="top">
      {{$vv:= index .indexData.BooksByType.Lishijunshi 0}}
-  <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" onerror="this.src='/static/images/nocover.jpg'"/></div>
+  <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
   <dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
   <div class="clear"></div></div>
   <ul>

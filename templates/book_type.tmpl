@@ -28,7 +28,7 @@
     </div>
     <div class="nav">
       <ul>
-        <li><a href="#">首页</a></li>
+        <li><a href="/">首页</a></li>
 
         {{ range $v := .menu}}
         <li><a href="/book_type/{{$v.Path}}/1">{{$v.Text}}</a></li>
@@ -42,7 +42,8 @@
       <div id="hotcontent"><div class="ll">
       {{ range $v := .hotData}}
       <div class="item">
-        <div class="image"><a href="/book_detail/{{$v.Id}}"><img src="{{ $image }}/{{$v.Cover}}" alt="{{$v.Name}}"  width="120" height="150" onerror="this.src='/static/images/nocover.jpg'"/></a></div>
+        <!-- <div class="image"><a href="/book_detail/{{$v.Id}}"><img src="{{ $image }}/{{$v.Cover}}" alt="{{$v.Name}}"  width="120" height="150" onerror="this.src='/static/images/nocover.jpg'"/></a></div> -->
+        <div class="image"><a href="/book_detail/{{$v.Id}}"><img src="{{ $image }}/{{$v.Cover}}" alt="{{$v.Name}}"  width="120" height="150" /></a></div>
         <dl>
            <dt><span>{{$v.Author}}</span><a href="/book_detail/{{$v.Id}}">{{$v.Name}}</a></dt>
            <dd>{{$v.Desc}}</dd>
