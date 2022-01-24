@@ -21,7 +21,8 @@ a:hover {text-decoration:underline; top:-1px;}
 .ccc .txtt{color:gray;float:left;padding-left:10px;}
 .txtt a,.txtt a:hover{color:gray;text-decoration:none;}
 .header{height:61px;width:980px;margin:auto;}
-.header_logo a{display:block;float:left;height:60px;text-indent:-9999px;width:250px; background-image:url('/images/logo.png')}
+/* .header_logo a{display:block;float:left;height:60px;text-indent:-9999px;width:250px; background-image:url('/images/logo.png')} */
+/* .header_logo a{display:block;float:left;height:60px;text-indent:-9999px;width:250px; background-image:url('')} */
 .header_search{float:left;overflow:hidden;width:450px;margin:20px auto -20px 30px; }
 .header_search input.search{border:1px solid #A6D3E8;font:16px/22px arial;height:24px;margin-right:5px;width:320px;padding:3px;}
 .header_search button{background:none repeat scroll 0 0 #DDD;cursor:pointer;font-size:14px;height:32px;width:95px;}

@@ -678,8 +678,8 @@ document.writeln("<p>沪ICP备14048333号</p>");
 // document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F6949867c34e7741ebac3943050f04833' type='text/javascript'%3E%3C/script%3E"));
 document.writeln("<script type=\"text/javascript\" id=\"bdshare_js\" data=\"type=tools&amp;uid=6607142\" ></script>");
 document.writeln("<script type=\"text/javascript\" id=\"bdshell_js\"></script>");
-document.writeln("<script type=\"text/javascript\">document.getElementById(\"bdshell_js\").src = \"https://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=\" + Math.ceil(new Date()/3600000);</script>");
-}
+// document.writeln("<script type=\"text/javascript\">document.getElementById(\"bdshell_js\").src = \"https://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=\" + Math.ceil(new Date()/3600000);</script>");
+// }
 function read_panel(){
 document.writeln("<div class=\"header_search\"><form name=\"form\" action=\"/book_search\" id=\"sform\" target=\"_blank\"><input type=\"hidden\" name=\"s\" value=\"15629547599739040164\"><input type=\"text\" value=\"可搜书名和作者，请您少字也别输错字。\" name=\"q\" class=\"search\" id=\"wd\" baiduSug=\"2\" /><button id=\"sss\" type=\"submit\"> 搜 索 </button></form></div>"); 
 document.writeln("<div class=\"userpanel\">&nbsp;<font color=\"red\">报错：</font><a target=\"_blank\"  href=\"http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=494420774@qq.com\">通过邮件</a>、<a href=\"/newmessage.php?tosys=1&title="+booktitle+"-章节错误&content=错误章节为:"+readtitle+"\" >站内短信</a><br /><a target=\"_blank\" href=\"/ziti.html\"><b>原图片版</b></a>&nbsp;&nbsp;<a target=\"_blank\" href=\"/jifen.html\">积分规则</a>&nbsp;&nbsp;<a target=\"_blank\" href=\"/dns.html\">若从新笔趣阁跳走点这里</a></div>");
