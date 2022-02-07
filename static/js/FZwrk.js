@@ -211,31 +211,31 @@ function list2(){
 
 
 function pumpkin1(){
-document.writeln('<script src="/');
-document.writeln('5S33332E');
-document.writeln('/H332enn2m1.js');
-document.writeln('"><\/script>');
+// document.writeln('<script src="/');
+// document.writeln('5S33332E');
+// document.writeln('/H332enn2m1.js');
+// document.writeln('"><\/script>');
 }
 
 function pumpkin2(){
-document.writeln('<script src="/');
-document.writeln('5S33332E');
-document.writeln('/H332enn2m2.js');
-document.writeln('"><\/script>');
+// document.writeln('<script src="/');
+// document.writeln('5S33332E');
+// document.writeln('/H332enn2m2.js');
+// document.writeln('"><\/script>');
 }
 
 function pumpkin3(){
-document.writeln('<script src="/');
-document.writeln('5S33332E');
-document.writeln('/H332enn2m3.js');
-document.writeln('"><\/script>');
+// document.writeln('<script src="/');
+// document.writeln('5S33332E');
+// document.writeln('/H332enn2m3.js');
+// document.writeln('"><\/script>');
 }
 
 function pumpkin7(){
-document.writeln('<script src="/');
-document.writeln('5S33332E');
-document.writeln('/H332estrl4.js');
-document.writeln('"><\/script>');
+// document.writeln('<script src="/');
+// document.writeln('5S33332E');
+// document.writeln('/H332estrl4.js');
+// document.writeln('"><\/script>');
 }
 
 

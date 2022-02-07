@@ -37,16 +37,16 @@
     </h2>
 
     <div class="block">
-        <div class="block_img"><a href="/book_detail/{{$first.Id}}"><img height=100 width=80 src="{{ $image }}/{{$first.Cover}}"    /></a></div>
+        <div class="block_img"><a href="/book_detail/{{$first.Id}}/1"><img height=100 width=80 src="{{ $image }}/{{$first.Cover}}"    /></a></div>
         <div class="block_txt">
-            <p><a href="/book_detail/{{$first.Id}}"><h2>{{$first.Name}}</h2></a></p>
+            <p><a href="/book_detail/{{$first.Id}}/1"><h2>{{$first.Name}}</h2></a></p>
             <p>作者：{{$first.Author}}</p>
-            <p><a href="/book_detail/{{$first.Id}}">  {{$first.Desc}} </a></p>
+            <p><a href="/book_detail/{{$first.Id}}/1">  {{$first.Desc}} </a></p>
         </div>
         <div style="clear:both"></div>
         <ul>
             {{ range $vv := $v}}
-            <li><a href="/book_detail/{{$vv.Id}}" class="blue">{{$vv.Name}}</a>/{{$vv.Author}}</li>
+            <li><a href="/book_detail/{{$vv.Id}}/1" class="blue">{{$vv.Name}}</a>/{{$vv.Author}}</li>
            {{ end }}
         </ul>
     </div>
@@ -55,7 +55,7 @@
 <div class="footer">
   <ul>
     <li><a href="/">首页</a></li>
-    <li><a href="https://www.xbiquge.la/">电脑版</a></li>
+    <li><a href="#">电脑版</a></li>
   </ul>
 </div>
 <script>tj();</script>

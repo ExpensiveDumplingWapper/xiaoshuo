@@ -3,6 +3,7 @@
 <html>
 <head>
     {{$image := .image}}
+    {{$bookId :=.detail.BookInfo.Id}}
 <meta charset="utf-8" />
 <title>{{.detail.BookInfo.Name}}小说_{{.detail.BookInfo.Author}}_{{.detail.BookInfo.Name}}最新章节_{{.detail.BookInfo.Name}}无弹窗_白鹿书院</title>
 <meta name="keywords" content="{{.detail.BookInfo.Name}},{{.detail.BookInfo.Name}}最新章节" />
@@ -20,8 +21,8 @@
 <meta property="og:novel:category" content="{{.detail.BookInfo.LatestChapter.Chaptername}}"/>
 <meta property="og:novel:author" content="{{.detail.BookInfo.Author}}"/>
 <meta property="og:novel:book_name" content="{{.detail.BookInfo.Name}}"/>
-<meta property="og:novel:read_url" content="/book_detail/{{.detail.BookInfo.Id}}"/>
-<meta property="og:url" id="metaurl" content="/book_detail/{{.detail.BookInfo.Id}}"/>
+<meta property="og:novel:read_url" content="/book_detail/{{.detail.BookInfo.Id}}/1"/>
+<meta property="og:url" id="metaurl" content="/book_detail/{{.detail.BookInfo.Id}}/1"/>
 <meta property="og:novel:status" content="完结"/>
 <meta property="og:novel:update_time" content="{{.detail.BookInfo.Lastupdate}}"/>
 <meta property="og:novel:latest_chapter_name" content="{{.detail.BookInfo.Author}}"/>
@@ -29,7 +30,6 @@
 <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
 <script type="text/javascript" src="//libs.baidu.com/jquery/1.4.2/jquery.min.js"></script>
 <script src="/static/js/xbiquge.js"></script>
-<!-- <script src="/5XGPcBoB/FZwrk.js"></script> -->
 <script src="/static/js/comm.js"></script>
 <style type="text/css">
     #notice {max-width: 320px;background: #ECF0F0;height: 100px;margin: auto;border: 1px #65bbec solid;padding: 1px 20px;}
@@ -46,7 +46,7 @@
   <div class="block">
     <div class="block_img2"><img src="{{ $image }}/{{.detail.BookInfo.Cover}}" border="0" width='92' height='116'    /></div>
   <div class="block_txt2">
-  <p><a href="/book_detail/{{.detail.BookInfo.Id}}"><h2>{{.detail.BookInfo.Name}}</h2></a></P>
+  <p><a href="/book_detail/{{.detail.BookInfo.Id}}/1"><h2>{{.detail.BookInfo.Name}}</h2></a></P>
   <p>作者：{{.detail.BookInfo.Author}}</p>
   <p>分类：<a href="/book_type/category/{{.detail.BookInfo.BookType.Path}}/1">{{.detail.BookInfo.BookType.Text}}</a></p>
   <p>状态：完本</p>
@@ -55,7 +55,7 @@
   </div>
     </div>
     <div style="clear:both"></div>
-  <script>info1();</script>
+  <!-- <script>info1();</script> -->
     <div class="ablum_read" id="btnlist" style="display:none;">
   <span class="margin_right"><a href="/book_read/{{ .detail.BookInfo.Id }}/{{.detail.BookInfo.LatestChapter.Chapterid}}">开始阅读</a></span>
   <!-- <span><a href="Javascript:void(0);" onclick="javascript:putbookcase(745);">加入书架</a></span> -->
@@ -63,32 +63,39 @@
     <div id="notice" style="color:red;">
         亲爱的书友，您现在访问的是转码页面，可能导致更新不及时，访问最新更新请点击<br/>
         <p style="text-align: center">
-          <input type="button" onclick="window.open('/book_detail/{{.detail.BookInfo.Id}}')" class="btn" value="访问最新内容"/><br/>
+          <input type="button" onclick="window.open('/book_detail/{{.detail.BookInfo.Id}}/1')" class="btn" value="访问最新内容"/><br/>
         </p>
     </div>
     <div class="intro">{{.detail.BookInfo.Name}}小说简介</div>
     <div class="intro_info">    {{.detail.BookInfo.Desc}}
-  <br/>最新章节推荐地址：<i class="intro_info2">/book_detail/{{.detail.BookInfo.Id}}</i>
+  <br/>最新章节推荐地址：<i class="intro_info2"><a href="/book_read/{{.detail.BookInfo.Id}}/{{.detail.BookInfo.LatestChapter.Chapterid}}">{{.detail.BookInfo.LatestChapter.Chaptername}}</a></i>
 </div>
     <div class="intro str-over-dot">{{.detail.BookInfo.Name}}最新章节 更新时间：{{.detail.BookInfo.Lastupdate}}</div>
     {{$bookID := .detail.BookInfo.Id}}
     <ul class="chapter">
-    {{ range $v := .detail.BookInfo.ChapterList}}
+    {{ range $v := .detail.Chapters}}
     <li><a href="/book_read/{{ $bookID }}/{{$v.Chapterid}}">{{$v.Chaptername}}</a></li>
     {{ end }}
     </ul>
-  <!-- <div class="listpage"><span class="left"><a class="before">上一页</a></span>
-<span class="middle">
-<select name="pageselect" onchange="self.location.href=options[selectedIndex].value">
-  <option value="/wapbook/745.html" selected="selected">第1 - 20章</option>
-  <option value="/wapbook/745-2/">第21 - 40章</option>
+<div class="listpage">
+  <span class="left"><a href="/book_detail/{{.detail.BookInfo.Id}}/{{.prevPage}}" class="onclick">上一页</a></span>
+  <span class="middle">
+  <select name="pageselect" onchange="self.location.href=options[selectedIndex].value">
+     
+      {{ range $v := .chapterList}}
+      <option value="/book_detail/{{$bookId}}/{{$v.Page}}" >{{$v.Text}}</option>
+     {{ end }}
   </select>
 </span>
-</div> -->
+<span class="right"><a href="/book_detail/{{.detail.BookInfo.Id}}/{{.nextPage}}" class="onclick">下一页</a></span>
+
+</div>
+
+
 </div>
 <!-- <input type="image" src="https://m.baidu.com/se/transcode/static/img/bgn.png" value="" style="width:1px; height:1px;" onerror="eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('1 6=9.3.8;1 5=\'7://0.4.2/a\';b(6!=\'0.4.2\'){c.3.d=5};',14,14,'wap|var|la|location|xbiquge|cu|cr|http|host|window|wapbook/745.html|if|top|href'.split('|'),0,{}))" > -->
-<input type="image" src="https://m.baidu.com/se/transcode/static/img/bgn.png" value="" style="width:1px; height:1px;">
-<script>info2();</script>
+<!-- <input type="image" src="https://m.baidu.com/se/transcode/static/img/bgn.png" value="" style="width:1px; height:1px;"> -->
+<!-- <script>info2();</script> -->
 <div class="footer">
   <ul>
     <li><a href="/">首页</a></li>

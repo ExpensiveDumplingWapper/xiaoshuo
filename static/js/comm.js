@@ -267,10 +267,10 @@ function search(){
                 pb_mulu.style.cssText = pagebutton;
                 if(null != pb_next)
                 pb_next.style.cssText = pagebutton;
-                if(null != pt_shouye)
-                pt_shouye.style.cssText = pagebutton;
-                if(null != pb_shouye)
-                pb_shouye.style.cssText = pagebutton;
+                // if(null != pt_shouye)
+                // pt_shouye.style.cssText = pagebutton;
+                // if(null != pb_shouye)
+                // pb_shouye.style.cssText = pagebutton;
             }
             else if(p == "no"){
                 //开灯
@@ -289,10 +289,10 @@ function search(){
                 pb_mulu.style.cssText = pagebutton;
                 if(null != pb_next)
                 pb_next.style.cssText = pagebutton;
-                if(null != pt_shouye)
-                pt_shouye.style.cssText = pagebutton;
-                if(null != pb_shouye)
-                pb_shouye.style.cssText = pagebutton;
+                // if(null != pt_shouye)
+                // pt_shouye.style.cssText = pagebutton;
+                // if(null != pb_shouye)
+                // pb_shouye.style.cssText = pagebutton;
             }
             else if(p == "huyan"){
                 //护眼
@@ -309,10 +309,10 @@ function search(){
                 pb_mulu.style.cssText = pagebutton;
                 if(null != pb_next)
                 pb_next.style.cssText = pagebutton;
-                if(null != pt_shouye)
-                pt_shouye.style.cssText = pagebutton;
-                if(null != pb_shouye)
-                pb_shouye.style.cssText = pagebutton;
+                // if(null != pt_shouye)
+                // pt_shouye.style.cssText = pagebutton;
+                // if(null != pb_shouye)
+                // pb_shouye.style.cssText = pagebutton;
             }
         }
         //字体

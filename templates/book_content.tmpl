@@ -12,6 +12,7 @@
 <script type="text/javascript" src="//libs.baidu.com/jquery/1.4.2/jquery.min.js"></script>
 <!-- <script src="/js/pc_pf.js"></script> -->
 <script type="text/javascript" src="/static/js/bqg.js"></script>
+<script type="text/javascript" src="/static/js/pc_pf.js"></script>
 
 <script type="text/javascript">
 // <!--
@@ -42,7 +43,7 @@
         </div>
         <div class="nav">
             <ul>
-                <li><a href="https://xbiquge.la/">首页</a></li>
+                <li><a href="/">首页</a></li>
                 {{ range $v := .menu}}
                 <!-- <li><a href="{{$v.Path}}">{{$v.Text}}</a></li> -->
                 <li><a href="/book_type/{{$v.Path}}/1">{{$v.Text}}</a></li>
@@ -60,39 +61,27 @@
                     <div class="bottem1">
                         <a href="javascript:;" onclick="showpop_vote(84522);">投推荐票</a> 
                         <a href="/book_read/{{.detail.BookInfo.Id }}/{{.detail.Prev}}">上一章</a> &larr; 
-                        <a href="/book_detail/{{.detail.BookInfo.Id}}">章节目录</a> &rarr;
+                        <a href="/book_detail/{{.detail.BookInfo.Id}}/1">章节目录</a> &rarr;
                          <a href="/book_read/{{.detail.BookInfo.Id }}/{{.detail.Next}}">下一章</a> 
                         <a href="javascript:;" onclick="showpop_addmark(84522,32754540);">加入书签</a>
                     </div>
                                         <!-- <div id="listtj">&nbsp;推荐阅读：<a href="/9/9785/" target="_blank">剑卒过河</a>、<a href="/0/10/" target="_blank">武炼巅峰</a>、<a href="/26/26874/" target="_blank">沧元图</a>、<a href="/32/32626/" target="_blank">叶辰孙怡夏若雪</a>、<a href="/15/15409/" target="_blank">牧神记</a>、<a href="/0/951/" target="_blank">伏天氏</a>、<a href="/13/13959/" target="_blank">圣墟</a>、<a href="/2/2029/" target="_blank">极品透视</a>、<a href="/26/26511/" target="_blank">剑徒之路</a>、<a href="/1/1988/" target="_blank">龙城</a>、<a href="/30/30581/" target="_blank">顶级神豪</a>、<a href="/7/7552/" target="_blank">万古神帝</a>、<a href="/2/2210/" target="_blank">全职法师</a>、<a href="/31/31566/" target="_blank">数风流人物</a>、<a href="/0/656/" target="_blank">莽荒纪</a></div> -->
                 </div>
-                <table style="width:100%; text-align:center;"><tr><td><script>read_1_1();</script></td><td><script>read_1_2();</script></td><td><script>read_1_3();</script></td></tr></table>
+                <table style="width:100%; text-align:center;">
+                    <!-- <tr><td><script>read_1_1();</script></td> -->
+                        <td><script>read_1_2();</script></td>
+                        <td><script>read_1_3();</script></td>
+                    </tr></table>
                 <div id="content">
                     {{.detail.Chaptercontent}}
-
-
-<!-- <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;是在军训么？
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;此时此刻，他身处的地方是——大型选秀综艺《创造偶像》的录睡现场！<br /><br /> -->
-
-<p><a href="http://koubei.baidu.com/s/xbiquge.la" target="_blank">亲,点击进去,给个好评呗,分数越高更新越快,据说给白鹿书院打满分的最后都找到了漂亮的老婆哦!</a>
-    <br />手机站全新改版升级地址：https://wap.xbiquge.la，数据和书签与电脑站同步，无广告清新阅读！
+<p><a href="#" target="_blank">亲,点击进去,给个好评呗,分数越高更新越快,据说给白鹿书院打满分的最后都找到了漂亮的老婆哦!</a>
 </p></div>
                 <script>read3();</script><script>bdshare();</script>
                 <div class="bottem2">
-                    <!-- <a href="javascript:;" onclick="showpop_vote(84522);">投推荐票</a> 
-                    <a href="/84/84522/">上一章</a> &larr; 
-                    <a href="https://www.xbiquge.la/84/84522/">章节目录</a> &rarr;
-                     <a href="/84/84522/32754541.html">下一章</a> 
-                     <a href="javascript:;" onclick="showpop_addmark(84522,32754540);">加入书签</a> -->
-
                      <a href="/book_read/{{.detail.BookInfo.Id }}/{{.detail.Prev}}">上一章</a> &larr; 
-                     <a href="/book_detail/{{.detail.BookInfo.Id}}">章节目录</a> &rarr;
+                     <a href="/book_detail/{{.detail.BookInfo.Id}}/1">章节目录</a> &rarr;
                       <a href="/book_read/{{.detail.BookInfo.Id }}/{{.detail.Next}}">下一章</a> 
                      <!-- <a href="javascript:;" onclick="showpop_addmark(84522,32754540);">加入书签</a> -->
-
-
                 </div>
                 <script>read4();</script>
                 <div id="hm_t_54219"></div>

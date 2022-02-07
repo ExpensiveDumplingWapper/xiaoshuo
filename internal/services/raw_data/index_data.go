@@ -22,6 +22,13 @@ type BookInfoDataRes struct {
 	Message string       `json:"message"`
 	Data    BookInfoData `json:"data"`
 }
+
+type BookChapterRes struct {
+	Code    int              `json:"code"`
+	Message string           `json:"message"`
+	Data    BookChaptersData `json:"data"`
+}
+
 type BookContentDataRes struct {
 	Code    int             `json:"code"`
 	Message string          `json:"message"`
@@ -45,6 +52,22 @@ type BookContentData struct {
 type BookInfoData struct {
 	BookInfo  BookInfo   `json:"bookInfo"`
 	Recommend []BookInfo `json:"recommend"`
+}
+
+type BookChaptersData struct {
+	BookInfo  BookInfo  `json:"bookInfo"`
+	Chapters  []Chapter `json:"chapters"`
+	TotalPage int       `json:"total_page"`
+}
+type Chapter struct {
+	Chapterid      string `json:"chapterid"`
+	Chaptername    string `json:"chaptername"`
+	Chaptercontent string `json:"chaptercontent,omitempty"`
+	Time           string `json:"time,omitempty"`
+	Order          int    `json:"order,omitempty"`
+	Book           string `json:"book,omitempty"`
+	Next           string `json:"next,omitempty"`
+	Prev           string `json:"prev,omitempty"`
 }
 type Recommend struct {
 }
@@ -125,12 +148,13 @@ func GetindexData() (res IndexData) {
 }
 
 // 小说详情页
-func GetBookeInfo(id string) (res BookInfoData) {
-	url := "http://180.76.238.148:9093/getBookInfoV2?bookId="
+func GetBookeInfo(id, page string) (res BookChaptersData) {
+	// url := "http://180.76.238.148:9093/getBookInfoV2?bookId="
+	url := "http://180.76.238.148:9093/getChapters?bookId=" + id + "&page=" + page + "&size=30"
 	client := &http.Client{
 		// Timeout:   readTimeout,
 	}
-	url = url + id
+	// url = url + id
 	resp, err := client.Get(url)
 	if err != nil {
 		fmt.Println(err.Error())
@@ -142,7 +166,7 @@ func GetBookeInfo(id string) (res BookInfoData) {
 		fmt.Println(err.Error())
 		return
 	}
-	var resData BookInfoDataRes
+	var resData BookChapterRes
 	err = json.Unmarshal(body, &resData)
 	if err != nil {
 		fmt.Println(err.Error())

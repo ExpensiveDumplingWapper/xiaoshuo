@@ -1,8 +1,3 @@
-/*
- * @Descripttion: 我见青山多妩媚
- * @Date: 2022-01-04 14:41:24
- * @LastEditTime: 2022-01-06 18:34:55
- */
 package index
 
 import (
@@ -11,9 +6,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func BookInfo(ctx *gin.Context) (res raw_data.BookInfoData, err error) {
+func BookInfo(ctx *gin.Context) (res raw_data.BookChaptersData, err error) {
 	id := ctx.Param("id")
-	res = raw_data.GetBookeInfo(id)
-
+	page := ctx.Param("page")
+	if page == "" {
+		page = "1"
+	}
+	res = raw_data.GetBookeInfo(id, page)
 	return
 }

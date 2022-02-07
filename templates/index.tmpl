@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="static/css/biquge.css"/>
 <script type="text/javascript" src="static/js/jquery.min.js"></script>
 <!-- <script src="/js/pc_pf.js"></script> -->
-<script type="text/javascript" src="static/js/bqg.js"></script>
+<script type="text/javascript" src="static/js/bqg.js?12"></script>
 <link rel="shortcut icon" href="favicon.ico" />
 <meta name="baidu-site-verification" content="cBwSh6gmX8"/>
 
@@ -46,9 +46,9 @@
   {{$image := .image}}
   {{ range $v := .hotcontent}}
   <div class="item">
-    <div class="image"><a href="book_detail/{{$v.Id}}"><img src="{{ $image }}/{{$v.Cover}}" alt="{{$v.Name}}"  width="120" height="150" /></a></div>
+    <div class="image"><a href="book_detail/{{$v.Id}}/1"><img src="{{ $image }}/{{$v.Cover}}" alt="{{$v.Name}}"  width="120" height="150" /></a></div>
     <dl>
-       <dt><span>{{$v.Author}}</span><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a></dt>
+       <dt><span>{{$v.Author}}</span><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a></dt>
        <dd>   {{$v.Desc}}</dd>
     </dl>
     <div class="clear"></div>
@@ -60,12 +60,12 @@
     <div class="r">
      <h2>公告牌</h2>
     <ul>
-          <li><span class="s1">[公告]</span><span class="s2"><a href="https://www.xbiquge.la/newmessage.php?tosys=1" target="_blank" rel="nofollow" >发现章节未及时更新请联系我们</a></span></li>  
+          <li><span class="s1">[公告]</span><span class="s2"><a href="##" target="_blank" rel="nofollow" >发现章节未及时更新请联系我们</a></span></li>  
     </ul> 
    <h2>上期强推</h2>
     <ul>
              {{ range $v := .hotcontent}}
-             <li><span class="s1">{{$v.BookType.Text}}</span><span class="s2"><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a></span><span class="s5">{{$v.Author}}</span></li> 
+             <li><span class="s1">{{$v.BookType.Text}}</span><span class="s2"><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a></span><span class="s5">{{$v.Author}}</span></li> 
              {{ end }}
             </ul>
     </div>
@@ -86,11 +86,11 @@
   <div class="top">
     {{$vv:= index .indexData.BooksByType.Xuanhuanqihuan 0}}
 <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
-<dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+<dl><dt><a href="book_detail/{{ $vv.Id }}/1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
   {{ range $v := .indexData.BooksByType.Xuanhuanqihuan}}
-  <li><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
+  <li><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a>/{{$v.Author}}</li>
   {{ end }}
 </ul>
 </div>
@@ -100,11 +100,11 @@
    <div class="top">
     {{$vv:= index .indexData.BooksByType.Xiandaiyanqing 0}}
 <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
-<dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+<dl><dt><a href="book_detail/{{ $vv.Id }}/1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Xiandaiyanqing}}
-<li><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
+<li><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a>/{{$v.Author}}</li>
 {{ end }}
 </ul>
 </div>
@@ -114,11 +114,11 @@
   <div class="top">
    {{$vv:= index .indexData.BooksByType.Kehuanlingyi 0}}
 <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
-<dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+<dl><dt><a href="book_detail/{{ $vv.Id }}/1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Kehuanlingyi}}
-<li><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
+<li><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a>/{{$v.Author}}</li>
 {{ end }}
 </ul>
 </div>
@@ -131,11 +131,11 @@
   <div class="top">
    {{$vv:= index .indexData.BooksByType.Dongfangxuanhuan 0}}
 <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
-<dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+<dl><dt><a href="book_detail/{{ $vv.Id }}/1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Dongfangxuanhuan}}
-<li><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
+<li><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a>/{{$v.Author}}</li>
 {{ end }}
 </ul>
 </div>
@@ -145,11 +145,11 @@
   <div class="top">
    {{$vv:= index .indexData.BooksByType.Wangyoujingji 0}}
 <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
-<dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+<dl><dt><a href="book_detail/{{ $vv.Id }}/1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Wangyoujingji}}
-<li><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
+<li><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a>/{{$v.Author}}</li>
 {{ end }}
 </ul>
 </div>
@@ -159,11 +159,11 @@
   <div class="top">
    {{$vv:= index .indexData.BooksByType.Wuxiaxianxia 0}}
 <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
-<dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+<dl><dt><a href="book_detail/{{ $vv.Id }}/1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Wuxiaxianxia}}
-<li><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
+<li><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a>/{{$v.Author}}</li>
 {{ end }}
 </ul>
 </div>
@@ -178,11 +178,11 @@
     <div class="top">
      {{$vv:= index .indexData.BooksByType.Xiaoshuotongren 0}}
   <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
-  <dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+  <dl><dt><a href="book_detail/{{ $vv.Id }}/1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
   <div class="clear"></div></div>
   <ul>
   {{ range $v := .indexData.BooksByType.Xiaoshuotongren}}
-  <li><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
+  <li><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a>/{{$v.Author}}</li>
   {{ end }}
   </ul>
   </div>
@@ -192,11 +192,11 @@
     <div class="top">
      {{$vv:= index .indexData.BooksByType.Nushengpindao 0}}
   <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
-  <dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+  <dl><dt><a href="book_detail/{{ $vv.Id }}/1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
   <div class="clear"></div></div>
   <ul>
   {{ range $v := .indexData.BooksByType.Nushengpindao}}
-  <li><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
+  <li><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a>/{{$v.Author}}</li>
   {{ end }}
   </ul>
   </div>
@@ -206,11 +206,11 @@
     <div class="top">
      {{$vv:= index .indexData.BooksByType.Lishijunshi 0}}
   <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
-  <dl><dt><a href="book_detail/{{ $vv.Id }}">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+  <dl><dt><a href="book_detail/{{ $vv.Id }}/1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
   <div class="clear"></div></div>
   <ul>
   {{ range $v := .indexData.BooksByType.Lishijunshi}}
-  <li><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a>/{{$v.Author}}</li>
+  <li><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a>/{{$v.Author}}</li>
   {{ end }}
   </ul>
   </div>
@@ -226,7 +226,7 @@
 
   {{ range $v := .indexData.LastupdateBooks}}
 
-  <li><span class="s1">[{{$v.BookType.Text}}]</span><span class="s2"><a href="book_detail/{{$v.Id}}" target="_blank">{{$v.Name}}</a></span><span class="s3"><a href="{{$v.LatestChapter.Chapterid}}" target="_blank">{{$v.LatestChapter.Chaptername}}</a></span><span class="s4">{{$v.Author}}</span></li>
+  <li><span class="s1">[{{$v.BookType.Text}}]</span><span class="s2"><a href="book_detail/{{$v.Id}}/1" target="_blank">{{$v.Name}}</a></span><span class="s3"><a href="{{$v.LatestChapter.Chapterid}}" target="_blank">{{$v.LatestChapter.Chaptername}}</a></span><span class="s4">{{$v.Author}}</span></li>
   {{ end }}
  </ul>
 </div>
@@ -239,7 +239,7 @@
 
   {{ range $v := .indexData.LastupdateBooks}}
 
-  <li><span class="s2"><a href="book_detail/{{$v.Id}}">{{$v.Name}}</a></span><span class="s5">{{$v.Author}}</span></li>
+  <li><span class="s2"><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a></span><span class="s5">{{$v.Author}}</span></li>
   {{ end }}
 </ul>
 
@@ -250,13 +250,13 @@
     </div>
     
 <div id="firendlink">
-友情连接：<a href="https://www.xbiquge.la/" target="_blank">新笔趣阁</a>
-<a href="https://www.xbiquge.la/2/2210/" target="_blank">全职法师</a>
-<a href="https://www.xbiquge.la/1/1089/" target="_blank">妖魔战神</a>
-<a href="https://www.xbiquge.la/0/69/" target="_blank">帝霸</a>
+友情连接：<a href="##" target="_blank">新笔趣阁</a>
+<a href="##" target="_blank">全职法师</a>
+<a href="##" target="_blank">妖魔战神</a>
+<a href="##" target="_blank">帝霸</a>
 
-<a href="https://www.xbiquge.la/1/1064/" target="_blank">原始战记</a>
-<a href="https://www.xbiquge.la/3/3844/" target="_blank">御天神帝</a>
+<a href="##" target="_blank">原始战记</a>
+<a href="##" target="_blank">御天神帝</a>
 
 </a>
 <a href="http://www.hebaoge.com/" target="_blank"> 荷包网</a>

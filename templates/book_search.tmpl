@@ -30,7 +30,7 @@
                {{ end }}
             </ul>
         </div>
-<script type="text/javascript">top_bar();</script>
+<!-- <script type="text/javascript">top_bar();</script> -->
  
         <div id="main">
         <div id="content">
@@ -55,21 +55,9 @@ ul,li{margin:0;padding:0;}
     <th width="30%">作者</th>
     <th width="37%">更新</th>
   </tr>
-
-
-  <!-- <tr>
-    <td class="even"><a href="https://www.xbiquge.la/48/48157/" target="_blank">娘娘她总是不上进</a></td>
-    <td class="odd"><a href="/48/48157/24085974.html" target="_blank">第0761章 终结</a>
-    
-    </td>
-    <td class="even">雪中回眸</td>
-    <td class="odd" align="center">05-03    </td>
-  </tr> -->
-
   {{ range $v := .detail}}
   <tr>
-    <td class="even"><a href="/book_detail/{{$v.Id}}" target="_blank">{{$v.Name}}</a></td>
-    <!-- <td class="odd"><a href="/book_read/{{$v.Id}}/{{$v.LatestChapter.Chapterid}}" target="_blank">{{$v.LatestChapter.Chaptername}}</a></td> -->
+    <td class="even"><a href="/book_detail/{{$v.Id}}/1" target="_blank">{{$v.Name}}</a></td>
     <td class="even">{{$v.Author}}</td>
     <td class="odd" align="center">{{$v.Lastupdate}}</td>
   </tr>
@@ -78,20 +66,17 @@ ul,li{margin:0;padding:0;}
 
 
 </table>
-
 </div>
         </div>
-
         </div>
-
-        
-        <div class="dahengfu"><script type="text/javascript">bottom();</script></div>
+        <div class="dahengfu">
+        </div>
 <div class="footer">
             <div class="footer_link"></div>
             <div class="footer_cont">
-                <script>footer();right();dl();</script>
+                <script>footer();dl();</script>
             </div>
-        </div>    
+</div>    
 </body>
 <script charset="utf-8" src="//www.baidu.com/js/opensug.js"></script>
 </html>

@@ -48,7 +48,7 @@
 <div class="cover">
 <!-- <p class="line">[网游小说]<a href="/wapbook/86837.html" class="blue">特摄公寓</a>/但求及格</p> -->
 {{ range $v := .hotData}}
-<p class="line">[{{$vv.BookType.Text}}]<a href="/book_detail/{{$v.Id}}" class="blue">{{$v.Name}}</a>/{{$v.Author}}</p>
+<p class="line">[{{$vv.BookType.Text}}]<a href="/book_detail/{{$v.Id}}/1" class="blue">{{$v.Name}}</a>/{{$v.Author}}</p>
 {{ end }}
 </div>
 <div class="page">
@@ -60,8 +60,8 @@
 <div class="footer">
   <ul>
     <li><a href="/">首页</a></li>
-    <li><a href="https://www.xbiquge.la/">电脑版</a></li>
-    <li><a href="/wap/bookcase.php">书架</a></li>
+    <li><a href="#">电脑版</a></li>
+    <li><a href="#">书架</a></li>
   </ul>
 </div>
 <script>
@@ -75,7 +75,7 @@ function page(){
         return re.test(s)
     }
 }
-document.getElementById("s5").style.cssText = "background-color:#CCCCCC";
+// document.getElementById("s5").style.cssText = "background-color:#CCCCCC";
 </script>
 <script>tj();</script>
 </body>
