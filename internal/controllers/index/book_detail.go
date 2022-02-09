@@ -9,6 +9,7 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
+	"strings"
 
 	"xiaoshuo/internal/services/index"
 	"xiaoshuo/internal/services/raw_data"
@@ -23,44 +24,57 @@ type ChapterList struct {
 
 func BookInfo(ctx *gin.Context) {
 
-	data, _ := index.BookInfo(ctx)
+	pageType := ctx.Param("page")
 	menu := raw_data.GetMenus()
-	host := ctx.ClientIP() + ":9999"
-
-	chapterList := make([]ChapterList, 0)
-	for i := 0; i < data.TotalPage; i++ {
-		chapterList = append(chapterList, ChapterList{Page: strconv.Itoa(i + 1), Text: fmt.Sprintf("第%s章-第%s章", strconv.Itoa(1+i*30), strconv.Itoa(30+i*30))})
-	}
-	// fmt.Println(chapterList)
-	// os.Exit(1)
-	page := ctx.Param("page")
-	finalPage, _ := strconv.Atoi(page)
-	nextPage := strconv.Itoa(finalPage + 1)
-	prevPageTmp := finalPage - 1
-	prevPage := "1"
-	if prevPageTmp > 1 {
-		prevPage = strconv.Itoa(prevPageTmp)
-	}
-	if ctx.GetBool("isMobile") {
-		ctx.HTML(http.StatusOK, "m_book_detail.tmpl", gin.H{
-			"detail":      data,
-			"hostServer":  host,
-			"image":       Image,
-			"menu":        menu,
-			"chapterList": chapterList,
-			"nextPage":    nextPage,
-			"prevPage":    prevPage,
-		})
+	// page 页含有c 就是于都章节页面    含有r 是阅读页面
+	if strings.HasPrefix(pageType, "c_") {
+		data, _ := index.BookInfo(ctx)
+		chapterList := make([]ChapterList, 0)
+		for i := 0; i < data.TotalPage; i++ {
+			chapterList = append(chapterList, ChapterList{Page: strconv.Itoa(i + 1), Text: fmt.Sprintf("第%s-第%s条", strconv.Itoa(1+i*30), strconv.Itoa(30+i*30))})
+		}
+		page := strings.ReplaceAll(pageType, "c_", "")
+		finalPage, _ := strconv.Atoi(page)
+		nextPage := strconv.Itoa(finalPage + 1)
+		prevPageTmp := finalPage - 1
+		prevPage := "1"
+		if prevPageTmp > 1 {
+			prevPage = strconv.Itoa(prevPageTmp)
+		}
+		if ctx.GetBool("isMobile") {
+			ctx.HTML(http.StatusOK, "m_book_detail.tmpl", gin.H{
+				"detail":      data,
+				"image":       Image,
+				"menu":        menu,
+				"chapterList": chapterList,
+				"nextPage":    nextPage,
+				"prevPage":    prevPage,
+			})
+		} else {
+			ctx.HTML(http.StatusOK, "book_detail.tmpl", gin.H{
+				"detail":      data,
+				"image":       Image,
+				"menu":        menu,
+				"chapterList": chapterList,
+				"nextPage":    nextPage,
+				"prevPage":    prevPage,
+			})
+		}
 	} else {
-		ctx.HTML(http.StatusOK, "book_detail.tmpl", gin.H{
-			"detail":      data,
-			"hostServer":  host,
-			"image":       Image,
-			"menu":        menu,
-			"chapterList": chapterList,
-			"nextPage":    nextPage,
-			"prevPage":    prevPage,
-		})
+		data, _ := index.BookRead(ctx)
+		if ctx.GetBool("isMobile") {
+			ctx.HTML(http.StatusOK, "m_book_content.tmpl", gin.H{
+				"detail": data,
+				"image":  Image,
+				"menu":   menu,
+			})
+		} else {
+			ctx.HTML(http.StatusOK, "book_content.tmpl", gin.H{
+				"detail": data,
+				"image":  Image,
+				"menu":   menu,
+			})
+		}
 	}
 
 }

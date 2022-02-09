@@ -19,3 +19,10 @@ func BookSearch(ctx *gin.Context) (res []raw_data.BookInfo, err error) {
 	res = raw_data.GetBookSearch(keyWord, page)
 	return
 }
+
+func SearchAuthor(ctx *gin.Context) (res []raw_data.BookInfo, err error) {
+	keyWord := ctx.PostForm("author")
+	page := "1"
+	res = raw_data.GetSearchAuthor(keyWord, page)
+	return
+}

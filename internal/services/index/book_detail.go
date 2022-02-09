@@ -1,6 +1,7 @@
 package index
 
 import (
+	"strings"
 	"xiaoshuo/internal/services/raw_data"
 
 	"github.com/gin-gonic/gin"
@@ -8,7 +9,8 @@ import (
 
 func BookInfo(ctx *gin.Context) (res raw_data.BookChaptersData, err error) {
 	id := ctx.Param("id")
-	page := ctx.Param("page")
+	page := strings.ReplaceAll(ctx.Param("page"), "c_", "")
+
 	if page == "" {
 		page = "1"
 	}

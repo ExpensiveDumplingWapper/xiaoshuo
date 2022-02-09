@@ -5,7 +5,7 @@
     {{$image := .image}}
     {{$vv:= index .hotData 0}}
 <meta charset="utf-8" />
-<title>网游小说_白鹿书院</title>
+<title>网游小说_悠哉文学网</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <meta name="MobileOptimized" content="240"/>
@@ -32,7 +32,7 @@
         <li><a href="/top/">排行</a></li>
         <li><a href="/wap/bookcase.php">书架</a></li> -->
         {{ range $v := .menu}}
-        <li><a href="/book_type/{{$v.Path}}/1">{{$v.Text}}</a></li>
+        <li><a href="/{{$v.Path}}/1">{{$v.Text}}</a></li>
        {{ end }}
         <div class="cc"></div>
     </ul>
@@ -48,12 +48,12 @@
 <div class="cover">
 <!-- <p class="line">[网游小说]<a href="/wapbook/86837.html" class="blue">特摄公寓</a>/但求及格</p> -->
 {{ range $v := .hotData}}
-<p class="line">[{{$vv.BookType.Text}}]<a href="/book_detail/{{$v.Id}}/1" class="blue">{{$v.Name}}</a>/{{$v.Author}}</p>
+<p class="line">[{{$vv.BookType.Text}}]<a href="/book_detail/{{$v.Id}}/c_1" class="blue">{{$v.Name}}</a>/{{$v.Author}}</p>
 {{ end }}
 </div>
 <div class="page">
-    <a href="/book_type/category/{{$vv.BookType.Path}}/{{.prevPage}}">上一页</a>
-    <a href="/book_type/category/{{$vv.BookType.Path}}/{{.nextPage}}">下一页</a>
+    <a href="/category/{{$vv.BookType.Path}}/{{.prevPage}}">上一页</a>
+    <a href="/category/{{$vv.BookType.Path}}/{{.nextPage}}">下一页</a>
 <!-- <a href="/wapsort/5_346/">尾页</a> -->
 </div>
 <!-- <div class="page">输入页数<input id="pageinput" size="4" /><input type="button" value="跳转" onclick = "page()" /> <br/>(第1/346页)当前20条/页</div> -->

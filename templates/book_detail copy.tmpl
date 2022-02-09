@@ -6,9 +6,9 @@
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{{.detail.BookInfo.Name}}_白鹿学院</title>
+<title>{{.detail.BookInfo.Name}}_悠哉文学网</title>
 <meta name="keywords" content="{{.detail.BookInfo.Name}}最新章节" />
-<meta name="description" content="如果您喜欢小说{{.detail.BookInfo.Name}}最新章节目录加入收藏方便您下次阅读,白鹿学院将在第一时间更新小说这个明星很想退休，发现没及时更新，请告知我们,谢谢!" />
+<meta name="description" content="如果您喜欢小说{{.detail.BookInfo.Name}}最新章节目录加入收藏方便您下次阅读,悠哉文学网将在第一时间更新小说这个明星很想退休，发现没及时更新，请告知我们,谢谢!" />
 <link rel="stylesheet" type="text/css" href="/static/css/biquge.css"/>
 <script type="text/javascript" src="//libs.baidu.com/jquery/1.4.2/jquery.min.js"></script>
 <!-- <script src="/js/pc_pf.js"></script> -->
@@ -22,14 +22,14 @@
 <meta property="og:novel:category" content="{{.detail.BookInfo.BookType.Text}}"/>
 <meta property="og:novel:author" content="{{.detail.BookInfo.Author}}"/>
 <meta property="og:novel:book_name" content="{{.detail.BookInfo.Name}}"/>
-<meta property="og:novel:read_url" content="/book_detail/{{.detail.BookInfo.Id}}/1"/>
+<meta property="og:novel:read_url" content="/book_detail/{{.detail.BookInfo.Id}}/c_1"/>
 </head>
 <body>
     <div id="wrapper">
         <!-- <script>login();</script> -->
         <div class="header">
             <div class="header_logo">
-                <a href="#">白鹿学院</a>
+                <a href="#">悠哉文学网</a>
             </div>
             <script>bqg_panel();</script>
         </div>
@@ -37,7 +37,7 @@
             <ul>
                 <li><a href="/">首页</a></li>
                 {{ range $v := .menu}}
-                <li><a href="/book_type/{{$v.Path}}/1">{{$v.Text}}</a></li>
+                <li><a href="/{{$v.Path}}/1">{{$v.Text}}</a></li>
                {{ end }}
             </ul>
         </div>
@@ -45,7 +45,7 @@
         <div class="box_con">
             <div class="con_top">
                 <div id="bdshare" class="bdshare_b" style="line-height: 12px;"><img src="" /><a class="shareCount"></a></div>
-                <a href="/">白鹿学院</a> &gt; <a href="{{.detail.BookInfo.BookType.Path}}">{{.detail.BookInfo.BookType.Text}}</a>  &gt; {{.detail.BookInfo.Name}}最新章节目录
+                <a href="/">悠哉文学网</a> &gt; <a href="{{.detail.BookInfo.BookType.Path}}">{{.detail.BookInfo.BookType.Text}}</a>  &gt; {{.detail.BookInfo.Name}}最新章节目录
             </div>
             <div id="maininfo">
                 <div id="info">
@@ -53,7 +53,7 @@
                     <p>作&nbsp;&nbsp;&nbsp;&nbsp;者：{{.detail.BookInfo.Author}}</p>
                     <!-- <p>动&nbsp;&nbsp;&nbsp;&nbsp;作：<a href="javascript:;" onClick="showpop_addcase(84522);">加入书架</a>,  <a href="javascript:;" onClick="showpop_vote(84522);">投推荐票</a>,  <a href="#footer">直达底部</a></p> -->
                     <p>最后更新：{{.detail.BookInfo.Lastupdate}}</p>
-                    <p>最新章节：<a href="/book_read/{{.detail.BookInfo.Id}}/{{.detail.BookInfo.LatestChapter.Chapterid}}">{{.detail.BookInfo.LatestChapter.Chaptername}}</a></p>
+                    <p>最新章节：<a href="/book_detail/{{.detail.BookInfo.Id}}/r_{{.detail.BookInfo.LatestChapter.Chapterid}}">{{.detail.BookInfo.LatestChapter.Chaptername}}</a></p>
                 </div>
                 <div id="intro">
                                         <p><font style="color:#0066FF"><a href='##' target='_blank'>手机阅读《这个明星很想退休》无弹窗纯文字全文免费阅读</a></font>
@@ -69,7 +69,7 @@
             </div> 
             <div id="listtj">&nbsp;推荐阅读：
                 {{ range $v := .detail.Recommend}}
-                <a href="/book_detail/{{$v.Id}}/1" target="_blank">{{$v.Name}}</a>、
+                <a href="/book_detail/{{$v.Id}}/c_1" target="_blank">{{$v.Name}}</a>、
                 {{ end }}
             </div>
         </div>
@@ -85,7 +85,7 @@
                 <dl>  
                     {{ range $v := .detail.Chapters}}
                     <!-- <a href="{{ $bookID }}/{{$v.Chapterid}}" target="_blank">{{$v.Chaptername}}</a>、 -->
-                    <dd><a href='/book_read/{{ $bookID }}/{{$v.Chapterid}}' >{{$v.Chaptername}}</a></dd>
+                    <dd><a href='/book_detail/{{ $bookID }}/r_{{$v.Chapterid}}' >{{$v.Chaptername}}</a></dd>
                     {{ end }}
                 <!-- <dd><a href='/84/84522/32754540.html' >第一章 蝴蝶</a></dd> -->
                 </dl>
@@ -100,11 +100,11 @@
             <div class="footer_link">&nbsp;新书推荐：
                 {{ range $v := .detail.Recommend}}
                 <!-- <a href="book_detail/{{$v.Id}}" target="_blank">{{$v.Name}}</a>、 -->
-                <a href="/book_detail/{{$v.Id}}/1" target="_blank">{{$v.Name}}</a>、
+                <a href="/book_detail/{{$v.Id}}/c_1" target="_blank">{{$v.Name}}</a>、
                 {{ end }}
             </div>
             <div class="footer_cont">
-                <p>《{{.detail.BookInfo.Name}}》情节跌宕起伏、扣人心弦，是一本情节与文笔俱佳的{{.detail.BookInfo.BookType.Text}}小说，白鹿学院转载收集{{.detail.BookInfo.Name}}最新章节。</p>
+                <p>《{{.detail.BookInfo.Name}}》情节跌宕起伏、扣人心弦，是一本情节与文笔俱佳的{{.detail.BookInfo.BookType.Text}}小说，悠哉文学网转载收集{{.detail.BookInfo.Name}}最新章节。</p>
                 <!-- <script>footer();right();dl();</script> -->
             </div>
         </div>

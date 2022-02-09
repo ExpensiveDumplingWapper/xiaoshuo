@@ -6,14 +6,15 @@
 package index
 
 import (
+	"strings"
 	"xiaoshuo/internal/services/raw_data"
 
 	"github.com/gin-gonic/gin"
 )
 
 func BookRead(ctx *gin.Context) (res raw_data.BookContentData, err error) {
-	bookId := ctx.Param("bookid")
-	chapterId := ctx.Param("chapterid")
+	bookId := ctx.Param("id")
+	chapterId := strings.ReplaceAll(ctx.Param("page"), "r_", "")
 	res = raw_data.GetBookeRead(bookId, chapterId)
 
 	return

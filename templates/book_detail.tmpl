@@ -7,9 +7,9 @@
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{{.detail.BookInfo.Name}}_白鹿学院</title>
+<title>{{.detail.BookInfo.Name}}_悠哉文学网</title>
 <meta name="keywords" content="{{.detail.BookInfo.Name}}最新章节" />
-<meta name="description" content="如果您喜欢小说{{.detail.BookInfo.Name}}最新章节目录加入收藏方便您下次阅读,白鹿学院将在第一时间更新小说这个明星很想退休，发现没及时更新，请告知我们,谢谢!" />
+<meta name="description" content="如果您喜欢小说{{.detail.BookInfo.Name}}最新章节目录加入收藏方便您下次阅读,悠哉文学网将在第一时间更新小说这个明星很想退休，发现没及时更新，请告知我们,谢谢!" />
 <link rel="stylesheet" type="text/css" href="/static/css/biquge.css"/>
 <!-- <link rel="stylesheet" type="text/css" href="/static/css/style.css"/> -->
 <script type="text/javascript" src="//libs.baidu.com/jquery/1.4.2/jquery.min.js"></script>
@@ -24,14 +24,14 @@
 <meta property="og:novel:category" content="{{.detail.BookInfo.BookType.Text}}"/>
 <meta property="og:novel:author" content="{{.detail.BookInfo.Author}}"/>
 <meta property="og:novel:book_name" content="{{.detail.BookInfo.Name}}"/>
-<meta property="og:novel:read_url" content="/book_detail/{{.detail.BookInfo.Id}}/1"/>
+<meta property="og:novel:read_url" content="/book_detail/{{.detail.BookInfo.Id}}/c_1"/>
 </head>
 <body>
     <div id="wrapper">
         <!-- <script>login();</script> -->
         <div class="header">
             <div class="header_logo">
-                <a href="/">白鹿学院</a>
+                <a href="/">悠哉文学网</a>
             </div>
             <script>bqg_panel();</script>
         </div>
@@ -39,7 +39,7 @@
             <ul>
                 <li><a href="/">首页</a></li>
                 {{ range $v := .menu}}
-                <li><a href="/book_type/{{$v.Path}}/1">{{$v.Text}}</a></li>
+                <li><a href="/{{$v.Path}}/1">{{$v.Text}}</a></li>
                {{ end }}
             </ul>
         </div>
@@ -47,15 +47,15 @@
         <div class="box_con">
             <div class="con_top">
                 <div id="bdshare" class="bdshare_b" style="line-height: 12px;"><img src="" /><a class="shareCount"></a></div>
-                <a href="/">白鹿学院</a> &gt; <a href="{{.detail.BookInfo.BookType.Path}}">{{.detail.BookInfo.BookType.Text}}</a>  &gt; {{.detail.BookInfo.Name}}最新章节目录
+                <a href="/">悠哉文学网</a> &gt; <a href=" /category/{{.detail.BookInfo.BookType.Path}}/1">{{.detail.BookInfo.BookType.Text}}</a>  &gt; {{.detail.BookInfo.Name}}最新章节目录
             </div>
-            <div id="maininfo">
+            <div id="maininfo">   
                 <div id="info">
                     <h1>{{.detail.BookInfo.Name}}</h1>
-                    <p>作&nbsp;&nbsp;&nbsp;&nbsp;者：{{.detail.BookInfo.Author}}</p>
-                    <!-- <p>动&nbsp;&nbsp;&nbsp;&nbsp;作：<a href="javascript:;" onClick="showpop_addcase(84522);">加入书架</a>,  <a href="javascript:;" onClick="showpop_vote(84522);">投推荐票</a>,  <a href="#footer">直达底部</a></p> -->
+                    <!-- <p>作&nbsp;&nbsp;&nbsp;&nbsp;者：<a href="/search_author/{{.detail.BookInfo.Author}}">{{.detail.BookInfo.Author}} </a></p> -->
+                    <p>作&nbsp;&nbsp;&nbsp;&nbsp;者：<a  onclick="search_author()">{{.detail.BookInfo.Author}} </a></p>
                     <p>最后更新：{{.detail.BookInfo.Lastupdate}}</p>
-                    <p>最新章节：<a href="/book_read/{{.detail.BookInfo.Id}}/{{.detail.BookInfo.LatestChapter.Chapterid}}">{{.detail.BookInfo.LatestChapter.Chaptername}}</a></p>
+                    <p>最新章节：<a href="/book_detail/{{.detail.BookInfo.Id}}/r_{{.detail.BookInfo.LatestChapter.Chapterid}}">{{.detail.BookInfo.LatestChapter.Chaptername}}</a></p>
                 </div>
                 <div id="intro">
                                         <p><font style="color:#0066FF"><a href='##' target='_blank'>手机阅读《{{.detail.BookInfo.Name}}》无弹窗纯文字全文免费阅读</a></font>
@@ -84,26 +84,23 @@
             <div id="list">
                 <dl>  
                     {{ range $v := .detail.Chapters}}
-                    <dd><a href='/book_read/{{ $bookID }}/{{$v.Chapterid}}' >{{$v.Chaptername}}</a></dd>
+                    <dd><a href='/book_detail/{{ $bookID }}/r_{{$v.Chapterid}}' >{{$v.Chaptername}}</a></dd>
                     {{ end }}
                 </dl>
             </div>
             <div class="listpage">
-                <span class="left"><a href="/book_detail/{{.detail.BookInfo.Id}}/{{.prevPage}}" class="onclick">上一页</a></span>
+                <span class="left"><a href="/book_detail/{{.detail.BookInfo.Id}}/c_{{.prevPage}}" class="onclick">上一页</a></span>
                 <span class="middle">
                 <select name="pageselect" onchange="self.location.href=options[selectedIndex].value">
                    
                     {{ range $v := .chapterList}}
-                    <option value="/book_detail/{{$bookId}}/{{$v.Page}}" >{{$v.Text}}</option>
+                    <option value="/book_detail/{{$bookId}}/c_{{$v.Page}}" >{{$v.Text}}</option>
                    {{ end }}
                 </select>
             </span>
-            <span class="right"><a href="/book_detail/{{.detail.BookInfo.Id}}/{{.nextPage}}" class="onclick">下一页</a></span>
+            <span class="right"><a href="/book_detail/{{.detail.BookInfo.Id}}/c_{{.nextPage}}" class="onclick">下一页</a></span>
             
             </div>
-
-
-
         </div>
         
         <div class="dahengfu">
@@ -114,11 +111,30 @@
             <div class="footer_link">&nbsp;新书推荐：
             </div>
             <div class="footer_cont">
-                <p>《{{.detail.BookInfo.Name}}》情节跌宕起伏、扣人心弦，是一本情节与文笔俱佳的{{.detail.BookInfo.BookType.Text}}小说，白鹿学院转载收集{{.detail.BookInfo.Name}}最新章节。</p>
+                <p>《{{.detail.BookInfo.Name}}》情节跌宕起伏、扣人心弦，是一本情节与文笔俱佳的{{.detail.BookInfo.BookType.Text}}小说，悠哉文学网转载收集{{.detail.BookInfo.Name}}最新章节。</p>
                 <!-- <script>footer();right();dl();</script> -->
             </div>
         </div>
+
+
+        <form action="/search_author" method="post" id="test_form">
+            <input type="hidden" name="author" value="{{.detail.BookInfo.Author}}" />
+            <!-- <button type="button" onclick='doSubmitForm()'>提交<button/> -->
+        </form>
+        
+        
         <script>
+            function search_author(){
+                var form = document.getElementById('test_form');
+                 //再次修改input内容
+                 form.submit();
+            }
+        </script>
+
+
+
+
+ <script>
     (function(){
         var bp = document.createElement('script');
         bp.src = '//push.zhanzhang.baidu.com/push.js';

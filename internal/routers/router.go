@@ -53,9 +53,10 @@ func InitRouter() *gin.Engine {
 	router.GET("/hello", hellos)
 	router.GET("/favicon.ico", hello)
 	router.GET("/book_detail/:id/:page", index.BookInfo)
-	router.GET("/book_read/:bookid/:chapterid", index.BookRead)
-	router.GET("/book_type/category/:booktype/:paga", index.BookType)
+	// router.GET("/book_read/:bookid/:chapterid", index.BookRead)
+	router.GET("/category/:booktype/:paga", index.BookType)
 	router.POST("/book_search", index.BookSearch)
+	router.POST("/search_author", index.SearchAuthor)
 
 	// router.Use(middlewares.Log())
 	// 开启 Recover

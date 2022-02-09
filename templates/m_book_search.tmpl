@@ -4,7 +4,7 @@
 <head>
     {{$image := .image}}
 <meta charset="utf-8"/>
-<title>搜索小说"{{.keyWord}}"_白鹿书院</title>
+<title>搜索小说"{{.keyWord}}"_悠哉文学网</title>
 <meta name="keywords" content="{{.keyWord}}" />
 <meta name="description" content="" />
 <meta name="MobileOptimized" content="240"/>
@@ -24,7 +24,7 @@
 <div class="nav">
     <ul>
         {{ range $v := .menu}}
-        <li><a href="/book_type/{{$v.Path}}/1">{{$v.Text}}</a></li>
+        <li><a href="/{{$v.Path}}/1">{{$v.Text}}</a></li>
        {{ end }}
         <div class="cc"></div>
     </ul>
@@ -47,12 +47,12 @@
 
 {{ range $v := .detail}}
 <div class="block">
-    <div class="block_img"><a href="/book_detail/{{$v.Id}}/1"><img height=100 width=80 src='{{ $image }}/{{$v.Cover}}'   /></a></div>
+    <div class="block_img"><a href="/book_detail/{{$v.Id}}/c_1"><img height=100 width=80 src='{{ $image }}/{{$v.Cover}}'   /></a></div>
     <div class="block_txt">
-    <p><a href="/book_detail/{{$v.Id}}/1"><h2>{{$v.Name}}</h2></a></p>
+    <p><a href="/book_detail/{{$v.Id}}/c_1"><h2>{{$v.Name}}</h2></a></p>
     <p>分类：{{$v.BookType.Text}}</p>
     <p>作者：{{$v.Author}}</p>
-    <!-- <p>最新章节：<a href="/book_read/{{$v.Id}}/{{$v.LatestChapter.Chapterid}}">{{$v.LatestChapter.Chaptername}}</a></p> -->
+    <!-- <p>最新章节：<a href="/book_detail/{{$v.Id}}/r_{{$v.LatestChapter.Chapterid}}">{{$v.LatestChapter.Chaptername}}</a></p> -->
     </div>
     <div style="clear:both"></div>
     </div>   

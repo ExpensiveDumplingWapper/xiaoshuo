@@ -1,8 +1,3 @@
-/*
- * @Descripttion: 我见青山多妩媚
- * @Date: 2022-01-04 13:56:27
- * @LastEditTime: 2022-01-11 19:32:41
- */
 package raw_data
 
 import (
@@ -116,16 +111,15 @@ type ChapterList struct {
 	Chaptername string `json:"chaptername"`
 }
 
+const host = "http://180.76.238.148:9093"
+
 //首页数据
 func GetindexData() (res IndexData) {
-	url := "http://180.76.238.148:9093/indexData"
+	url := host + "/indexData"
 	client := &http.Client{
 		// Timeout:   readTimeout,
 	}
-	// bytesData, _ := json.Marshal(data)
-	// req, _ := http.NewRequest("POST", url, bytes.NewReader(bytesData))
-	// req.Header.Add("Content-Type", "application/json")
-	// resp, err := client.Do(req)
+
 	resp, err := client.Get(url)
 	if err != nil {
 		fmt.Println(err.Error())
@@ -149,8 +143,7 @@ func GetindexData() (res IndexData) {
 
 // 小说详情页
 func GetBookeInfo(id, page string) (res BookChaptersData) {
-	// url := "http://180.76.238.148:9093/getBookInfoV2?bookId="
-	url := "http://180.76.238.148:9093/getChapters?bookId=" + id + "&page=" + page + "&size=30"
+	url := host + "/getChapters?bookId=" + id + "&page=" + page + "&size=30"
 	client := &http.Client{
 		// Timeout:   readTimeout,
 	}
@@ -178,8 +171,7 @@ func GetBookeInfo(id, page string) (res BookChaptersData) {
 
 // 小说内容返回
 func GetBookeRead(bookId, chapterId string) (res BookContentData) {
-	// url := "http://180.76.238.148:9093/getChapterDetail?bookId=480589&chapterId=2455467"
-	url := "http://180.76.238.148:9093/getChapterDetail?bookId="
+	url := host + "/getChapterDetail?bookId="
 	client := &http.Client{
 		// Timeout:   readTimeout,
 	}
@@ -207,8 +199,7 @@ func GetBookeRead(bookId, chapterId string) (res BookContentData) {
 
 // 小说类型分页
 func GetBookeType(bookType, page string) (res []BookInfo) {
-	// url := "http://180.76.238.148:9093/getBooks?type=xuanhuanqihuan&size=10&page=1"
-	url := "http://180.76.238.148:9093/getBooks?type=" + bookType + "&size=25&page=" + page
+	url := host + "/getBooks?type=" + bookType + "&size=25&page=" + page
 	client := &http.Client{
 		// Timeout:   readTimeout,
 	}
@@ -236,8 +227,7 @@ func GetBookeType(bookType, page string) (res []BookInfo) {
 
 // 小说类型 热门小说返回
 func GetBookeTypeHot(bookType string) (res []BookInfo) {
-	// url := "http://180.76.238.148:9093/getTopBooksByType?type=xuanhuanqihuan"
-	url := "http://180.76.238.148:9093/getTopBooksByType?type=" + bookType
+	url := host + "/getTopBooksByType?type=" + bookType
 	client := &http.Client{
 		// Timeout:   readTimeout,
 	}
@@ -264,14 +254,20 @@ func GetBookeTypeHot(bookType string) (res []BookInfo) {
 
 // 小说查询 作者和书名 然后合并返回
 func GetBookSearch(keyWord, page string) (res []BookInfo) {
-	// url := "http://180.76.238.148:9093/search?name=烽火&page=1&size=10"
-	// url := "http://180.76.238.148:9093/search?author=烽火&page=1&size=10"
-	urlAuthor := "http://180.76.238.148:9093/search?size=30&author=" + keyWord + "&page=" + page
-	urlName := "http://180.76.238.148:9093/search?size=30&name=" + keyWord + "&page=" + page
+	urlAuthor := host + "/search?size=30&author=" + keyWord + "&page=" + page
+	urlName := host + "/search?size=30&name=" + keyWord + "&page=" + page
 
 	urlAuthorData := GetBookSearchData(urlAuthor)
 	urlurlName := GetBookSearchData(urlName)
 	res = append(res, urlurlName...)
+	res = append(res, urlAuthorData...)
+	return
+}
+
+// 小说查询 作者
+func GetSearchAuthor(keyWord, page string) (res []BookInfo) {
+	urlAuthor := host + "/search?size=30&author=" + keyWord + "&page=" + page
+	urlAuthorData := GetBookSearchData(urlAuthor)
 	res = append(res, urlAuthorData...)
 	return
 }

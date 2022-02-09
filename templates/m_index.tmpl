@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<title>【白鹿书院】_白鹿书院小说网_白鹿书院小说阅读网_新白鹿书院</title>
-<meta name="keywords" content="小说在线阅读,白鹿书院小说阅读网，新白鹿书院无弹窗小说阅读网" />
-<meta name="description" content="白鹿书院是广大书友最值得收藏的网络小说阅读网，新白鹿书院收录了当前最火热的网络小说，新白鹿书院免费提供高质量的小说最新章节，新白鹿书院是广大网络小说爱好者必备的小说阅读网。" />
+<title>【悠哉文学网】_悠哉文学网小说网_悠哉文学网小说阅读网_新悠哉文学网</title>
+<meta name="keywords" content="小说在线阅读,悠哉文学网小说阅读网，新悠哉文学网无弹窗小说阅读网" />
+<meta name="description" content="悠哉文学网是广大书友最值得收藏的网络小说阅读网，新悠哉文学网收录了当前最火热的网络小说，新悠哉文学网免费提供高质量的小说最新章节，新悠哉文学网是广大网络小说爱好者必备的小说阅读网。" />
 <meta name="MobileOptimized" content="240"/>
 <meta name="applicable-device" content="mobile"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
@@ -18,12 +18,12 @@
 </head>
 <body>
 <div class="header">
-    <div class="logo"><a href="/">新白鹿书院</a></div>
+    <div class="logo"><a href="/">新悠哉文学网</a></div>
 </div>
 <div class="nav">
     <ul>
         {{ range $v := .menu}}
-                <li><a href="/book_type/{{$v.Path}}/1">{{$v.Text}}</a></li>
+                <li><a href="/{{$v.Path}}/1">{{$v.Text}}</a></li>
         {{ end }}
         <div class="cc"></div>
     </ul>
@@ -33,20 +33,20 @@
 {{ range $v := .indexData}}
 {{$first := index $v 0}}
 <div class="article">
-    <h2 class="title"><span><a href="/book_type/{{$first.BookType.Path}}/1">{{$first.BookType.Text}}</a></span>
+    <h2 class="title"><span><a href="/{{$first.BookType.Path}}/1">{{$first.BookType.Text}}</a></span>
     </h2>
 
     <div class="block">
-        <div class="block_img"><a href="/book_detail/{{$first.Id}}/1"><img height=100 width=80 src="{{ $image }}/{{$first.Cover}}"    /></a></div>
+        <div class="block_img"><a href="/book_detail/{{$first.Id}}/c_1"><img height=100 width=80 src="{{ $image }}/{{$first.Cover}}"    /></a></div>
         <div class="block_txt">
-            <p><a href="/book_detail/{{$first.Id}}/1"><h2>{{$first.Name}}</h2></a></p>
+            <p><a href="/book_detail/{{$first.Id}}/c_1"><h2>{{$first.Name}}</h2></a></p>
             <p>作者：{{$first.Author}}</p>
-            <p><a href="/book_detail/{{$first.Id}}/1">  {{$first.Desc}} </a></p>
+            <p><a href="/book_detail/{{$first.Id}}/c_1">  {{$first.Desc}} </a></p>
         </div>
         <div style="clear:both"></div>
         <ul>
             {{ range $vv := $v}}
-            <li><a href="/book_detail/{{$vv.Id}}/1" class="blue">{{$vv.Name}}</a>/{{$vv.Author}}</li>
+            <li><a href="/book_detail/{{$vv.Id}}/c_1" class="blue">{{$vv.Name}}</a>/{{$vv.Author}}</li>
            {{ end }}
         </ul>
     </div>

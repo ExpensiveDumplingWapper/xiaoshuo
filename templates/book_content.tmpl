@@ -5,9 +5,9 @@
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{{.detail.BookInfo.Name}}_正文卷 {{.detail.Chaptername}}_{{.detail.BookInfo.BookType.Text}}_白鹿书院</title>
+<title>{{.detail.BookInfo.Name}}_正文卷 {{.detail.Chaptername}}_{{.detail.BookInfo.BookType.Text}}_悠哉文学网</title>
 <meta name="keywords" content="{{.detail.BookInfo.Name}} {{.detail.Chaptername}}" />
-<meta name="description" content="白鹿书院提供了{{.detail.BookInfo.Author}}创作的{{.detail.BookInfo.BookType.Text}}《{{.detail.BookInfo.Name}}》干净清爽无错字的文字章节：正文卷 {{.detail.Chaptername}}在线阅读。" />
+<meta name="description" content="悠哉文学网提供了{{.detail.BookInfo.Author}}创作的{{.detail.BookInfo.BookType.Text}}《{{.detail.BookInfo.Name}}》干净清爽无错字的文字章节：正文卷 {{.detail.Chaptername}}在线阅读。" />
 <link rel="stylesheet" type="text/css" href="/static/css/biquge.css"/>
 <script type="text/javascript" src="//libs.baidu.com/jquery/1.4.2/jquery.min.js"></script>
 <!-- <script src="/js/pc_pf.js"></script> -->
@@ -37,7 +37,7 @@
         <!-- <script>login();</script> -->
         <div class="header">
             <div class="header_logo">
-                <a href="#">白鹿书院</a>
+                <a href="#">悠哉文学网</a>
             </div>
             <script>bqg_panel();</script>
         </div>
@@ -46,7 +46,7 @@
                 <li><a href="/">首页</a></li>
                 {{ range $v := .menu}}
                 <!-- <li><a href="{{$v.Path}}">{{$v.Text}}</a></li> -->
-                <li><a href="/book_type/{{$v.Path}}/1">{{$v.Text}}</a></li>
+                <li><a href="/{{$v.Path}}/1">{{$v.Text}}</a></li>
                {{ end }}
             </ul>
         </div>
@@ -55,15 +55,15 @@
             <div class="box_con">
                 <div class="con_top">
                     <script>textselect();</script>
-                    <a href="/">白鹿书院</a> &gt; <a href="{{.detail.BookInfo.BookType.Path}}">{{.detail.BookInfo.BookType.Text}}</a> &gt; <a href="/book_detail/{{.detail.BookInfo.Id}}">{{.detail.BookInfo.Name}}</a> &gt; 正文卷 {{.detail.Chaptername}}</div>
+                    <a href="/">悠哉文学网</a> &gt; <a href="/category/{{.detail.BookInfo.BookType.Path}}/1">{{.detail.BookInfo.BookType.Text}}</a> &gt; <a href="/book_detail/{{.detail.BookInfo.Id}}/c_1">{{.detail.BookInfo.Name}}</a> &gt; 正文卷 {{.detail.Chaptername}}</div>
                 <div class="bookname">
                     <h1>正文卷 {{.detail.Chaptername}}</h1>
                     <div class="bottem1">
                         <a href="javascript:;" onclick="showpop_vote(84522);">投推荐票</a> 
-                        <a href="/book_read/{{.detail.BookInfo.Id }}/{{.detail.Prev}}">上一章</a> &larr; 
-                        <a href="/book_detail/{{.detail.BookInfo.Id}}/1">章节目录</a> &rarr;
-                         <a href="/book_read/{{.detail.BookInfo.Id }}/{{.detail.Next}}">下一章</a> 
-                        <a href="javascript:;" onclick="showpop_addmark(84522,32754540);">加入书签</a>
+                        <a href="/book_detail/{{.detail.BookInfo.Id }}/r_{{.detail.Prev}}">上一章</a> &larr; 
+                        <a href="/book_detail/{{.detail.BookInfo.Id}}/c_1">章节目录</a> &rarr;
+                         <a href="/book_detail/{{.detail.BookInfo.Id }}/r_{{.detail.Next}}">下一章</a> 
+                        <!-- <a href="javascript:;" onclick="showpop_addmark(84522,32754540);">加入书签</a> -->
                     </div>
                                         <!-- <div id="listtj">&nbsp;推荐阅读：<a href="/9/9785/" target="_blank">剑卒过河</a>、<a href="/0/10/" target="_blank">武炼巅峰</a>、<a href="/26/26874/" target="_blank">沧元图</a>、<a href="/32/32626/" target="_blank">叶辰孙怡夏若雪</a>、<a href="/15/15409/" target="_blank">牧神记</a>、<a href="/0/951/" target="_blank">伏天氏</a>、<a href="/13/13959/" target="_blank">圣墟</a>、<a href="/2/2029/" target="_blank">极品透视</a>、<a href="/26/26511/" target="_blank">剑徒之路</a>、<a href="/1/1988/" target="_blank">龙城</a>、<a href="/30/30581/" target="_blank">顶级神豪</a>、<a href="/7/7552/" target="_blank">万古神帝</a>、<a href="/2/2210/" target="_blank">全职法师</a>、<a href="/31/31566/" target="_blank">数风流人物</a>、<a href="/0/656/" target="_blank">莽荒纪</a></div> -->
                 </div>
@@ -74,13 +74,13 @@
                     </tr></table>
                 <div id="content">
                     {{.detail.Chaptercontent}}
-<p><a href="#" target="_blank">亲,点击进去,给个好评呗,分数越高更新越快,据说给白鹿书院打满分的最后都找到了漂亮的老婆哦!</a>
+<p><a href="#" target="_blank">亲,点击进去,给个好评呗,分数越高更新越快,据说给悠哉文学网打满分的最后都找到了漂亮的老婆哦!</a>
 </p></div>
                 <script>read3();</script><script>bdshare();</script>
                 <div class="bottem2">
-                     <a href="/book_read/{{.detail.BookInfo.Id }}/{{.detail.Prev}}">上一章</a> &larr; 
-                     <a href="/book_detail/{{.detail.BookInfo.Id}}/1">章节目录</a> &rarr;
-                      <a href="/book_read/{{.detail.BookInfo.Id }}/{{.detail.Next}}">下一章</a> 
+                     <a href="/book_detail/{{.detail.BookInfo.Id }}/r_{{.detail.Prev}}">上一章</a> &larr; 
+                     <a href="/book_detail/{{.detail.BookInfo.Id}}/c_1">章节目录</a> &rarr;
+                      <a href="/book_detail/{{.detail.BookInfo.Id }}/r_{{.detail.Next}}">下一章</a> 
                      <!-- <a href="javascript:;" onclick="showpop_addmark(84522,32754540);">加入书签</a> -->
                 </div>
                 <script>read4();</script>

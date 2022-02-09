@@ -3,9 +3,9 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title> {{.detail.Chaptername}}_白鹿书院</title>
+<title> {{.detail.Chaptername}}_悠哉文学网</title>
 <meta name="keywords" content="{{.detail.Chaptername}}" />
-<meta name="description" content="白鹿书院提供了{{.detail.BookInfo.Author}}创作的{{.detail.BookInfo.BookType.Text}}《{{.detail.BookInfo.Name}}》干净清爽无错字的文字章节： {{.detail.Chaptername}}。" />
+<meta name="description" content="悠哉文学网提供了{{.detail.BookInfo.Author}}创作的{{.detail.BookInfo.BookType.Text}}《{{.detail.BookInfo.Name}}》干净清爽无错字的文字章节： {{.detail.Chaptername}}。" />
 <meta name="MobileOptimized" content="240"/>
 <meta name="applicable-device" content="mobile"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
@@ -35,9 +35,9 @@
     <div class="nr_page">
        <table cellpadding="0" cellspacing="0">
             <tr>
-              <td class="prev"><a id="pt_prev" href="/book_read/{{.detail.BookInfo.Id }}/{{.detail.Prev}}">上一章</a></td>
-        <td class="mulu"><a id="pt_mulu" href="/book_detail/{{.detail.BookInfo.Id}}/1">回目录</a></td>
-              <td class="next"><a id="pt_next" href="/book_read/{{.detail.BookInfo.Id }}/{{.detail.Next}}">下一页</a></td>
+              <td class="prev"><a id="pt_prev" href="/book_detail/{{.detail.BookInfo.Id }}/r_{{.detail.Prev}}">上一章</a></td>
+        <td class="mulu"><a id="pt_mulu" href="/book_detail/{{.detail.BookInfo.Id}}/c_1">回目录</a></td>
+              <td class="next"><a id="pt_next" href="/book_detail/{{.detail.BookInfo.Id }}/r_{{.detail.Next}}">下一章</a></td>
         <!-- <td class="mulu"><a id="pt_shouye" href="/wap/bookcase.php">进书架</a></td> -->
             </tr>
         </table>
@@ -54,9 +54,9 @@
    <div class="nr_page">
        <table cellpadding="0" cellspacing="0">
              <tr>
-              <td class="prev"><a id="pb_prev" href="/book_read/{{.detail.BookInfo.Id }}/{{.detail.Prev}}">上一章</a></td>
-              <td class="mulu"><a id="pb_mulu" href="/book_detail/{{.detail.BookInfo.Id}}/1">回目录</a></td>
-              <td class="next"><a id="pb_next" href="/book_read/{{.detail.BookInfo.Id }}/{{.detail.Next}}">下一章</a></td>
+              <td class="prev"><a id="pb_prev" href="/book_detail/{{.detail.BookInfo.Id }}/r_{{.detail.Prev}}">上一章</a></td>
+              <td class="mulu"><a id="pb_mulu" href="/book_detail/{{.detail.BookInfo.Id}}/c_1">回目录</a></td>
+              <td class="next"><a id="pb_next" href="/book_detail/{{.detail.BookInfo.Id }}/r_{{.detail.Next}}">下一章</a></td>
               <!-- <td class="mulu"><a id='pb_shouye' href="Javascript:void(0);" onclick="javascript:putbookmark(2449,1567942);"><font>存书签</font></a></td> -->
             </tr>
         </table>

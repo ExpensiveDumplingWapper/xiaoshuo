@@ -6,9 +6,9 @@
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>白鹿书院</title>
-<meta name="keywords" content="白鹿书院" />
-<meta name="description" content="白鹿书院" />
+<title>悠哉文学网</title>
+<meta name="keywords" content="悠哉文学网" />
+<meta name="description" content="悠哉文学网" />
 <link rel="stylesheet" type="text/css" href="static/css/biquge.css"/>
 <script type="text/javascript" src="static/js/jquery.min.js"></script>
 <!-- <script src="/js/pc_pf.js"></script> -->
@@ -22,7 +22,7 @@
   <div id="wrapper">
     <div class="header">
       <div class="header_logo">
-        <a href="#" >白鹿书院</a>
+        <a href="/" >悠哉文学网</a>
       </div>
       <script>bqg_panel();</script>
     </div>
@@ -30,7 +30,7 @@
       <ul>
       {{ range $v := .menu}}
         <!-- <li><a href="{{$v.Path}}">{{$v.Text}}</a></li> -->
-        <li><a href="/book_type/{{$v.Path}}/1">{{$v.Text}}</a></li>
+        <li><a href="/{{$v.Path}}/1">{{$v.Text}}</a></li>
       {{ end }}
       </ul>
     </div>
@@ -46,9 +46,9 @@
   {{$image := .image}}
   {{ range $v := .hotcontent}}
   <div class="item">
-    <div class="image"><a href="book_detail/{{$v.Id}}/1"><img src="{{ $image }}/{{$v.Cover}}" alt="{{$v.Name}}"  width="120" height="150" /></a></div>
+    <div class="image"><a href="book_detail/{{$v.Id}}/c_1"><img src="{{ $image }}/{{$v.Cover}}" alt="{{$v.Name}}"  width="120" height="150"  /></a></div>
     <dl>
-       <dt><span>{{$v.Author}}</span><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a></dt>
+       <dt><span>{{$v.Author}}</span><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a></dt>
        <dd>   {{$v.Desc}}</dd>
     </dl>
     <div class="clear"></div>
@@ -65,7 +65,7 @@
    <h2>上期强推</h2>
     <ul>
              {{ range $v := .hotcontent}}
-             <li><span class="s1">{{$v.BookType.Text}}</span><span class="s2"><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a></span><span class="s5">{{$v.Author}}</span></li> 
+             <li><span class="s1">{{$v.BookType.Text}}</span><span class="s2"><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a></span><span class="s5">{{$v.Author}}</span></li> 
              {{ end }}
             </ul>
     </div>
@@ -86,11 +86,11 @@
   <div class="top">
     {{$vv:= index .indexData.BooksByType.Xuanhuanqihuan 0}}
 <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
-<dl><dt><a href="book_detail/{{ $vv.Id }}/1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+<dl><dt><a href="book_detail/{{ $vv.Id }}/c_1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
   {{ range $v := .indexData.BooksByType.Xuanhuanqihuan}}
-  <li><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a>/{{$v.Author}}</li>
+  <li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/{{$v.Author}}</li>
   {{ end }}
 </ul>
 </div>
@@ -100,11 +100,11 @@
    <div class="top">
     {{$vv:= index .indexData.BooksByType.Xiandaiyanqing 0}}
 <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
-<dl><dt><a href="book_detail/{{ $vv.Id }}/1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+<dl><dt><a href="book_detail/{{ $vv.Id }}/c_1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Xiandaiyanqing}}
-<li><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a>/{{$v.Author}}</li>
+<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/{{$v.Author}}</li>
 {{ end }}
 </ul>
 </div>
@@ -114,11 +114,11 @@
   <div class="top">
    {{$vv:= index .indexData.BooksByType.Kehuanlingyi 0}}
 <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
-<dl><dt><a href="book_detail/{{ $vv.Id }}/1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+<dl><dt><a href="book_detail/{{ $vv.Id }}/c_1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Kehuanlingyi}}
-<li><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a>/{{$v.Author}}</li>
+<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/{{$v.Author}}</li>
 {{ end }}
 </ul>
 </div>
@@ -131,11 +131,11 @@
   <div class="top">
    {{$vv:= index .indexData.BooksByType.Dongfangxuanhuan 0}}
 <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
-<dl><dt><a href="book_detail/{{ $vv.Id }}/1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+<dl><dt><a href="book_detail/{{ $vv.Id }}/c_1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Dongfangxuanhuan}}
-<li><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a>/{{$v.Author}}</li>
+<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/{{$v.Author}}</li>
 {{ end }}
 </ul>
 </div>
@@ -145,11 +145,11 @@
   <div class="top">
    {{$vv:= index .indexData.BooksByType.Wangyoujingji 0}}
 <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
-<dl><dt><a href="book_detail/{{ $vv.Id }}/1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+<dl><dt><a href="book_detail/{{ $vv.Id }}/c_1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Wangyoujingji}}
-<li><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a>/{{$v.Author}}</li>
+<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/{{$v.Author}}</li>
 {{ end }}
 </ul>
 </div>
@@ -158,12 +158,12 @@
   <h2>武侠仙侠</h2>
   <div class="top">
    {{$vv:= index .indexData.BooksByType.Wuxiaxianxia 0}}
-<div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
-<dl><dt><a href="book_detail/{{ $vv.Id }}/1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+<div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"   /></div>
+<dl><dt><a href="book_detail/{{ $vv.Id }}/c_1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Wuxiaxianxia}}
-<li><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a>/{{$v.Author}}</li>
+<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/{{$v.Author}}</li>
 {{ end }}
 </ul>
 </div>
@@ -178,11 +178,11 @@
     <div class="top">
      {{$vv:= index .indexData.BooksByType.Xiaoshuotongren 0}}
   <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
-  <dl><dt><a href="book_detail/{{ $vv.Id }}/1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+  <dl><dt><a href="book_detail/{{ $vv.Id }}/c_1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
   <div class="clear"></div></div>
   <ul>
   {{ range $v := .indexData.BooksByType.Xiaoshuotongren}}
-  <li><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a>/{{$v.Author}}</li>
+  <li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/{{$v.Author}}</li>
   {{ end }}
   </ul>
   </div>
@@ -192,11 +192,11 @@
     <div class="top">
      {{$vv:= index .indexData.BooksByType.Nushengpindao 0}}
   <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
-  <dl><dt><a href="book_detail/{{ $vv.Id }}/1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+  <dl><dt><a href="book_detail/{{ $vv.Id }}/c_1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
   <div class="clear"></div></div>
   <ul>
   {{ range $v := .indexData.BooksByType.Nushengpindao}}
-  <li><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a>/{{$v.Author}}</li>
+  <li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/{{$v.Author}}</li>
   {{ end }}
   </ul>
   </div>
@@ -206,11 +206,11 @@
     <div class="top">
      {{$vv:= index .indexData.BooksByType.Lishijunshi 0}}
   <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  /></div>
-  <dl><dt><a href="book_detail/{{ $vv.Id }}/1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
+  <dl><dt><a href="book_detail/{{ $vv.Id }}/c_1">{{ $vv.Name}}</a></dt><dd>{{ $vv.Desc}}</dd></dl>
   <div class="clear"></div></div>
   <ul>
   {{ range $v := .indexData.BooksByType.Lishijunshi}}
-  <li><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a>/{{$v.Author}}</li>
+  <li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/{{$v.Author}}</li>
   {{ end }}
   </ul>
   </div>
@@ -223,10 +223,8 @@
 <div class="l">
 <h2>最近更新小说列表</h2>
 <ul>
-
   {{ range $v := .indexData.LastupdateBooks}}
-
-  <li><span class="s1">[{{$v.BookType.Text}}]</span><span class="s2"><a href="book_detail/{{$v.Id}}/1" target="_blank">{{$v.Name}}</a></span><span class="s3"><a href="{{$v.LatestChapter.Chapterid}}" target="_blank">{{$v.LatestChapter.Chaptername}}</a></span><span class="s4">{{$v.Author}}</span></li>
+  <li><span class="s1">[{{$v.BookType.Text}}]</span><span class="s2"><a href="book_detail/{{$v.Id}}/c_1" target="_blank">{{$v.Name}}</a></span><span class="s3"><a href="/book_detail/{{$v.Id}}/r_{{$v.LatestChapter.Chapterid}}" target="_blank">{{$v.LatestChapter.Chaptername}}</a></span><span class="s4">{{$v.Author}}</span></li>
   {{ end }}
  </ul>
 </div>
@@ -236,28 +234,20 @@
 <div class="r">
 <h2>最新入库小说</h2>
 <ul>
-
   {{ range $v := .indexData.LastupdateBooks}}
-
-  <li><span class="s2"><a href="book_detail/{{$v.Id}}/1">{{$v.Name}}</a></span><span class="s5">{{$v.Author}}</span></li>
+  <li><span class="s2"><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a></span><span class="s5">{{$v.Author}}</span></li>
   {{ end }}
 </ul>
-
 </div><div class="clear"></div>
-
 </div></div>
-
-    </div>
-    
+</div>
 <div id="firendlink">
-友情连接：<a href="##" target="_blank">新笔趣阁</a>
+友情连接：<a href="##" target="_blank">悠哉文学网</a>
 <a href="##" target="_blank">全职法师</a>
 <a href="##" target="_blank">妖魔战神</a>
 <a href="##" target="_blank">帝霸</a>
-
 <a href="##" target="_blank">原始战记</a>
 <a href="##" target="_blank">御天神帝</a>
-
 </a>
 <a href="http://www.hebaoge.com/" target="_blank"> 荷包网</a>
 </a>
@@ -266,7 +256,6 @@
         <div class="dahengfu">
           <!-- <script type="text/javascript">bottom();</script> -->
         </div>
-
 <div class="footer">
     <div class="footer_link"></div>
     <div class="footer_cont">
@@ -297,11 +286,6 @@
     s.parentNode.insertBefore(bp, s);
 })();
 </script>
-
-
-
-        
   </div>
 </body>
-
 </html>

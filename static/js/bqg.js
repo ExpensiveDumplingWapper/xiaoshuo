@@ -262,7 +262,7 @@ document.onkeydown = function(e){
 	}
 /*	if(e.keyCode==13 && kw.value!="") {
 		if($.browser.is == 'msie') {
-			kw.value = kw.value + ' 新笔趣阁'; 
+			kw.value = kw.value + ' 悠哉文学网'; 
 		}
 		document.getElementById('sform').submit.click();
 	}
@@ -671,7 +671,7 @@ document.writeln("</select>翻页<input type=checkbox name=autopage id=autopage 
 }
 function footer(){
 document.writeln("<p>本站所有小说为转载作品，所有章节均由网友上传，转载至本站只是为了宣传本书让更多读者欣赏。</p>");
-document.writeln('<p>Copyright &copy; 2015-2022 <a href="#">白鹿书院</a> All Rights Reserved.</p>');
+document.writeln('<p>Copyright &copy; 2015-2022 <a href="#">悠哉文学网</a> All Rights Reserved.</p>');
 document.writeln("<p>沪ICP备14048333号</p>");
 // document.writeln("<script type=\"text/javascript\">var _bdhmProtocol = ((\"https:\" == document.location.protocol) ? \" https://\" : \" http://\");document.write(unescape(\"%3Cscript src='\" + _bdhmProtocol + \"hm.baidu.com/h.js%3F684434298a11dc553f3ba72cbba6cb4b' type='text/javascript'%3E%3C/script%3E\"));</script>");
 // var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
@@ -682,7 +682,7 @@ document.writeln("<script type=\"text/javascript\" id=\"bdshell_js\"></script>")
 }
 function read_panel(){
 document.writeln("<div class=\"header_search\"><form name=\"form\" action=\"/book_search\" id=\"sform\" target=\"_blank\"><input type=\"hidden\" name=\"s\" value=\"15629547599739040164\"><input type=\"text\" value=\"可搜书名和作者，请您少字也别输错字。\" name=\"q\" class=\"search\" id=\"wd\" baiduSug=\"2\" /><button id=\"sss\" type=\"submit\"> 搜 索 </button></form></div>"); 
-document.writeln("<div class=\"userpanel\">&nbsp;<font color=\"red\">报错：</font><a target=\"_blank\"  href=\"http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=494420774@qq.com\">通过邮件</a>、<a href=\"/newmessage.php?tosys=1&title="+booktitle+"-章节错误&content=错误章节为:"+readtitle+"\" >站内短信</a><br /><a target=\"_blank\" href=\"/ziti.html\"><b>原图片版</b></a>&nbsp;&nbsp;<a target=\"_blank\" href=\"/jifen.html\">积分规则</a>&nbsp;&nbsp;<a target=\"_blank\" href=\"/dns.html\">若从新笔趣阁跳走点这里</a></div>");
+document.writeln("<div class=\"userpanel\">&nbsp;<font color=\"red\">报错：</font><a target=\"_blank\"  href=\"http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=494420774@qq.com\">通过邮件</a>、<a href=\"/newmessage.php?tosys=1&title="+booktitle+"-章节错误&content=错误章节为:"+readtitle+"\" >站内短信</a><br /><a target=\"_blank\" href=\"/ziti.html\"><b>原图片版</b></a>&nbsp;&nbsp;<a target=\"_blank\" href=\"/jifen.html\">积分规则</a>&nbsp;&nbsp;<a target=\"_blank\" href=\"/dns.html\">若从悠哉文学网跳走点这里</a></div>");
 }
 function ttt(){
 	document.getElementById("searchkey").value = "";
@@ -695,7 +695,7 @@ function bqg_panel(){
 //document.writeln("<div class=\"header_search\"><form name=\"form\" action=\"https://www.xbiquge.la/cse/search\" id=\"sform\" target=\"_blank\"><input type=\"hidden\" name=\"s\" value=\"15629547599739040164\"><input type=\"text\" value=\"可搜书名和作者，请您少字也别输错字。\" name=\"q\" class=\"search\" id=\"wd\" baiduSug=\"2\" /><button id=\"sss\" type=\"submit\"> 搜 索 </button></form></div>");
 document.writeln("<div class=\"header_search\"><form name=\"form\" action=\"/book_search\" method=\"post\" id=\"sform\"><input type=\"text\" value=\"可搜书名和作者，请您少字也别输错字。\" name=\"searchkey\" class=\"search\" id=\"wd\" baiduSug=\"2\" /><button id=\"sss\" type=\"submit\"> 搜 索 </button></form></div>");
 // document.writeln("<div class=\"header_search\"><script type=\"text/javascript\">(function(){document.write(unescape('%3Cdiv id=\"bdcs\"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=15629547599739040164' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script></div>");
-document.writeln("<div class=\"userpanel\">&nbsp;<font color=\"red\">留言：</font><a rel=\"nofllow\" href=\"/newmessage.php?tosys=1\" rel=\"nofllow\" ><font color=\"red\">求书加书</font></a>、<a rel=\"nofllow\" href=\"/newmessage.php?tosys=1\" >意见反馈</a><br /><a target=\"_blank\" rel=\"nofllow\" href=\"/jifen.html\">积分规则</a>&nbsp;&nbsp;<a target=\"_blank\" rel=\"nofllow\" href=\"/dns.html\">若白鹿书院跳走点这里</a></div>");
+document.writeln("<div class=\"userpanel\">&nbsp;<font color=\"red\">留言：</font><a rel=\"nofllow\" href=\"/newmessage.php?tosys=1\" rel=\"nofllow\" ><font color=\"red\">求书加书</font></a>、<a rel=\"nofllow\" href=\"/newmessage.php?tosys=1\" >意见反馈</a><br /><a target=\"_blank\" rel=\"nofllow\" href=\"/jifen.html\">积分规则</a>&nbsp;&nbsp;<a target=\"_blank\" rel=\"nofllow\" href=\"/dns.html\">若悠哉文学网跳走点这里</a></div>");
 }
 function mark(){
 document.writeln("<div class=\"reader_mark1\"><a href=\"javascript:;\" onclick=\"showpop_addmark("+bookid+","+readid+");\"></a></div>");
