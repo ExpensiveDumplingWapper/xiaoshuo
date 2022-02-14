@@ -8,8 +8,8 @@
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>悠哉文学网</title>
-<meta name="keywords" content="悠哉文学网" />
-<meta name="description" content="悠哉文学网" />
+<meta name="keywords" content="悠哉文学网,网络小说,小说阅读网,小说,无弹窗小说,下载小说" />
+<meta name="description" content="悠哉文学网是广大书友最值得收藏的网络小说阅读网，网站收录了当前最火热的网络小说，免费提供高质量的小说最新章节，是广大网络小说爱好者必备的小说阅读网。" />
 <link rel="stylesheet" type="text/css" href="static/css/biquge.css"/>
 <script type="text/javascript" src="static/js/jquery.min.js"></script>
 <!-- <script src="/js/pc_pf.js"></script> -->
@@ -49,7 +49,7 @@
   <div class="item">
     <div class="image"><a href="book_detail/{{$v.Id}}/c_1"><img src="{{ $image }}/{{$v.Cover}}" alt="{{$v.Name}}"  width="120" height="150"  onerror="this.src='{{$defaultImage}}'" /></a></div>
     <dl>
-       <dt><span>{{$v.Author}}</span><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a></dt>
+       <dt><a href="#" onclick="search_author('{{$v.Author}}')" >{{$v.Author}}</a>/<a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a></dt>
        <dd>   {{$v.Desc}}</dd>
     </dl>
     <div class="clear"></div>
@@ -59,14 +59,14 @@
   
 
     <div class="r">
-     <h2>公告牌</h2>
+     <!-- <h2>公告牌</h2>
     <ul>
           <li><span class="s1">[公告]</span><span class="s2"><a href="##" target="_blank" rel="nofollow" >发现章节未及时更新请联系我们</a></span></li>  
-    </ul> 
+    </ul>  -->
    <h2>上期强推</h2>
     <ul>
              {{ range $v := .hotcontent}}
-             <li><span class="s1">{{$v.BookType.Text}}</span><span class="s2"><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a></span><span class="s5">{{$v.Author}}</span></li> 
+             <li><a class="s1" href="/{{$v.BookType.Path}}/1">[{{$v.BookType.Text}}]</a><span class="s2"><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a></span><a class="s5" href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
              {{ end }}
             </ul>
     </div>
@@ -83,7 +83,7 @@
 <div class="novelslist">
 
 <div class="content">
-  <h2>玄幻奇幻</h2>
+  <h2><a  href="category/xuanhuanqihuan/1">玄幻奇幻</a></h2>
   <div class="top">
     {{$vv:= index .indexData.BooksByType.Xuanhuanqihuan 0}}
 <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" onerror="this.src='{{$defaultImage}}'" /></div>
@@ -91,13 +91,13 @@
 <div class="clear"></div></div>
 <ul>
   {{ range $v := .indexData.BooksByType.Xuanhuanqihuan}}
-  <li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/{{$v.Author}}</li>
+  <li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
   {{ end }}
 </ul>
 </div>
 
 <div class="content">
-   <h2>现代言情</h2>
+   <h2><a  href="category/xiandaiyanqing/1">现代言情</a></h2>
    <div class="top">
     {{$vv:= index .indexData.BooksByType.Xiandaiyanqing 0}}
 <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" onerror="this.src='{{$defaultImage}}'" /></div>
@@ -105,13 +105,13 @@
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Xiandaiyanqing}}
-<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/{{$v.Author}}</li>
+<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a  href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
 {{ end }}
 </ul>
 </div>
 
 <div class="content border">
-  <h2>科幻灵异</h2>
+  <h2><a  href="category/kehuanlingyi/1">科幻灵异</a></h2>
   <div class="top">
    {{$vv:= index .indexData.BooksByType.Kehuanlingyi 0}}
 <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" onerror="this.src='{{$defaultImage}}'" /></div>
@@ -119,7 +119,7 @@
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Kehuanlingyi}}
-<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/{{$v.Author}}</li>
+<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
 {{ end }}
 </ul>
 </div>
@@ -128,7 +128,7 @@
 
 <div class="novelslist">
 <div class="content">
-  <h2>东方玄幻</h2>
+  <h2><a  href="category/dongfangxuanhuan/1">东方玄幻</a></h2>
   <div class="top">
    {{$vv:= index .indexData.BooksByType.Dongfangxuanhuan 0}}
 <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" onerror="this.src='{{$defaultImage}}'" /></div>
@@ -136,13 +136,13 @@
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Dongfangxuanhuan}}
-<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/{{$v.Author}}</li>
+<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
 {{ end }}
 </ul>
 </div>
 
 <div class="content">
-  <h2>网游竞技</h2>
+  <h2><a  href="category/wangyoujingji/1">网游竞技</a></h2>
   <div class="top">
    {{$vv:= index .indexData.BooksByType.Wangyoujingji 0}}
 <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" onerror="this.src='{{$defaultImage}}'" /></div>
@@ -150,13 +150,13 @@
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Wangyoujingji}}
-<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/{{$v.Author}}</li>
+<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
 {{ end }}
 </ul>
 </div>
 
 <div class="content border">
-  <h2>武侠仙侠</h2>
+  <h2><a  href="category/wuxiaxianxia/1">武侠仙侠</a></h2>
   <div class="top">
    {{$vv:= index .indexData.BooksByType.Wuxiaxianxia 0}}
 <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82"  onerror="this.src='{{$defaultImage}}'" /></div>
@@ -164,7 +164,7 @@
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Wuxiaxianxia}}
-<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/{{$v.Author}}</li>
+<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
 {{ end }}
 </ul>
 </div>
@@ -175,7 +175,7 @@
 <!-- 第三行 -->
 <div class="novelslist">
   <div class="content">
-    <h2>小说同人</h2>
+    <h2><a  href="category/xiaoshuotongren/1">小说同人</a></h2>
     <div class="top">
      {{$vv:= index .indexData.BooksByType.Xiaoshuotongren 0}}
   <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" onerror="this.src='{{$defaultImage}}'" /></div>
@@ -183,13 +183,13 @@
   <div class="clear"></div></div>
   <ul>
   {{ range $v := .indexData.BooksByType.Xiaoshuotongren}}
-  <li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/{{$v.Author}}</li>
+  <li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
   {{ end }}
   </ul>
   </div>
   
   <div class="content">
-    <h2>女生频道</h2>
+    <h2><a  href="category/nushengpindao/1">女生频道</a></h2>
     <div class="top">
      {{$vv:= index .indexData.BooksByType.Nushengpindao 0}}
   <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" onerror="this.src='{{$defaultImage}}'" /></div>
@@ -197,13 +197,13 @@
   <div class="clear"></div></div>
   <ul>
   {{ range $v := .indexData.BooksByType.Nushengpindao}}
-  <li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/{{$v.Author}}</li>
+  <li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
   {{ end }}
   </ul>
   </div>
   
   <div class="content border">
-    <h2>历史军事</h2>
+    <h2><a  href="category/lishijunshi/1">历史军事</a></h2>
     <div class="top">
      {{$vv:= index .indexData.BooksByType.Lishijunshi 0}}
   <div class="image"><img src="{{ $image }}/{{$vv.Cover}}" alt="{{$vv.Name}}"  width="67" height="82" onerror="this.src='{{$defaultImage}}'" /></div>
@@ -211,7 +211,7 @@
   <div class="clear"></div></div>
   <ul>
   {{ range $v := .indexData.BooksByType.Lishijunshi}}
-  <li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/{{$v.Author}}</li>
+  <li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
   {{ end }}
   </ul>
   </div>
@@ -225,7 +225,7 @@
 <h2>最近更新小说列表</h2>
 <ul>
   {{ range $v := .indexData.LastupdateBooks}}
-  <li><span class="s1">[{{$v.BookType.Text}}]</span><span class="s2"><a href="book_detail/{{$v.Id}}/c_1" target="_blank">{{$v.Name}}</a></span><span class="s3"><a href="/book_detail/{{$v.Id}}/r_{{$v.LatestChapter.Chapterid}}" target="_blank">{{$v.LatestChapter.Chaptername}}</a></span><span class="s4">{{$v.Author}}</span></li>
+  <li><a  href ="/category/{{$v.BookType.Path}}/1" class="s1">[{{$v.BookType.Text}}]</a><span class="s2"><a href="book_detail/{{$v.Id}}/c_1" target="_blank">{{$v.Name}}</a></span><span class="s3"><a href="/book_detail/{{$v.Id}}/r_{{$v.LatestChapter.Chapterid}}" target="_blank">{{$v.LatestChapter.Chaptername}}</a></span><a class="s4" href="#"  onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
   {{ end }}
  </ul>
 </div>
@@ -236,27 +236,45 @@
 <h2>最新入库小说</h2>
 <ul>
   {{ range $v := .indexData.LastupdateBooks}}
-  <li><span class="s2"><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a></span><span class="s5">{{$v.Author}}</span></li>
+  <li><span class="s2"><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a></span><a class="s5" href="#" onclick="search_author('{{$v.Author}}')" val="{{$v.Author}}">{{$v.Author}}</a></li>
   {{ end }}
 </ul>
 </div><div class="clear"></div>
 </div></div>
 </div>
 <div id="firendlink">
-友情连接：<a href="##" target="_blank">悠哉文学网</a>
-<a href="##" target="_blank">全职法师</a>
+
+
+<form action="/search_author" method="post" id="author_form">
+    <input type="hidden" id = "author_input" name="author" value="" />
+</form>
+
+<script>
+    function search_author(name){
+        var form = document.getElementById('author_form');
+        document.getElementById("author_input").value = name
+        form.submit();
+    }
+</script>
+
+
+
+
+
+
+
+
+友情连接：<a href="/" target="_blank">悠哉文学网</a>
+<!-- <a href="##" target="_blank">全职法师</a>
 <a href="##" target="_blank">妖魔战神</a>
 <a href="##" target="_blank">帝霸</a>
 <a href="##" target="_blank">原始战记</a>
 <a href="##" target="_blank">御天神帝</a>
-</a>
-<a href="http://www.hebaoge.com/" target="_blank"> 荷包网</a>
-</a>
-<a href="http://www.zgls5000.net" target="_blank"> 中国历史网
-</a>
-        <div class="dahengfu">
+<a href="##" target="_blank"> 荷包网</a>
+<a href="##" target="_blank"> 中国历史网</a> -->
+    <div class="dahengfu">
           <!-- <script type="text/javascript">bottom();</script> -->
-        </div>
+    </div>
 <div class="footer">
     <div class="footer_link"></div>
     <div class="footer_cont">

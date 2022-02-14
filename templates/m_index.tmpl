@@ -41,13 +41,13 @@
         <div class="block_img"><a href="/book_detail/{{$first.Id}}/c_1"><img height=100 width=80 src="{{ $image }}/{{$first.Cover}}"  onerror="this.src='{{$defaultImage}}'"  /></a></div>
         <div class="block_txt">
             <p><a href="/book_detail/{{$first.Id}}/c_1"><h2>{{$first.Name}}</h2></a></p>
-            <p>作者：{{$first.Author}}</p>
+            <p>作者：<a href="#" onclick="search_author('{{$first.Author}}')">{{$first.Author}}</a></p>
             <p><a href="/book_detail/{{$first.Id}}/c_1">  {{$first.Desc}} </a></p>
         </div>
         <div style="clear:both"></div>
         <ul>
             {{ range $vv := $v}}
-            <li><a href="/book_detail/{{$vv.Id}}/c_1" class="blue">{{$vv.Name}}</a>/{{$vv.Author}}</li>
+            <li><a href="/book_detail/{{$vv.Id}}/c_1" class="blue">{{$vv.Name}}</a>/<a href="#" onclick="search_author('{{$vv.Author}}')">{{$vv.Author}}</a></li>
            {{ end }}
         </ul>
     </div>
@@ -56,9 +56,20 @@
 <div class="footer">
   <ul>
     <li><a href="/">首页</a></li>
-    <li><a href="#">电脑版</a></li>
+    <!-- <li><a href="#">电脑版</a></li> -->
   </ul>
 </div>
+<form action="/search_author" method="post" id="author_form">
+    <input type="hidden" id = "author_input" name="author" value="" />
+</form>
+
+<script>
+    function search_author(name){
+        var form = document.getElementById('author_form');
+        document.getElementById("author_input").value = name
+        form.submit();
+    }
+</script>
 <script>tj();</script>
 </body>
 </html>

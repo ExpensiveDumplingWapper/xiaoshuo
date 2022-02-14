@@ -6,8 +6,8 @@
     {{$defaultImage :=.hostDefaultImage}}
 <meta charset="utf-8"/>
 <title>搜索小说"{{.keyWord}}"_悠哉文学网</title>
-<meta name="keywords" content="{{.keyWord}}" />
-<meta name="description" content="" />
+<meta name="keywords" content="{{.keyWord}} 悠哉文学网,网络小说,小说阅读网,小说,无弹窗小说,下载小说" />
+<meta name="description" content="悠哉文学网是广大书友最值得收藏的网络小说阅读网，网站收录了当前最火热的网络小说，免费提供高质量的小说最新章节，是广大网络小说爱好者必备的小说阅读网。" />
 <meta name="MobileOptimized" content="240"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 <link rel="shortcut icon" href="/static/images/favicon.ico" />
@@ -38,8 +38,8 @@
     <div class="block_img"><a href="/book_detail/{{$v.Id}}/c_1"><img height=100 width=80 src='{{ $image }}/{{$v.Cover}}' onerror="this.src='{{$defaultImage}}'"  /></a></div>
     <div class="block_txt">
     <p><a href="/book_detail/{{$v.Id}}/c_1"><h2>{{$v.Name}}</h2></a></p>
-    <p>分类：{{$v.BookType.Text}}</p>
-    <p>作者：{{$v.Author}}</p>
+    <p>分类：<a href="/{{$v.BookType.Path}}/1"></a>{{$v.BookType.Text}}</p>
+    <p>作者：<a href="/">{{$v.Author}}</a></p>
     <!-- <p>最新章节：<a href="/book_detail/{{$v.Id}}/r_{{$v.LatestChapter.Chapterid}}">{{$v.LatestChapter.Chaptername}}</a></p> -->
     </div>
     <div style="clear:both"></div>
@@ -51,8 +51,8 @@
 <div class="footer">
   <ul>
     <li><a href="/">首页</a></li>
-    <li><a href="#">电脑版</a></li>
-    <li><a href="#">书架</a></li>
+    <!-- <li><a href="#">电脑版</a></li> -->
+    <!-- <li><a href="#">书架</a></li> -->
   </ul>
 </div>
 <script>tj();</script>

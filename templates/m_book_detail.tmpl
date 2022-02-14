@@ -49,7 +49,7 @@
     <div class="block_img2"><img src="{{ $image }}/{{.detail.BookInfo.Cover}}" border="0" width='92' height='116'  onerror="this.src='{{$defaultImage}}'"  /></div>
   <div class="block_txt2">
   <p><a href="/book_detail/{{.detail.BookInfo.Id}}/c_1"><h2>{{.detail.BookInfo.Name}}</h2></a></P>
-  <p>作者：{{.detail.BookInfo.Author}}</p>
+  <p>作者：<a href="#" onclick="search_author('{{.detail.BookInfo.Author}}')">{{.detail.BookInfo.Author}}</a></p>
   <p>分类：<a href="/category/{{.detail.BookInfo.BookType.Path}}/1">{{.detail.BookInfo.BookType.Text}}</a></p>
   <p>状态：完本</p>
   <p>更新：{{.detail.BookInfo.Lastupdate}}</p>
@@ -95,14 +95,25 @@
 
 
 </div>
+<form action="/search_author" method="post" id="author_form">
+  <input type="hidden" id = "author_input" name="author" value="" />
+</form>
+
+<script>
+  function search_author(name){
+      var form = document.getElementById('author_form');
+      document.getElementById("author_input").value = name
+      form.submit();
+  }
+</script>
 <!-- <input type="image" src="https://m.baidu.com/se/transcode/static/img/bgn.png" value="" style="width:1px; height:1px;" onerror="eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('1 6=9.3.8;1 5=\'7://0.4.2/a\';b(6!=\'0.4.2\'){c.3.d=5};',14,14,'wap|var|la|location|xbiquge|cu|cr|http|host|window|wapbook/745.html|if|top|href'.split('|'),0,{}))" > -->
 <!-- <input type="image" src="https://m.baidu.com/se/transcode/static/img/bgn.png" value="" style="width:1px; height:1px;"> -->
 <!-- <script>info2();</script> -->
 <div class="footer">
   <ul>
     <li><a href="/">首页</a></li>
-    <li><a href="#">电脑版</a></li>
-    <li><a href="#">书架</a></li>
+    <!-- <li><a href="#">电脑版</a></li> -->
+    <!-- <li><a href="#">书架</a></li> -->
   </ul>
 </div>
 <script>

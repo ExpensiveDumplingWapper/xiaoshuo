@@ -59,6 +59,6 @@ func RecoveryWithZap() gin.HandlerFunc {
 
 			}
 		}()
-		c.Next()
+		// c.Next()
 	}
 }

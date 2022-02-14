@@ -7,7 +7,7 @@
   {{$defaultImage :=.hostDefaultImage}}
 <title>{{$vv.BookType.Text}}_好看的{{$vv.BookType.Text}}_2022{{$vv.BookType.Text}}排行榜_悠哉文学网</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="悠哉文学网,网络小说,小说阅读网,小说" />
+<meta name="keywords" content="悠哉文学网,网络小说,小说阅读网,小说,无弹窗小说,下载小说" />
 <meta name="description" content="悠哉文学网是广大书友最值得收藏的网络小说阅读网，网站收录了当前最火热的网络小说，免费提供高质量的小说最新章节，是广大网络小说爱好者必备的小说阅读网。" />
 <link rel="stylesheet" type="text/css" href="/static/css/biquge.css"/>
 <script type="text/javascript" src="//libs.baidu.com/jquery/1.4.2/jquery.min.js"></script>
@@ -43,10 +43,9 @@
       <div id="hotcontent"><div class="ll">
       {{ range $v := .hotData}}
       <div class="item">
-        <!-- <div class="image"><a href="/book_detail/{{$v.Id}}"><img src="{{ $image }}/{{$v.Cover}}" alt="{{$v.Name}}"  width="120" height="150" onerror="this.src='/static/images/nocover.jpg'"/></a></div> -->
         <div class="image"><a href="/book_detail/{{$v.Id}}/c_1"><img src="{{ $image }}/{{$v.Cover}}" alt="{{$v.Name}}"  width="120" height="150" onerror="this.src='{{$defaultImage}}'" /></a></div>
         <dl>
-           <dt><span>{{$v.Author}}</span><a href="/book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a></dt>
+           <dt><a href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a>/<a href="/book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a></dt>
            <dd>{{$v.Desc}}</dd>
         </dl>
         <div class="clear"></div>
@@ -63,7 +62,7 @@
 <ul>
 
 {{ range $v := .detail}}
-<li><span class="s2">《<a href="/book_detail/{{$v.Id}}/c_1" target="_blank">{{$v.Name}}</a>》</span><span class="s3"><a href="/book_detail/{{$v.Id}}/r_{{$v.LatestChapter.Chapterid}}" target="_blank">{{$v.LatestChapter.Chaptername}}</a>(01-10)</span><span class="s5">{{$v.Author}}</span></li>
+<li><span class="s2">《<a href="/book_detail/{{$v.Id}}/c_1" target="_blank">{{$v.Name}}</a>》</span><span class="s3"><a href="/book_detail/{{$v.Id}}/r_{{$v.LatestChapter.Chapterid}}" target="_blank">{{$v.LatestChapter.Chaptername}}</a>(01-10)</span><a class="s5" href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
 {{ end }}
 </ul>
 
@@ -83,11 +82,11 @@
 <h2>好看的{{$vv.BookType.Text}}</h2>
 <ul>
 {{ range $v := .detail}}
-<li><span class="s2"><a href="/book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a></span><span class="s5">{{$v.Author}}</span></li>
+<li><span class="s2"><a href="/book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a></span><a class="s5"  href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
 {{ end }}
 
 </ul>
-<div class="page_b page_b2">喜欢就收藏我们</div>
+<!-- <div class="page_b page_b2">喜欢就收藏我们</div> -->
 </div>
 <div class="clear"></div></div>
 </div>
@@ -106,6 +105,20 @@
     <script charset="utf-8" src="//www.baidu.com/js/opensug.js"></script>
   </div>
 </div>
+
+<form action="/search_author" method="post" id="author_form">
+  <input type="hidden" id = "author_input" name="author" value="" />
+</form>
+
+<script>
+  function search_author(name){
+      var form = document.getElementById('author_form');
+      document.getElementById("author_input").value = name
+      form.submit();
+  }
+</script>
+
+
 <script>
     (function(){
         var bp = document.createElement('script');

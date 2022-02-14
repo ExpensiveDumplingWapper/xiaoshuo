@@ -7,8 +7,8 @@
     {{$defaultImage :=.hostDefaultImage}}
 <meta charset="utf-8" />
 <title>网游小说_悠哉文学网</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
+<meta name="keywords" content="悠哉文学网,网络小说,小说阅读网,小说,无弹窗小说,下载小说" />
+<meta name="description" content="悠哉文学网是广大书友最值得收藏的网络小说阅读网，网站收录了当前最火热的网络小说，免费提供高质量的小说最新章节，是广大网络小说爱好者必备的小说阅读网。" />
 <meta name="MobileOptimized" content="240"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 <link rel="shortcut icon" href="/static/images/favicon.ico" />
@@ -49,7 +49,7 @@
 <div class="cover">
 <!-- <p class="line">[网游小说]<a href="/wapbook/86837.html" class="blue">特摄公寓</a>/但求及格</p> -->
 {{ range $v := .hotData}}
-<p class="line">[{{$vv.BookType.Text}}]<a href="/book_detail/{{$v.Id}}/c_1" class="blue">{{$v.Name}}</a>/{{$v.Author}}</p>
+<p class="line">[{{$vv.BookType.Text}}]<a href="/book_detail/{{$v.Id}}/c_1" class="blue">{{$v.Name}}</a>/<a href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></p>
 {{ end }}
 </div>
 <div class="page">
@@ -61,10 +61,21 @@
 <div class="footer">
   <ul>
     <li><a href="/">首页</a></li>
-    <li><a href="#">电脑版</a></li>
-    <li><a href="#">书架</a></li>
+    <!-- <li><a href="#">电脑版</a></li> -->
+    <!-- <li><a href="#">书架</a></li> -->
   </ul>
 </div>
+<form action="/search_author" method="post" id="author_form">
+    <input type="hidden" id = "author_input" name="author" value="" />
+</form>
+
+<script>
+    function search_author(name){
+        var form = document.getElementById('author_form');
+        document.getElementById("author_input").value = name
+        form.submit();
+    }
+</script>
 <script>
 function page(){
     var p = document.getElementById("pageinput").value;
