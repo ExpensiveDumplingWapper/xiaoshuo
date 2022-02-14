@@ -31,29 +31,27 @@ func BookType(ctx *gin.Context) {
 	if prevPageTmp > 1 {
 		prevPage = strconv.Itoa(prevPageTmp)
 	}
-	host := ctx.ClientIP() + ":9999"
-
 	if ctx.GetBool("isMobile") {
 		ctx.HTML(http.StatusOK, "m_book_type.tmpl", gin.H{
-			"detail":     data,
-			"hotData":    hotData,
-			"image":      Image,
-			"hostServer": host,
-			"menu":       menu,
-			"bookType":   bookType,
-			"nextPage":   nextPage,
-			"prevPage":   prevPage,
+			"detail":           data,
+			"hotData":          hotData,
+			"image":            Image,
+			"hostDefaultImage": HostDefaultImage,
+			"menu":             menu,
+			"bookType":         bookType,
+			"nextPage":         nextPage,
+			"prevPage":         prevPage,
 		})
 	} else {
 		ctx.HTML(http.StatusOK, "book_type.tmpl", gin.H{
-			"detail":     data,
-			"hotData":    hotData,
-			"image":      Image,
-			"hostServer": host,
-			"menu":       menu,
-			"bookType":   bookType,
-			"nextPage":   nextPage,
-			"prevPage":   prevPage,
+			"detail":           data,
+			"hotData":          hotData,
+			"image":            Image,
+			"hostDefaultImage": HostDefaultImage,
+			"menu":             menu,
+			"bookType":         bookType,
+			"nextPage":         nextPage,
+			"prevPage":         prevPage,
 		})
 	}
 

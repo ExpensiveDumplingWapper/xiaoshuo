@@ -50,9 +50,10 @@ type BookInfoData struct {
 }
 
 type BookChaptersData struct {
-	BookInfo  BookInfo  `json:"bookInfo"`
-	Chapters  []Chapter `json:"chapters"`
-	TotalPage int       `json:"total_page"`
+	BookInfo  BookInfo   `json:"bookInfo"`
+	Chapters  []Chapter  `json:"chapters"`
+	TotalPage int        `json:"total_page"`
+	Recommend []BookInfo `json:"recommend"`
 }
 type Chapter struct {
 	Chapterid      string `json:"chapterid"`
@@ -147,7 +148,6 @@ func GetBookeInfo(id, page string) (res BookChaptersData) {
 	client := &http.Client{
 		// Timeout:   readTimeout,
 	}
-	// url = url + id
 	resp, err := client.Get(url)
 	if err != nil {
 		fmt.Println(err.Error())

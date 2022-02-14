@@ -17,26 +17,14 @@ import (
 
 	"xiaoshuo/internal/routers"
 
-	"github.com/gin-gonic/gin"
 	_ "go.uber.org/automaxprocs"
 )
 
 func main() {
-	// bootstrap.InitApp()
-	// httpPort := os.Getenv("APP_PORT")
-	// if httpPort == "" {
-	// 	httpPort = config.Setting.Server.HttpPort
-	// }
 	httpPort := "9999"
 	addr := fmt.Sprintf(":%s", httpPort)
-	// readTimeout := time.Second * config.Setting.Server.ReadTimeout
-	// writeTimeout := time.Second * config.Setting.Server.ReadTimeout
-
 	readTimeout := time.Second * 5
 	writeTimeout := time.Second * 5
-	// runMode := config.Setting.Server.RunMode
-	runMode := "debug"
-	gin.SetMode(runMode)
 
 	s := &http.Server{
 		Addr:           addr,

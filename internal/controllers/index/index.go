@@ -11,21 +11,14 @@ import (
 
 var Image = "http://180.76.238.148:8078/image"
 
+const HostDefaultImage = "http://180.76.238.148:8078/image/cover.jpeg"
+
 func Index(ctx *gin.Context) {
 
 	indexData, hotcontent, _ := index.Index(ctx)
 
 	menu := raw_data.GetMenus()
-	// if err != nil {
-	// 	ctx.JSON(http.StatusOK, controllers.NewErrResponse(err.Error()))
-	// 	return
-	// }
-	// ctx.JSON(http.StatusOK, controllers.NewSucResponse(data))
-
-	// fmt.Println(ctx.GetBool("isMobile"), 999999)
-	host := ctx.ClientIP() + ":9999"
 	if ctx.GetBool("isMobile") {
-
 		var datas [][]raw_data.BookInfo
 
 		if len(indexData.BooksByType.Xuanhuanqihuan) > 0 {
@@ -62,19 +55,19 @@ func Index(ctx *gin.Context) {
 		}
 
 		ctx.HTML(http.StatusOK, "m_index.tmpl", gin.H{
-			"menu":       menu,
-			"indexData":  datas,
-			"hostServer": host,
-			"hotcontent": hotcontent,
-			"image":      Image,
+			"menu":             menu,
+			"indexData":        datas,
+			"hostDefaultImage": HostDefaultImage,
+			"hotcontent":       hotcontent,
+			"image":            Image,
 		})
 	} else {
 		ctx.HTML(http.StatusOK, "index.tmpl", gin.H{
-			"menu":       menu,
-			"indexData":  indexData,
-			"hostServer": host,
-			"hotcontent": hotcontent,
-			"image":      Image,
+			"menu":             menu,
+			"indexData":        indexData,
+			"hostDefaultImage": HostDefaultImage,
+			"hotcontent":       hotcontent,
+			"image":            Image,
 		})
 	}
 

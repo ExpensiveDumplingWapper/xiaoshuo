@@ -8,7 +8,7 @@ import (
 	"runtime"
 	"strings"
 
-	"xiaoshuo/internal/utils/logger"
+	// "xiaoshuo/internal/utils/logger"
 
 	"github.com/gin-gonic/gin"
 )
@@ -45,15 +45,18 @@ func RecoveryWithZap() gin.HandlerFunc {
 				stackInfo := fmt.Sprintf("%s", buf[:n])
 				fmt.Println(stackInfo)
 				if message, ok := err.(string); ok {
-					logger.Error("panic_error", "ServerPanicMessage: "+message+"\nStackInfo:\n"+stackInfo, c)
+					// logger.Error("panic_error", "ServerPanicMessage: "+message+"\nStackInfo:\n"+stackInfo, c)
 					fmt.Println(message)
 				} else if message, ok := err.(runtime.Error); ok {
-					logger.Error("panic_error", "ServerPanicMessage: "+message.Error()+"\nStackInfo:\n"+stackInfo, c)
+					// logger.Error("panic_error", "ServerPanicMessage: "+message.Error()+"\nStackInfo:\n"+stackInfo, c)
 					fmt.Println(message.Error())
 				} else {
-					logger.Error("panic_error", "ServerPanicMessage:"+" StackInfo:"+stackInfo, c)
+					// logger.Error("panic_error", "ServerPanicMessage:"+" StackInfo:"+stackInfo, c)
 				}
-				c.JSON(http.StatusInternalServerError, gin.H{"code": 520, "message": "Internal Server Error"})
+				// c.JSON(http.StatusInternalServerError, gin.H{"code": 520, "message": "Internal Server Error"})
+
+				c.HTML(http.StatusOK, "error.tmpl", gin.H{})
+
 			}
 		}()
 		c.Next()

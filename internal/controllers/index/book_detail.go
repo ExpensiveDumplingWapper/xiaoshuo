@@ -43,36 +43,40 @@ func BookInfo(ctx *gin.Context) {
 		}
 		if ctx.GetBool("isMobile") {
 			ctx.HTML(http.StatusOK, "m_book_detail.tmpl", gin.H{
-				"detail":      data,
-				"image":       Image,
-				"menu":        menu,
-				"chapterList": chapterList,
-				"nextPage":    nextPage,
-				"prevPage":    prevPage,
+				"detail":           data,
+				"image":            Image,
+				"menu":             menu,
+				"chapterList":      chapterList,
+				"nextPage":         nextPage,
+				"prevPage":         prevPage,
+				"hostDefaultImage": HostDefaultImage,
 			})
 		} else {
 			ctx.HTML(http.StatusOK, "book_detail.tmpl", gin.H{
-				"detail":      data,
-				"image":       Image,
-				"menu":        menu,
-				"chapterList": chapterList,
-				"nextPage":    nextPage,
-				"prevPage":    prevPage,
+				"detail":           data,
+				"image":            Image,
+				"menu":             menu,
+				"chapterList":      chapterList,
+				"nextPage":         nextPage,
+				"prevPage":         prevPage,
+				"hostDefaultImage": HostDefaultImage,
 			})
 		}
 	} else {
 		data, _ := index.BookRead(ctx)
 		if ctx.GetBool("isMobile") {
 			ctx.HTML(http.StatusOK, "m_book_content.tmpl", gin.H{
-				"detail": data,
-				"image":  Image,
-				"menu":   menu,
+				"detail":           data,
+				"image":            Image,
+				"menu":             menu,
+				"hostDefaultImage": HostDefaultImage,
 			})
 		} else {
 			ctx.HTML(http.StatusOK, "book_content.tmpl", gin.H{
-				"detail": data,
-				"image":  Image,
-				"menu":   menu,
+				"detail":           data,
+				"image":            Image,
+				"menu":             menu,
+				"hostDefaultImage": HostDefaultImage,
 			})
 		}
 	}

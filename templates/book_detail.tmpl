@@ -4,6 +4,7 @@
 <head>
 {{$image := .image}}
 {{$bookId :=.detail.BookInfo.Id}}
+{{$defaultImage :=.hostDefaultImage}}
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -70,12 +71,13 @@
                 <div id="fmimg"><img alt="{{.detail.BookInfo.Name}}" src="{{ $image }}/{{.detail.BookInfo.Cover}}" width="120" height="150" /><span class="b"></span></div>
             </div> 
             <div id="listtj">&nbsp;推荐阅读：
-         
+                {{ range $v := .detail.Recommend}}
+                <a href="/book_detail/{{$v.Id}}/c_1" target="_blank">{{$v.Name}}</a>、
+                {{ end }}
             </div>
         </div>
         
         <div class="dahengfu">
-            <!-- <script type="text/javascript">list_mid();</script> -->
         </div>
         
 
@@ -109,6 +111,9 @@
         
         <div id="footer" name="footer">
             <div class="footer_link">&nbsp;新书推荐：
+                {{ range $v := .detail.Recommend}}
+                <a href="/book_detail/{{$v.Id}}/c_1" target="_blank">{{$v.Name}}</a>、
+                {{ end }}
             </div>
             <div class="footer_cont">
                 <p>《{{.detail.BookInfo.Name}}》情节跌宕起伏、扣人心弦，是一本情节与文笔俱佳的{{.detail.BookInfo.BookType.Text}}小说，悠哉文学网转载收集{{.detail.BookInfo.Name}}最新章节。</p>
