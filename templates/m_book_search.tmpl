@@ -33,22 +33,9 @@
 <script>search();</script>
 <div class="toptab"><span class="active">与“{{.keyWord}}”相关的小说</span></div>
 <div class="read_book">
-
-
-    <!-- <div class="block">
-<div class="block_txt">
-<p><a href="/wapbook/24309.html"><h2>映照万界</h2></a></p>
-<p>分类：玄幻小说</p>
-<p>作者：你好再见见</p>
-<p>最新章节：<a href="/wapbook/24309_24765884.html">完本感言</a></p>
-</div>
-<div style="clear:both"></div>
-</div>    -->
-
-
 {{ range $v := .detail}}
 <div class="block">
-    <div class="block_img"><a href="/book_detail/{{$v.Id}}/c_1"><img height=100 width=80 src='{{ $image }}/{{$v.Cover}}'   /></a></div>
+    <div class="block_img"><a href="/book_detail/{{$v.Id}}/c_1"><img height=100 width=80 src='{{ $image }}/{{$v.Cover}}' onerror="this.src='{{$defaultImage}}'"  /></a></div>
     <div class="block_txt">
     <p><a href="/book_detail/{{$v.Id}}/c_1"><h2>{{$v.Name}}</h2></a></p>
     <p>分类：{{$v.BookType.Text}}</p>

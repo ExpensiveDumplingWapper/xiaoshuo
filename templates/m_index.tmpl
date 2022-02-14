@@ -38,7 +38,7 @@
     </h2>
 
     <div class="block">
-        <div class="block_img"><a href="/book_detail/{{$first.Id}}/c_1"><img height=100 width=80 src="{{ $image }}/{{$first.Cover}}"    /></a></div>
+        <div class="block_img"><a href="/book_detail/{{$first.Id}}/c_1"><img height=100 width=80 src="{{ $image }}/{{$first.Cover}}"  onerror="this.src='{{$defaultImage}}'"  /></a></div>
         <div class="block_txt">
             <p><a href="/book_detail/{{$first.Id}}/c_1"><h2>{{$first.Name}}</h2></a></p>
             <p>作者：{{$first.Author}}</p>

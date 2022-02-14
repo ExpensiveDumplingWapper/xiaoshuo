@@ -44,7 +44,7 @@
       {{ range $v := .hotData}}
       <div class="item">
         <!-- <div class="image"><a href="/book_detail/{{$v.Id}}"><img src="{{ $image }}/{{$v.Cover}}" alt="{{$v.Name}}"  width="120" height="150" onerror="this.src='/static/images/nocover.jpg'"/></a></div> -->
-        <div class="image"><a href="/book_detail/{{$v.Id}}/c_1"><img src="{{ $image }}/{{$v.Cover}}" alt="{{$v.Name}}"  width="120" height="150" /></a></div>
+        <div class="image"><a href="/book_detail/{{$v.Id}}/c_1"><img src="{{ $image }}/{{$v.Cover}}" alt="{{$v.Name}}"  width="120" height="150" onerror="this.src='{{$defaultImage}}'" /></a></div>
         <dl>
            <dt><span>{{$v.Author}}</span><a href="/book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a></dt>
            <dd>{{$v.Desc}}</dd>
