@@ -50,6 +50,7 @@ func BookInfo(ctx *gin.Context) {
 				"nextPage":         nextPage,
 				"prevPage":         prevPage,
 				"hostDefaultImage": HostDefaultImage,
+				"page":             page,
 			})
 		} else {
 			ctx.HTML(http.StatusOK, "book_detail.tmpl", gin.H{
@@ -60,6 +61,7 @@ func BookInfo(ctx *gin.Context) {
 				"nextPage":         nextPage,
 				"prevPage":         prevPage,
 				"hostDefaultImage": HostDefaultImage,
+				"page":             page,
 			})
 		}
 	} else {

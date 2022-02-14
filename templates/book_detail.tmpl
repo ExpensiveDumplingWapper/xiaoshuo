@@ -5,6 +5,7 @@
 {{$image := .image}}
 {{$bookId :=.detail.BookInfo.Id}}
 {{$defaultImage :=.hostDefaultImage}}
+{{$Spage :=.page}}
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -96,7 +97,11 @@
                 <select name="pageselect" onchange="self.location.href=options[selectedIndex].value">
                    
                     {{ range $v := .chapterList}}
+                    {{if  eq $v.Page $Spage }} 
+                    <option value="/book_detail/{{$bookId}}/c_{{$v.Page}}" selected>{{$v.Text}}</option>
+                    {{else}} 
                     <option value="/book_detail/{{$bookId}}/c_{{$v.Page}}" >{{$v.Text}}</option>
+                    {{end}}
                    {{ end }}
                 </select>
             </span>

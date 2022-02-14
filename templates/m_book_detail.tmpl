@@ -5,6 +5,7 @@
     {{$image := .image}}
     {{$bookId :=.detail.BookInfo.Id}}
     {{$defaultImage :=.hostDefaultImage}}
+    {{$Spage :=.page}}
 <meta charset="utf-8" />
 <title>{{.detail.BookInfo.Name}}小说_{{.detail.BookInfo.Author}}_{{.detail.BookInfo.Name}}最新章节_{{.detail.BookInfo.Name}}无弹窗_悠哉文学网</title>
 <meta name="keywords" content="{{.detail.BookInfo.Name}},{{.detail.BookInfo.Name}}最新章节" />
@@ -85,7 +86,11 @@
   <select name="pageselect" onchange="self.location.href=options[selectedIndex].value">
      
       {{ range $v := .chapterList}}
+      {{if  eq $v.Page $Spage }} 
+      <option value="/book_detail/{{$bookId}}/c_{{$v.Page}}" selected>{{$v.Text}}</option>
+      {{else}} 
       <option value="/book_detail/{{$bookId}}/c_{{$v.Page}}" >{{$v.Text}}</option>
+      {{end}}
      {{ end }}
   </select>
 </span>
