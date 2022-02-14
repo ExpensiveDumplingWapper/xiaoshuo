@@ -50,7 +50,7 @@ var maps = []string{
 }
 
 func HandleNotFound(ctx *gin.Context) {
-	ctx.Redirect(http.StatusMovedPermanently, "www.uzwx.com")
+	ctx.Redirect(http.StatusMovedPermanently, "http://www.uzwx.com/")
 }
 
 func hellos(ctx *gin.Context) {
