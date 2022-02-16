@@ -14,7 +14,7 @@ import (
 
 func BookType(ctx *gin.Context) (res, hotRes []raw_data.BookInfo, err error) {
 	bookType := ctx.Param("booktype")
-	page := ctx.Param("paga")
+	page := ctx.Param("page")
 	finalPage, _ := strconv.Atoi(page)
 	if finalPage <= 1 {
 		page = "1"

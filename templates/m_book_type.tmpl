@@ -2,9 +2,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    {{$image := .image}}
-    {{$vv:= index .hotData 0}}
-    {{$defaultImage :=.hostDefaultImage}}
 <meta charset="utf-8" />
 <title>网游小说_悠哉文学网</title>
 <meta name="keywords" content="悠哉文学网,网络小说,小说阅读网,小说,无弹窗小说,下载小说" />
@@ -20,6 +17,9 @@
 <script src="/static/js/comm.js"></script>
 </head>
 <body>
+    {{$image := .image}}
+    {{$vv:= index .hotData 0}}
+    {{$defaultImage :=.hostDefaultImage}}
 <div class="header" id="bqgmb_head">
     <div class="back"><a href="javascript:history.go(-1);">返回</a></div>
     <h1 id="bqgmb_h1">{{$vv.BookType.Text}}</h1>
@@ -28,10 +28,6 @@
 <div class="nav">
     <ul>
         <li><a href="/">首页</a></li>
-        <!-- <li><a href="/sort/">分类</a></li> -->
-        <!-- <li><a href="/wapfull/1.html">全本</a></li>
-        <li><a href="/top/">排行</a></li>
-        <li><a href="/wap/bookcase.php">书架</a></li> -->
         {{ range $v := .menu}}
         <li><a href="/{{$v.Path}}/1">{{$v.Text}}</a></li>
        {{ end }}
@@ -39,44 +35,29 @@
     </ul>
 </div>
 <script>search();</script>
-<!-- <div class="content"> -->
-<!-- <ul>
-<li class="prev"><a id="s1" href="/wapsort/1_1/">玄幻</a></li>
-<li class="prev"><a id="s2" href="/wapsort/2_1/">仙侠</a></li>
-<li class="prev"><a id="s3" href="/wapsort/3_1/">都市</a></li>
-</ul> -->
-<!-- </div> -->
 <div class="cover">
-<!-- <p class="line">[网游小说]<a href="/wapbook/86837.html" class="blue">特摄公寓</a>/但求及格</p> -->
-{{ range $v := .hotData}}
+{{ range $v := .detail}}
 <p class="line">[{{$vv.BookType.Text}}]<a href="/book_detail/{{$v.Id}}/c_1" class="blue">{{$v.Name}}</a>/<a href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></p>
 {{ end }}
 </div>
 <div class="page">
     <a href="/category/{{$vv.BookType.Path}}/{{.prevPage}}">上一页</a>
     <a href="/category/{{$vv.BookType.Path}}/{{.nextPage}}">下一页</a>
-<!-- <a href="/wapsort/5_346/">尾页</a> -->
 </div>
-<!-- <div class="page">输入页数<input id="pageinput" size="4" /><input type="button" value="跳转" onclick = "page()" /> <br/>(第1/346页)当前20条/页</div> -->
 <div class="footer">
   <ul>
     <li><a href="/">首页</a></li>
-    <!-- <li><a href="#">电脑版</a></li> -->
-    <!-- <li><a href="#">书架</a></li> -->
   </ul>
 </div>
 <form action="/search_author" method="get" id="author_form">
     <input type="hidden" id = "author_input" name="author" value="" />
 </form>
-
 <script>
-    function search_author(name){
+function search_author(name){
         var form = document.getElementById('author_form');
         document.getElementById("author_input").value = name
         form.submit();
     }
-</script>
-<script>
 function page(){
     var p = document.getElementById("pageinput").value;
     if(!isPositiveNum(p)){p = 346;}
@@ -87,7 +68,6 @@ function page(){
         return re.test(s)
     }
 }
-// document.getElementById("s5").style.cssText = "background-color:#CCCCCC";
 </script>
 <script>tj();</script>
 </body>

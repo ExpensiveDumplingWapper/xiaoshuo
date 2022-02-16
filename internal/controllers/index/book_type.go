@@ -16,7 +16,7 @@ func BookType(ctx *gin.Context) {
 	menu := raw_data.GetMenus()
 
 	bookType := ctx.Param("booktype")
-	page := ctx.Param("paga")
+	page := ctx.Param("page")
 	finalPage, _ := strconv.Atoi(page)
 
 	nextPage := strconv.Itoa(finalPage + 1)

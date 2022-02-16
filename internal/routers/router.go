@@ -37,7 +37,7 @@ func InitRouter() *gin.Engine {
 	router.GET("/hello", hellos)
 	router.GET("/favicon.ico", hello)
 	router.GET("/book_detail/:id/:page", index.BookInfo)
-	router.GET("/category/:booktype/:paga", index.BookType)
+	router.GET("/category/:booktype/:page", index.BookType)
 	router.GET("/book_search", index.BookSearch)
 	router.GET("/search_author", index.SearchAuthor)
 	router.POST("/leave_message", index.LeavMessage)
