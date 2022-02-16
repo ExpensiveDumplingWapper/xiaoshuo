@@ -4,81 +4,86 @@ import (
 	"io"
 	"log"
 	"os"
+	"time"
 
 	"github.com/sirupsen/logrus"
 )
 
 var BlueLogger *logrus.Logger
+var LeavMessage *logrus.Logger
+var AskBook *logrus.Logger
 
 type Option func(*option)
 
 func NewLogger() {
 	BlueLogger = logrus.New()
+	customFormatter := new(logrus.TextFormatter)
+	customFormatter.TimestampFormat = "2006-01-02 15:04:05"
+	BlueLogger.SetFormatter(customFormatter)
 	BlueLogger.SetFormatter(&logrus.JSONFormatter{})
 	BlueLogger.SetLevel(logrus.InfoLevel)
-
-	file, err := os.OpenFile("/Users/jason/go/src/adms-go/stand_test1.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0777)
-
+	logName := "/tmp/logs/" + time.Now().Format("2006-01-02") + ".log"
+	file, err := os.OpenFile(logName, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0777)
 	if err != nil {
 		panic(err.Error())
 	}
-
 	writers := []io.Writer{file, os.Stdout}
-
 	BlueLogger.SetOutput(io.MultiWriter(writers...))
-
-	hook, err := NewKafkaLogrusHook(
-		"klh",
-		[]logrus.Level{logrus.InfoLevel, logrus.WarnLevel, logrus.ErrorLevel, logrus.DebugLevel},
-		&logrus.JSONFormatter{},
-		[]string{"192.168.1.103:9092"},
-		"test",
-		true,
-	)
-
+	// BlueLogger.SetOutput(os.Stdout)
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	BlueLogger.AddHook(hook)
 }
 
-//func NewLogger1(opts ...Option) {
-//	opt := new(option)
-//	for _, f := range opts{
-//		f(opt)
-//	}
-//
-//	Logger = &logger{
-//		enableKafka: true,
-//	}
-//}
-
-//var log logger
-
-func withFormtter(formatter *logrus.Formatter) Option {
-	return func(o *option) {
-		o.formatter = formatter
+func NewLeavMessage() {
+	LeavMessage = logrus.New()
+	LeavMessage.SetFormatter(&logrus.TextFormatter{TimestampFormat: "2006-01-02 15:04:05"})
+	LeavMessage.SetFormatter(&logrus.JSONFormatter{})
+	LeavMessage.SetLevel(logrus.InfoLevel)
+	logName := "/tmp/logs/leavMessage.DB"
+	file, err := os.OpenFile(logName, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0777)
+	if err != nil {
+		panic(err.Error())
+	}
+	writers := []io.Writer{file, os.Stdout}
+	LeavMessage.SetOutput(io.MultiWriter(writers...))
+	// BlueLogger.SetOutput(os.Stdout)
+	if err != nil {
+		log.Fatal(err)
 	}
 }
 
-func withLevel(level logrus.Level) Option {
-	return func(o *option) {
-		o.level = uint32(level)
+func NewAskBook() {
+	AskBook = logrus.New()
+	customFormatter := new(logrus.TextFormatter)
+	customFormatter.TimestampFormat = "2006-01-02 15:04:05"
+	AskBook.SetFormatter(customFormatter)
+	AskBook.SetFormatter(&logrus.JSONFormatter{})
+	AskBook.SetLevel(logrus.InfoLevel)
+	logName := "/tmp/logs/askBook.DB"
+	file, err := os.OpenFile(logName, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0777)
+	if err != nil {
+		panic(err.Error())
+	}
+	writers := []io.Writer{file, os.Stdout}
+	AskBook.SetOutput(io.MultiWriter(writers...))
+	if err != nil {
+		log.Fatal(err)
 	}
 }
 
-func withFile(filePath string) Option {
-	return func(o *option) {
-		o.filePath = filePath
-	}
+func LeavMessDB(email, message, ip string) {
+	LeavMessage.WithFields(logrus.Fields{
+		"email": email,
+		"ip":    ip,
+	}).Info(message)
 }
-
-//func withEnableKafka(enable bool) Option{
-//	return func(o *option) {
-//		o.
-//	}
-//}
+func AskBookDB(email, message, ip string) {
+	AskBook.WithFields(logrus.Fields{
+		"email": email,
+		"ip":    ip,
+	}).Info(message)
+}
 
 type option struct {
 	level     uint32
@@ -90,41 +95,32 @@ type option struct {
 
 func Info(msg interface{}) {
 	BlueLogger.WithFields(logrus.Fields{
-		"service": "service-test",
-		"level":   "i",
-	}).Info(msg)
+		"animal": "walrus",
+		"size":   10,
+	}).Info("A group of walrus emerges from the ocean")
 
-	//Logger.WithFields(logrus.Fields{
-	//		"service": "service-test",
-	//	}).Info(msg)
 }
 
 func Debug(msg interface{}) {
 	BlueLogger.WithFields(logrus.Fields{
-		"service": "service-test",
+		"service": "xiaoshuo",
 	}).Debug(msg)
-}
-
-func Warn(msg interface{}) {
-	BlueLogger.WithFields(logrus.Fields{
-		"service": "service-test",
-	}).Warn(msg)
 }
 
 func Error(msg interface{}) {
 	BlueLogger.WithFields(logrus.Fields{
-		"service": "service-test",
+		"service": "xiaoshuo",
 	}).Error(msg)
 }
 
 func Fatal(msg interface{}) {
 	BlueLogger.WithFields(logrus.Fields{
-		"service": "service-test",
+		"service": "xiaoshuo",
 	}).Fatal(msg)
 }
 
 func Panic(msg interface{}) {
 	BlueLogger.WithFields(logrus.Fields{
-		"service": "service-test",
+		"service": "xiaoshuo",
 	}).Panic(msg)
 }

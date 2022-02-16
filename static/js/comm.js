@@ -2,7 +2,7 @@
 //搜索
 function search(){
     document.writeln("<div class=\"search\">");
-    document.writeln("<form name=\"articlesearch\" action=\"/book_search\" method=\"post\">");
+    document.writeln("<form name=\"articlesearch\" action=\"/book_search\" method=\"get\">");
     document.writeln("<table cellpadding=\"0\" cellspacing=\"0\" style=\"width:100%;\"><tr>");
     document.writeln("<td style=\"background-color:#fff; border:1px solid #CCC;\"><input id=\"s_key\" name=\"searchkey\" type=\"text\" class=\"key\" value=\"输入书名后搜索，宁可少字不要错字\" onFocus=\"this.value=''\" /></td>");
     document.writeln("<td style=\"width:35px; background-color:#0080C0; background-image:url('/static/images/search.png'); background-repeat:no-repeat; background-position:center\"><input name=\"submit\" type=\"submit\" value=\"\" class=\"go\"></td></tr>");

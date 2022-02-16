@@ -13,7 +13,7 @@
 <script type="text/javascript" src="//libs.baidu.com/jquery/1.4.2/jquery.min.js"></script>
 <!-- <script src="/js/pc_pf.js"></script> -->
 <!--<script type="text/javascript" src="//cbjs.baidu.com/js/m.js"></script>-->
-<script type="text/javascript" src="/static/js/bqg.js?12"></script>
+<script type="text/javascript" src="/static/js/bqg.js"></script>
 </head>
 <body>
   <div id="wrapper">
@@ -30,7 +30,6 @@
     <div class="nav">
       <ul>
         <li><a href="/">首页</a></li>
-
         {{ range $v := .menu}}
         <li><a href="/{{$v.Path}}/1">{{$v.Text}}</a></li>
        {{ end }}
@@ -106,7 +105,7 @@
   </div>
 </div>
 
-<form action="/search_author" method="post" id="author_form">
+<form action="/search_author" method="get" id="author_form">
   <input type="hidden" id = "author_input" name="author" value="" />
 </form>
 

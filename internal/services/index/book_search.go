@@ -12,7 +12,7 @@ import (
 )
 
 func BookSearch(ctx *gin.Context) (res []raw_data.BookInfo, err error) {
-	keyWord := ctx.PostForm("searchkey")
+	keyWord := ctx.Query("searchkey")
 	// page := ctx.Query("page")
 	// fmt.Println(keyWord, )
 	page := "1"
@@ -21,7 +21,7 @@ func BookSearch(ctx *gin.Context) (res []raw_data.BookInfo, err error) {
 }
 
 func SearchAuthor(ctx *gin.Context) (res []raw_data.BookInfo, err error) {
-	keyWord := ctx.PostForm("author")
+	keyWord := ctx.Query("author")
 	page := "1"
 	res = raw_data.GetSearchAuthor(keyWord, page)
 	return

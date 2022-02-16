@@ -24,7 +24,7 @@
 <div class="nav">
     <ul>
         {{ range $v := .menu}}
-                <li><a href="/{{$v.Path}}/1">{{$v.Text}}</a></li>
+            <li><a href="/{{$v.Path}}/1">{{$v.Text}}</a></li>
         {{ end }}
         <div class="cc"></div>
     </ul>
@@ -34,7 +34,7 @@
 {{ range $v := .indexData}}
 {{$first := index $v 0}}
 <div class="article">
-    <h2 class="title"><span><a href="/{{$first.BookType.Path}}/1">{{$first.BookType.Text}}</a></span>
+    <h2 class="title"><span><a href="/category/{{$first.BookType.Path}}/1">{{$first.BookType.Text}}</a></span>
     </h2>
 
     <div class="block">
@@ -59,7 +59,7 @@
     <!-- <li><a href="#">电脑版</a></li> -->
   </ul>
 </div>
-<form action="/search_author" method="post" id="author_form">
+<form action="/search_author" method="get" id="author_form">
     <input type="hidden" id = "author_input" name="author" value="" />
 </form>
 

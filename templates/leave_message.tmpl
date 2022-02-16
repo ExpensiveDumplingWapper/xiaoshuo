@@ -1,0 +1,64 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  {{$defaultImage :=.hostDefaultImage}}
+<meta name="baidu-site-verification" content="L8SAgW36wb" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>悠哉文学网</title>
+<meta name="keywords" content="悠哉文学网,网络小说,小说阅读网,小说,无弹窗小说,下载小说" />
+<meta name="description" content="悠哉文学网是广大书友最值得收藏的网络小说阅读网，网站收录了当前最火热的网络小说，免费提供高质量的小说最新章节，是广大网络小说爱好者必备的小说阅读网。" />
+<link rel="stylesheet" type="text/css" href="static/css/biquge.css"/>
+<script type="text/javascript" src="static/js/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/bqg.js"></script>
+<link rel="shortcut icon" href="favicon.ico" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<meta name="baidu-site-verification" content="cBwSh6gmX8"/>
+
+
+</head>
+<body>
+  <div id="wrapper">
+    <div class="nav">
+      <ul>
+        <li><a href="/">首页</a></li>
+      {{ range $v := .menu}}
+        <li><a href="/{{$v.Path}}/1">{{$v.Text}}</a></li>
+      {{ end }}
+      </ul>
+    </div>
+  </div>
+<div id="main">
+  <br><br>
+  <form name="form" action="/leave_message" method="post">
+    <div class="form-group row">
+      <label class="col-sm-1 col-form-label"></label>
+      <label for="exampleInputEmail1" class="col-sm-2 col-form-label">电子邮箱地址</label>
+      <div class="col-sm-8">
+        <input type="email" class="form-control" id="exampleInputEmail1"  name="email">
+      </div>
+      <label class="col-sm-3 col-form-label"></label>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-1 col-form-label"></label>
+      <label for="exampleInputEmail1" class="col-sm-2 col-form-label">反馈内容</label>
+      <div class="col-sm-8">
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
+      </div>
+      <label class="col-sm-3 col-form-label"></label>
+    </div>
+    <label class="col-sm-3 col-form-label"></label>
+    <button type="submit" class="col-sm-3 btn btn-primary">提交</button>
+    <label class="col-sm-3 col-form-label"></label>
+  </form>
+
+
+</div>
+<!-- <div class="footer">
+    <div class="footer_link"></div>
+    <div class="footer_cont"></div>
+</div> -->
+</body>
+</html>

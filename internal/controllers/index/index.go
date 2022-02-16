@@ -14,9 +14,7 @@ var Image = "http://180.76.238.148:8078/image"
 const HostDefaultImage = "http://180.76.238.148:8078/image/cover.jpeg"
 
 func Index(ctx *gin.Context) {
-
 	indexData, hotcontent, _ := index.Index(ctx)
-
 	menu := raw_data.GetMenus()
 	if ctx.GetBool("isMobile") {
 		var datas [][]raw_data.BookInfo

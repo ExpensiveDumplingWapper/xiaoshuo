@@ -1,8 +1,3 @@
-/*
- * @Descripttion: 我见青山多妩媚
- * @Date: 2022-01-04 14:32:34
- * @LastEditTime: 2022-01-10 14:52:12
- */
 package index
 
 import (

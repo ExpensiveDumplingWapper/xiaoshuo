@@ -38,8 +38,13 @@ func InitRouter() *gin.Engine {
 	router.GET("/favicon.ico", hello)
 	router.GET("/book_detail/:id/:page", index.BookInfo)
 	router.GET("/category/:booktype/:paga", index.BookType)
-	router.POST("/book_search", index.BookSearch)
-	router.POST("/search_author", index.SearchAuthor)
+	router.GET("/book_search", index.BookSearch)
+	router.GET("/search_author", index.SearchAuthor)
+	router.POST("/leave_message", index.LeavMessage)
+	router.POST("/ask_book", index.AskBook)
+
+	router.GET("/leave_message_html", index.LeavMessageHtml)
+	router.GET("/ask_book_html", index.AskBookHtml)
 
 	return router
 }

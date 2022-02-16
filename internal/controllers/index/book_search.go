@@ -21,7 +21,7 @@ func BookSearch(ctx *gin.Context) {
 	page := "1"
 	finalPage, _ := strconv.Atoi(page)
 	nextPage := strconv.Itoa(finalPage + 1)
-	keyWord := ctx.PostForm("searchkey")
+	keyWord := ctx.Query("searchkey")
 
 	if ctx.GetBool("isMobile") {
 		ctx.HTML(http.StatusOK, "m_book_search.tmpl", gin.H{
@@ -50,7 +50,7 @@ func SearchAuthor(ctx *gin.Context) {
 	page := "1"
 	finalPage, _ := strconv.Atoi(page)
 	nextPage := strconv.Itoa(finalPage + 1)
-	keyWord := ctx.PostForm("author")
+	keyWord := ctx.Query("author")
 
 	if ctx.GetBool("isMobile") {
 		ctx.HTML(http.StatusOK, "m_book_search.tmpl", gin.H{

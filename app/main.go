@@ -16,11 +16,15 @@ import (
 	"time"
 
 	"xiaoshuo/internal/routers"
+	"xiaoshuo/pkg/log/logrus"
 
 	_ "go.uber.org/automaxprocs"
 )
 
 func main() {
+	logrus.NewLogger()
+	logrus.NewLeavMessage()
+	logrus.NewAskBook()
 	httpPort := "9999"
 	addr := fmt.Sprintf(":%s", httpPort)
 	readTimeout := time.Second * 5
