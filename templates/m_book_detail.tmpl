@@ -50,7 +50,7 @@
     <div class="block_img2"><img src="{{ $image }}/{{.detail.BookInfo.Cover}}" border="0" width='92' height='116'  onerror="this.src='{{$defaultImage}}'"  /></div>
   <div class="block_txt2">
   <p><a href="/book_detail/{{.detail.BookInfo.Id}}/c_1"><h2>{{.detail.BookInfo.Name}}</h2></a></P>
-  <p>作者：<a href="#" onclick="search_author('{{.detail.BookInfo.Author}}')">{{.detail.BookInfo.Author}}</a></p>
+  <p>作者：<a href="/search_author?author={{.detail.BookInfo.Author}}" >{{.detail.BookInfo.Author}}</a></p>
   <p>分类：<a href="/category/{{.detail.BookInfo.BookType.Path}}/1">{{.detail.BookInfo.BookType.Text}}</a></p>
   <p>状态：完本</p>
   <p>更新：{{.detail.BookInfo.Lastupdate}}</p>

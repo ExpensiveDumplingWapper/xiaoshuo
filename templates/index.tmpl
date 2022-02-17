@@ -49,7 +49,7 @@
   <div class="item">
     <div class="image"><a href="book_detail/{{$v.Id}}/c_1"><img src="{{ $image }}/{{$v.Cover}}" alt="{{$v.Name}}"  width="120" height="150"  onerror="this.src='{{$defaultImage}}'" /></a></div>
     <dl>
-       <dt><a href="#" onclick="search_author('{{$v.Author}}')" >{{$v.Author}}</a>/<a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a></dt>
+       <dt><a href="/search_author?author={{$v.Author}}" >{{$v.Author}}</a>/<a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a></dt>
        <dd>   {{$v.Desc}}</dd>
     </dl>
     <div class="clear"></div>
@@ -66,7 +66,7 @@
    <h2>上期强推</h2>
     <ul>
              {{ range $v := .hotcontent}}
-             <li><a class="s1" href="/{{$v.BookType.Path}}/1">[{{$v.BookType.Text}}]</a><span class="s2"><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a></span><a class="s5" href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
+             <li><a class="s1" href="/{{$v.BookType.Path}}/1">[{{$v.BookType.Text}}]</a><span class="s2"><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a></span><a class="s5" href="/search_author?author={{$v.Author}}" >{{$v.Author}}</a></li>
              {{ end }}
             </ul>
     </div>
@@ -91,7 +91,7 @@
 <div class="clear"></div></div>
 <ul>
   {{ range $v := .indexData.BooksByType.Xuanhuanqihuan}}
-  <li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
+  <li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="/search_author?author={{$v.Author}}" >{{$v.Author}}</a></li>
   {{ end }}
 </ul>
 </div>
@@ -105,7 +105,7 @@
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Xiandaiyanqing}}
-<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a  href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
+<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a  href="/search_author?author={{$v.Author}}" >{{$v.Author}}</a></li>
 {{ end }}
 </ul>
 </div>
@@ -119,7 +119,7 @@
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Kehuanlingyi}}
-<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
+<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="/search_author?author={{$v.Author}}" >{{$v.Author}}</a></li>
 {{ end }}
 </ul>
 </div>
@@ -136,7 +136,7 @@
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Dongfangxuanhuan}}
-<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
+<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="/search_author?author={{$v.Author}}" >{{$v.Author}}</a></li>
 {{ end }}
 </ul>
 </div>
@@ -150,7 +150,7 @@
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Wangyoujingji}}
-<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
+<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="/search_author?author={{$v.Author}}" >{{$v.Author}}</a></li>
 {{ end }}
 </ul>
 </div>
@@ -164,7 +164,7 @@
 <div class="clear"></div></div>
 <ul>
 {{ range $v := .indexData.BooksByType.Wuxiaxianxia}}
-<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
+<li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="/search_author?author={{$v.Author}}" >{{$v.Author}}</a></li>
 {{ end }}
 </ul>
 </div>
@@ -183,7 +183,7 @@
   <div class="clear"></div></div>
   <ul>
   {{ range $v := .indexData.BooksByType.Xiaoshuotongren}}
-  <li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
+  <li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="/search_author?author={{$v.Author}}" >{{$v.Author}}</a></li>
   {{ end }}
   </ul>
   </div>
@@ -197,7 +197,7 @@
   <div class="clear"></div></div>
   <ul>
   {{ range $v := .indexData.BooksByType.Nushengpindao}}
-  <li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
+  <li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="/search_author?author={{$v.Author}}" >{{$v.Author}}</a></li>
   {{ end }}
   </ul>
   </div>
@@ -211,7 +211,7 @@
   <div class="clear"></div></div>
   <ul>
   {{ range $v := .indexData.BooksByType.Lishijunshi}}
-  <li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
+  <li><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a>/<a href="/search_author?author={{$v.Author}}" >{{$v.Author}}</a></li>
   {{ end }}
   </ul>
   </div>
@@ -225,7 +225,7 @@
 <h2>最近更新小说列表</h2>
 <ul>
   {{ range $v := .indexData.LastupdateBooks}}
-  <li><a  href ="/category/{{$v.BookType.Path}}/1" class="s1">[{{$v.BookType.Text}}]</a><span class="s2"><a href="book_detail/{{$v.Id}}/c_1" target="_blank">{{$v.Name}}</a></span><span class="s3"><a href="/book_detail/{{$v.Id}}/r_{{$v.LatestChapter.Chapterid}}" target="_blank">{{$v.LatestChapter.Chaptername}}</a></span><a class="s4" href="#"  onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></li>
+  <li><a  href ="/category/{{$v.BookType.Path}}/1" class="s1">[{{$v.BookType.Text}}]</a><span class="s2"><a href="book_detail/{{$v.Id}}/c_1" target="_blank">{{$v.Name}}</a></span><span class="s3"><a href="/book_detail/{{$v.Id}}/r_{{$v.LatestChapter.Chapterid}}" target="_blank">{{$v.LatestChapter.Chaptername}}</a></span><a class="s4" href="/search_author?author={{$v.Author}}" >{{$v.Author}}</a></li>
   {{ end }}
  </ul>
 </div>
@@ -236,7 +236,7 @@
 <h2>最新入库小说</h2>
 <ul>
   {{ range $v := .indexData.LastupdateBooks}}
-  <li><span class="s2"><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a></span><a class="s5" href="#" onclick="search_author('{{$v.Author}}')" val="{{$v.Author}}">{{$v.Author}}</a></li>
+  <li><span class="s2"><a href="book_detail/{{$v.Id}}/c_1">{{$v.Name}}</a></span><a class="s5" href="/search_author?author={{$v.Author}}"  val="{{$v.Author}}">{{$v.Author}}</a></li>
   {{ end }}
 </ul>
 </div><div class="clear"></div>

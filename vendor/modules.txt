@@ -16,8 +16,6 @@ github.com/Shopify/sarama
 github.com/beorn7/perks/quantile
 # github.com/cespare/xxhash/v2 v2.1.2
 github.com/cespare/xxhash/v2
-# github.com/chenjiandongx/ginprom v0.0.0-20210617023641-6c809602c38a
-## explicit
 # github.com/davecgh/go-spew v1.1.1
 github.com/davecgh/go-spew/spew
 # github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f
@@ -170,8 +168,6 @@ github.com/sirupsen/logrus
 github.com/speps/go-hashids/v2
 # github.com/ugorji/go/codec v1.1.7
 github.com/ugorji/go/codec
-# go.elastic.co/apm/module/apmgin v1.14.0
-## explicit
 # go.uber.org/atomic v1.7.0
 go.uber.org/atomic
 # go.uber.org/automaxprocs v1.4.0
@@ -234,6 +230,12 @@ google.golang.org/protobuf/types/descriptorpb
 google.golang.org/protobuf/types/known/anypb
 google.golang.org/protobuf/types/known/durationpb
 google.golang.org/protobuf/types/known/timestamppb
+# gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc
+## explicit
+gopkg.in/alexcesaro/quotedprintable.v3
+# gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df
+## explicit
+gopkg.in/gomail.v2
 # gopkg.in/natefinch/lumberjack.v2 v2.0.0
 ## explicit
 gopkg.in/natefinch/lumberjack.v2

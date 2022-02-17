@@ -55,7 +55,7 @@
                 <div id="info">
                     <h1>{{.detail.BookInfo.Name}}</h1>
                     <!-- <p>作&nbsp;&nbsp;&nbsp;&nbsp;者：<a href="/search_author/{{.detail.BookInfo.Author}}">{{.detail.BookInfo.Author}} </a></p> -->
-                    <p>作&nbsp;&nbsp;&nbsp;&nbsp;者：<a  onclick="search_author()" href="#">{{.detail.BookInfo.Author}} </a></p>
+                    <p>作&nbsp;&nbsp;&nbsp;&nbsp;者：<a   href="/search_author?author={{.detail.BookInfo.Author}}">{{.detail.BookInfo.Author}} </a></p>
                     <p>最后更新：{{.detail.BookInfo.Lastupdate}}</p>
                     <p>最新章节：<a href="/book_detail/{{.detail.BookInfo.Id}}/r_{{.detail.BookInfo.LatestChapter.Chapterid}}">{{.detail.BookInfo.LatestChapter.Chaptername}}</a></p>
                 </div>

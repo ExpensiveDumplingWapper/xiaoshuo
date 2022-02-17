@@ -37,7 +37,7 @@
 <script>search();</script>
 <div class="cover">
 {{ range $v := .detail}}
-<p class="line">[{{$vv.BookType.Text}}]<a href="/book_detail/{{$v.Id}}/c_1" class="blue">{{$v.Name}}</a>/<a href="#" onclick="search_author('{{$v.Author}}')">{{$v.Author}}</a></p>
+<p class="line">[{{$vv.BookType.Text}}]<a href="/book_detail/{{$v.Id}}/c_1" class="blue">{{$v.Name}}</a>/<a href="/search_author?author={{$v.Author}}" >{{$v.Author}}</a></p>
 {{ end }}
 </div>
 <div class="page">
