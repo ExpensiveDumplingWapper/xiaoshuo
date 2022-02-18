@@ -55,7 +55,7 @@ ul,li{margin:0;padding:0;}
   {{ range $v := .detail}}
   <tr>
     <td class="even"><a href="/book_detail/{{$v.Id}}/c_1" target="_blank">{{$v.Name}}</a></td>
-    <td class="even"><a href="/">{{$v.Author}}</a></td>
+    <td class="even"><a href="/search_author?author={{$v.Author}}">{{$v.Author}}</a></td>
     <td class="odd" align="center">{{$v.Lastupdate}}</td>
   </tr>
  {{ end }}
