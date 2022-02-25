@@ -19,7 +19,7 @@ func BookType(ctx *gin.Context) (res, hotRes []raw_data.BookInfo, err error) {
 	if finalPage <= 1 {
 		page = "1"
 	}
-	res = raw_data.GetBookeType(bookType, page)
-	hotRes = raw_data.GetBookeTypeHot(bookType)
+	res = raw_data.GetBookeType(ctx, bookType, page)
+	hotRes = raw_data.GetBookeTypeHot(ctx, bookType)
 	return
 }

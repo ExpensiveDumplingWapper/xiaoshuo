@@ -17,7 +17,7 @@ const exceptPathPattern = "^(/metrics|/healthz|/|/favicon.ico)$"
 func InitRouter() *gin.Engine {
 
 	router := gin.New()
-	router.Use(middlewares.Debug())
+	// router.Use(middlewares.Debug())
 	router.Use(middlewares.Runtime())
 	router.Use(middlewares.ParseUa())
 	router.Use(middlewares.RecoveryWithZap()) // 开启 Recover

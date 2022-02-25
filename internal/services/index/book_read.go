@@ -15,7 +15,7 @@ import (
 func BookRead(ctx *gin.Context) (res raw_data.BookContentData, err error) {
 	bookId := ctx.Param("id")
 	chapterId := strings.ReplaceAll(ctx.Param("page"), "r_", "")
-	res = raw_data.GetBookeRead(bookId, chapterId)
+	res = raw_data.GetBookeRead(ctx, bookId, chapterId)
 
 	return
 }

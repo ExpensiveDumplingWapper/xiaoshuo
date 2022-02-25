@@ -28,10 +28,6 @@ func GetMenus() (res []Menus) {
 	client := &http.Client{
 		// Timeout:   readTimeout,
 	}
-	// bytesData, _ := json.Marshal(data)
-	// req, _ := http.NewRequest("POST", url, bytes.NewReader(bytesData))
-	// req.Header.Add("Content-Type", "application/json")
-	// resp, err := client.Do(req)
 	resp, err := client.Get(url)
 	if err != nil {
 		fmt.Println(err.Error())

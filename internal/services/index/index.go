@@ -15,7 +15,7 @@ type HtmlData struct {
 }
 
 func Index(ctx *gin.Context) (indexData raw_data.IndexData, hotcontent []raw_data.BookInfo, err error) {
-	indexData = raw_data.GetindexData()
+	indexData = raw_data.GetindexData(ctx)
 	//任取 4个 BookInfo
 	hotcontent = make([]raw_data.BookInfo, 4)
 	if len(indexData.TopRecommendBooks) > 4 {

@@ -7,6 +7,7 @@ import (
 	"os"
 	"runtime"
 	"strings"
+	"xiaoshuo/pkg/log/logrus"
 
 	// "xiaoshuo/internal/utils/logger"
 
@@ -46,17 +47,18 @@ func RecoveryWithZap() gin.HandlerFunc {
 				fmt.Println(stackInfo)
 				if message, ok := err.(string); ok {
 					// logger.Error("panic_error", "ServerPanicMessage: "+message+"\nStackInfo:\n"+stackInfo, c)
+					logrus.Error("ServerPanicMessage: " + message + "\nStackInfo:\n" + stackInfo)
 					fmt.Println(message)
 				} else if message, ok := err.(runtime.Error); ok {
 					// logger.Error("panic_error", "ServerPanicMessage: "+message.Error()+"\nStackInfo:\n"+stackInfo, c)
+					logrus.Error("ServerPanicMessage: " + message.Error() + "\nStackInfo:\n" + stackInfo)
 					fmt.Println(message.Error())
 				} else {
 					// logger.Error("panic_error", "ServerPanicMessage:"+" StackInfo:"+stackInfo, c)
+					logrus.Error("ServerPanicMessage:" + " StackInfo:" + stackInfo)
 				}
 				// c.JSON(http.StatusInternalServerError, gin.H{"code": 520, "message": "Internal Server Error"})
-
 				c.HTML(http.StatusOK, "error.tmpl", gin.H{})
-
 			}
 		}()
 		// c.Next()

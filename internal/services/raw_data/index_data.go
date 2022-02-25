@@ -5,6 +5,9 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"time"
+
+	"github.com/gin-gonic/gin"
 )
 
 type IndexDataRes struct {
@@ -115,12 +118,12 @@ type ChapterList struct {
 const host = "http://180.76.238.148:9093"
 
 //首页数据
-func GetindexData() (res IndexData) {
+func GetindexData(ctx *gin.Context) (res IndexData) {
 	url := host + "/indexData"
 	client := &http.Client{
 		// Timeout:   readTimeout,
 	}
-
+	fmt.Println(ctx.ClientIP(), time.Now().Format("2006-01-02 15:04:05"), url)
 	resp, err := client.Get(url)
 	if err != nil {
 		fmt.Println(err.Error())
@@ -138,16 +141,16 @@ func GetindexData() (res IndexData) {
 		fmt.Println(err.Error())
 		return
 	}
-	// fmt.Println(resData.Data)
 	return resData.Data
 }
 
 // 小说详情页
-func GetBookeInfo(id, page string) (res BookChaptersData) {
+func GetBookeInfo(ctx *gin.Context, id, page string) (res BookChaptersData) {
 	url := host + "/getChapters?bookId=" + id + "&page=" + page + "&size=30"
 	client := &http.Client{
 		// Timeout:   readTimeout,
 	}
+	fmt.Println(ctx.ClientIP(), time.Now().Format("2006-01-02 15:04:05"), url)
 	resp, err := client.Get(url)
 	if err != nil {
 		fmt.Println(err.Error())
@@ -165,18 +168,17 @@ func GetBookeInfo(id, page string) (res BookChaptersData) {
 		fmt.Println(err.Error())
 		return
 	}
-	// fmt.Println(resData.Data)
 	return resData.Data
 }
 
 // 小说内容返回
-func GetBookeRead(bookId, chapterId string) (res BookContentData) {
+func GetBookeRead(ctx *gin.Context, bookId, chapterId string) (res BookContentData) {
 	url := host + "/getChapterDetail?bookId="
 	client := &http.Client{
 		// Timeout:   readTimeout,
 	}
 	url = url + bookId + "&chapterId=" + chapterId
-	fmt.Println(url)
+	fmt.Println(ctx.ClientIP(), time.Now().Format("2006-01-02 15:04:05"), url)
 	resp, err := client.Get(url)
 	if err != nil {
 		fmt.Println(err.Error())
@@ -198,13 +200,12 @@ func GetBookeRead(bookId, chapterId string) (res BookContentData) {
 }
 
 // 小说类型分页
-func GetBookeType(bookType, page string) (res []BookInfo) {
+func GetBookeType(ctx *gin.Context, bookType, page string) (res []BookInfo) {
 	url := host + "/getBooks?type=" + bookType + "&size=25&page=" + page
 	client := &http.Client{
 		// Timeout:   readTimeout,
 	}
-	// url = url + bookId + "&chapterId=" + chapterId
-	fmt.Println(url)
+	fmt.Println(ctx.ClientIP(), time.Now().Format("2006-01-02 15:04:05"), url)
 	resp, err := client.Get(url)
 	if err != nil {
 		fmt.Println(err.Error())
@@ -226,12 +227,12 @@ func GetBookeType(bookType, page string) (res []BookInfo) {
 }
 
 // 小说类型 热门小说返回
-func GetBookeTypeHot(bookType string) (res []BookInfo) {
+func GetBookeTypeHot(ctx *gin.Context, bookType string) (res []BookInfo) {
 	url := host + "/getTopBooksByType?type=" + bookType
 	client := &http.Client{
 		// Timeout:   readTimeout,
 	}
-	fmt.Println(url)
+	fmt.Println(ctx.ClientIP(), time.Now().Format("2006-01-02 15:04:05"), url)
 	resp, err := client.Get(url)
 	if err != nil {
 		fmt.Println(err.Error())
@@ -253,30 +254,30 @@ func GetBookeTypeHot(bookType string) (res []BookInfo) {
 }
 
 // 小说查询 作者和书名 然后合并返回
-func GetBookSearch(keyWord, page string) (res []BookInfo) {
+func GetBookSearch(ctx *gin.Context, keyWord, page string) (res []BookInfo) {
 	urlAuthor := host + "/search?size=30&author=" + keyWord + "&page=" + page
 	urlName := host + "/search?size=30&name=" + keyWord + "&page=" + page
 
-	urlAuthorData := GetBookSearchData(urlAuthor)
-	urlurlName := GetBookSearchData(urlName)
+	urlAuthorData := GetBookSearchData(ctx, urlAuthor)
+	urlurlName := GetBookSearchData(ctx, urlName)
 	res = append(res, urlurlName...)
 	res = append(res, urlAuthorData...)
 	return
 }
 
 // 小说查询 作者
-func GetSearchAuthor(keyWord, page string) (res []BookInfo) {
+func GetSearchAuthor(ctx *gin.Context, keyWord, page string) (res []BookInfo) {
 	urlAuthor := host + "/search?size=30&author=" + keyWord + "&page=" + page
-	urlAuthorData := GetBookSearchData(urlAuthor)
+	urlAuthorData := GetBookSearchData(ctx, urlAuthor)
 	res = append(res, urlAuthorData...)
 	return
 }
 
-func GetBookSearchData(url string) (res []BookInfo) {
+func GetBookSearchData(ctx *gin.Context, url string) (res []BookInfo) {
 	client := &http.Client{
 		// Timeout:   readTimeout,
 	}
-	fmt.Println(url)
+	fmt.Println(ctx.ClientIP(), time.Now().Format("2006-01-02 15:04:05"), url)
 	resp, err := client.Get(url)
 	if err != nil {
 		fmt.Println(err.Error())

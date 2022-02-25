@@ -16,13 +16,13 @@ func BookSearch(ctx *gin.Context) (res []raw_data.BookInfo, err error) {
 	// page := ctx.Query("page")
 	// fmt.Println(keyWord, )
 	page := "1"
-	res = raw_data.GetBookSearch(keyWord, page)
+	res = raw_data.GetBookSearch(ctx, keyWord, page)
 	return
 }
 
 func SearchAuthor(ctx *gin.Context) (res []raw_data.BookInfo, err error) {
 	keyWord := ctx.Query("author")
 	page := "1"
-	res = raw_data.GetSearchAuthor(keyWord, page)
+	res = raw_data.GetSearchAuthor(ctx, keyWord, page)
 	return
 }
