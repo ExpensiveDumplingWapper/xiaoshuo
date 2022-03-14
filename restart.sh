@@ -6,7 +6,7 @@ do
 
 if [ $(ps -ef | grep "./main" | grep -v "grep" | wc -l) -eq 1 ];then
 
-kill $(ps -ef|grep "./main"|awk '{print $1}')
+kill $(ps -ef|grep "./main"|awk '{print $2}')
 
 echo "kill"
 

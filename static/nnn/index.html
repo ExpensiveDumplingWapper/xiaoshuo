@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)https://www.17sucai.com/preview/858664/2020-03-26/clock/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>动态时钟</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./jquery-3.4.1.min.js"></script>
+    <script src="./test.js"></script>
+    <script src="./common.js"></script>
+    <script src="./config.js"></script>
+<style>
+
+	*{
+		margin: 0;
+		padding: 0;
+	}
+
+	body{
+		background-attachment: fixed;
+		color: #F5F4F6;
+		font-size: 12px;
+		font-weight: bold;
+		overflow: hidden;
+		width: 1000px;
+		height: 900px;
+		font-family: "微软雅黑";
+		
+	}
+
+	audio{
+		position: absolute;
+		right: 0;
+		opacity: 0.1;
+		transition: all 1s;
+		
+	}
+
+	audio:hover{
+		opacity: 1;
+	}
+
+	.current{
+		color: #D1A3F7;
+	}
+
+
+	video{
+		z-index: -1;
+		/* object-fit: fill; */
+		position: fixed;
+		/* right: 0px;
+		bottom: 0px; */
+		min-width: 100%;
+		min-height: 100%;
+		/* height: auto;
+		width: auto; */
+	}
+
+
+	.main-content{
+		position: absolute; 
+		top:50%;
+		left: 50%;
+	}
+
+
+	.main-content .year{
+		position: relative;
+		top: -13px;
+		left: -38px;
+		text-align: center
+	}
+
+	.main-content .year span{
+		position: absolute;
+		width: 80px;
+	}
+
+
+
+	.main-content .month{
+		position: relative;
+		top: -13px;
+		left: 40px;
+	}
+
+	.month span{
+		position: absolute;
+		width: 60px;
+		
+	}
+
+
+
+
+	.main-content .day{
+		position: relative;
+		top: -13px;
+		left: 85px;
+	}
+
+	.day span{
+		position: absolute;
+		width: 65px;
+		
+	}
+
+
+
+
+	.main-content .week{
+		position: relative;
+		top: -13px;
+		left: 145px;
+	}
+	.week span{
+		position: absolute;
+		width: 65px;
+		
+	}
+
+
+	.main-content .shichen{
+		position: relative;
+		top: -13px;
+		left: 200px;
+	}
+	.shichen span{
+		position: absolute;
+		width: 125px;
+		
+	}
+
+
+	.main-content .hour{
+		position: relative;
+		top: -13px;
+		left: 240px;
+	}
+	.hour span{
+		position: absolute;
+		width: 60px;
+		
+	}
+
+
+	.main-content .minute{
+		position: relative;
+		top: -13px;
+		left: 300px;
+	}
+	.minute span{
+		position: absolute;
+		width: 60px;
+		
+	}
+
+
+	.main-content .second{
+		position: relative;
+		top: -13px;
+		left: 370px;
+	}
+	.second span{
+		position: absolute;
+		width: 60px;
+		
+	}
+
+
+
+</style></head>
+
+
+
+
+
+<body style="color: rgb(127, 127, 127);">
+
+
+    
+    <div class="main-content">
+        <div class="year"><span class="current">二零二二年</span></div> 
+        <div class="month" style="left: 40px;"><span class="current" style="animation: 0s linear 0s 1 normal forwards running month0;">三月</span><span style="animation: 0s linear 0s 1 normal forwards running month1;">四月</span><span style="animation: 0s linear 0s 1 normal forwards running month2;">五月</span><span style="animation: 0s linear 0s 1 normal forwards running month3;">六月</span><span style="animation: 0s linear 0s 1 normal forwards running month4;">七月</span><span style="animation: 0s linear 0s 1 normal forwards running month5;">八月</span><span style="animation: 0s linear 0s 1 normal forwards running month6;">九月</span><span style="animation: 0s linear 0s 1 normal forwards running month7;">十月</span><span style="animation: 0s linear 0s 1 normal forwards running month8;">十一月</span><span style="animation: 0s linear 0s 1 normal forwards running month9;">十二月</span><span style="animation: 0s linear 0s 1 normal forwards running month10;">一月</span><span style="animation: 0s linear 0s 1 normal forwards running month11;">二月</span></div>
+        <div class="day" style="left: 85px;"><span class="current" style="animation: 0s linear 0s 1 normal forwards running day0;">十四日</span><span style="animation: 0s linear 0s 1 normal forwards running day1;">十五日</span><span style="animation: 0s linear 0s 1 normal forwards running day2;">十六日</span><span style="animation: 0s linear 0s 1 normal forwards running day3;">十七日</span><span style="animation: 0s linear 0s 1 normal forwards running day4;">十八日</span><span style="animation: 0s linear 0s 1 normal forwards running day5;">十九日</span><span style="animation: 0s linear 0s 1 normal forwards running day6;">二十日</span><span style="animation: 0s linear 0s 1 normal forwards running day7;">二十一日</span><span style="animation: 0s linear 0s 1 normal forwards running day8;">二十二日</span><span style="animation: 0s linear 0s 1 normal forwards running day9;">二十三日</span><span style="animation: 0s linear 0s 1 normal forwards running day10;">二十四日</span><span style="animation: 0s linear 0s 1 normal forwards running day11;">二十五日</span><span style="animation: 0s linear 0s 1 normal forwards running day12;">二十六日</span><span style="animation: 0s linear 0s 1 normal forwards running day13;">二十七日</span><span style="animation: 0s linear 0s 1 normal forwards running day14;">二十八日</span><span style="animation: 0s linear 0s 1 normal forwards running day15;">二十九日</span><span style="animation: 0s linear 0s 1 normal forwards running day16;">三十日</span><span style="animation: 0s linear 0s 1 normal forwards running day17;">三十一日</span><span style="animation: 0s linear 0s 1 normal forwards running day18;">一日</span><span style="animation: 0s linear 0s 1 normal forwards running day19;">二日</span><span style="animation: 0s linear 0s 1 normal forwards running day20;">三日</span><span style="animation: 0s linear 0s 1 normal forwards running day21;">四日</span><span style="animation: 0s linear 0s 1 normal forwards running day22;">五日</span><span style="animation: 0s linear 0s 1 normal forwards running day23;">六日</span><span style="animation: 0s linear 0s 1 normal forwards running day24;">七日</span><span style="animation: 0s linear 0s 1 normal forwards running day25;">八日</span><span style="animation: 0s linear 0s 1 normal forwards running day26;">九日</span><span style="animation: 0s linear 0s 1 normal forwards running day27;">十日</span><span style="animation: 0s linear 0s 1 normal forwards running day28;">十一日</span><span style="animation: 0s linear 0s 1 normal forwards running day29;">十二日</span><span style="animation: 0s linear 0s 1 normal forwards running day30;">十三日</span></div>
+        <div class="week" style="left: 145px;"><span class="current" style="animation: 0s linear 0s 1 normal forwards running week0;">星期一</span><span style="animation: 0s linear 0s 1 normal forwards running week1;">星期零</span><span style="animation: 0s linear 0s 1 normal forwards running week2;">星期二</span><span style="animation: 0s linear 0s 1 normal forwards running week3;">星期三</span><span style="animation: 0s linear 0s 1 normal forwards running week4;">星期四</span><span style="animation: 0s linear 0s 1 normal forwards running week5;">星期五</span><span style="animation: 0s linear 0s 1 normal forwards running week6;">星期六</span></div>
+        <div class="shichen" style="left: 190px;"><span class="current" style="animation: 0s linear 0s 1 normal forwards running shichen0;">亥时</span><span style="animation: 0s linear 0s 1 normal forwards running shichen1;">子时</span><span style="animation: 0s linear 0s 1 normal forwards running shichen2;">丑时</span><span style="animation: 0s linear 0s 1 normal forwards running shichen3;">寅时</span><span style="animation: 0s linear 0s 1 normal forwards running shichen4;">卯时</span><span style="animation: 0s linear 0s 1 normal forwards running shichen5;">辰时</span><span style="animation: 0s linear 0s 1 normal forwards running shichen6;">巳时</span><span style="animation: 0s linear 0s 1 normal forwards running shichen7;">午时</span><span style="animation: 0s linear 0s 1 normal forwards running shichen8;">未时</span><span style="animation: 0s linear 0s 1 normal forwards running shichen9;">申时</span><span style="animation: 0s linear 0s 1 normal forwards running shichen10;">酉时</span><span style="animation: 0s linear 0s 1 normal forwards running shichen11;">戌时</span></div>
+        <div class="hour" style="left: 230px;"><span class="current" style="animation: 0s linear 0s 1 normal forwards running hour0;">二十二时</span><span style="animation: 0s linear 0s 1 normal forwards running hour1;">二十三时</span><span style="animation: 0s linear 0s 1 normal forwards running hour2;">零时</span><span style="animation: 0s linear 0s 1 normal forwards running hour3;">一时</span><span style="animation: 0s linear 0s 1 normal forwards running hour4;">二时</span><span style="animation: 0s linear 0s 1 normal forwards running hour5;">三时</span><span style="animation: 0s linear 0s 1 normal forwards running hour6;">四时</span><span style="animation: 0s linear 0s 1 normal forwards running hour7;">五时</span><span style="animation: 0s linear 0s 1 normal forwards running hour8;">六时</span><span style="animation: 0s linear 0s 1 normal forwards running hour9;">七时</span><span style="animation: 0s linear 0s 1 normal forwards running hour10;">八时</span><span style="animation: 0s linear 0s 1 normal forwards running hour11;">九时</span><span style="animation: 0s linear 0s 1 normal forwards running hour12;">十时</span><span style="animation: 0s linear 0s 1 normal forwards running hour13;">十一时</span><span style="animation: 0s linear 0s 1 normal forwards running hour14;">十二时</span><span style="animation: 0s linear 0s 1 normal forwards running hour15;">十三时</span><span style="animation: 0s linear 0s 1 normal forwards running hour16;">十四时</span><span style="animation: 0s linear 0s 1 normal forwards running hour17;">十五时</span><span style="animation: 0s linear 0s 1 normal forwards running hour18;">十六时</span><span style="animation: 0s linear 0s 1 normal forwards running hour19;">十七时</span><span style="animation: 0s linear 0s 1 normal forwards running hour20;">十八时</span><span style="animation: 0s linear 0s 1 normal forwards running hour21;">十九时</span><span style="animation: 0s linear 0s 1 normal forwards running hour22;">二十时</span><span style="animation: 0s linear 0s 1 normal forwards running hour23;">二十一时</span></div>
+        <div class="minute" style="left: 290px;"><span class="current" style="animation: 0s linear 0s 1 normal forwards running minute0;">十三分</span><span style="animation: 0s linear 0s 1 normal forwards running minute1;">十四分</span><span style="animation: 0s linear 0s 1 normal forwards running minute2;">十五分</span><span style="animation: 0s linear 0s 1 normal forwards running minute3;">十六分</span><span style="animation: 0s linear 0s 1 normal forwards running minute4;">十七分</span><span style="animation: 0s linear 0s 1 normal forwards running minute5;">十八分</span><span style="animation: 0s linear 0s 1 normal forwards running minute6;">十九分</span><span style="animation: 0s linear 0s 1 normal forwards running minute7;">二十分</span><span style="animation: 0s linear 0s 1 normal forwards running minute8;">二十一分</span><span style="animation: 0s linear 0s 1 normal forwards running minute9;">二十二分</span><span style="animation: 0s linear 0s 1 normal forwards running minute10;">二十三分</span><span style="animation: 0s linear 0s 1 normal forwards running minute11;">二十四分</span><span style="animation: 0s linear 0s 1 normal forwards running minute12;">二十五分</span><span style="animation: 0s linear 0s 1 normal forwards running minute13;">二十六分</span><span style="animation: 0s linear 0s 1 normal forwards running minute14;">二十七分</span><span style="animation: 0s linear 0s 1 normal forwards running minute15;">二十八分</span><span style="animation: 0s linear 0s 1 normal forwards running minute16;">二十九分</span><span style="animation: 0s linear 0s 1 normal forwards running minute17;">三十分</span><span style="animation: 0s linear 0s 1 normal forwards running minute18;">三十一分</span><span style="animation: 0s linear 0s 1 normal forwards running minute19;">三十二分</span><span style="animation: 0s linear 0s 1 normal forwards running minute20;">三十三分</span><span style="animation: 0s linear 0s 1 normal forwards running minute21;">三十四分</span><span style="animation: 0s linear 0s 1 normal forwards running minute22;">三十五分</span><span style="animation: 0s linear 0s 1 normal forwards running minute23;">三十六分</span><span style="animation: 0s linear 0s 1 normal forwards running minute24;">三十七分</span><span style="animation: 0s linear 0s 1 normal forwards running minute25;">三十八分</span><span style="animation: 0s linear 0s 1 normal forwards running minute26;">三十九分</span><span style="animation: 0s linear 0s 1 normal forwards running minute27;">四十分</span><span style="animation: 0s linear 0s 1 normal forwards running minute28;">四十一分</span><span style="animation: 0s linear 0s 1 normal forwards running minute29;">四十二分</span><span style="animation: 0s linear 0s 1 normal forwards running minute30;">四十三分</span><span style="animation: 0s linear 0s 1 normal forwards running minute31;">四十四分</span><span style="animation: 0s linear 0s 1 normal forwards running minute32;">四十五分</span><span style="animation: 0s linear 0s 1 normal forwards running minute33;">四十六分</span><span style="animation: 0s linear 0s 1 normal forwards running minute34;">四十七分</span><span style="animation: 0s linear 0s 1 normal forwards running minute35;">四十八分</span><span style="animation: 0s linear 0s 1 normal forwards running minute36;">四十九分</span><span style="animation: 0s linear 0s 1 normal forwards running minute37;">五十分</span><span style="animation: 0s linear 0s 1 normal forwards running minute38;">五十一分</span><span style="animation: 0s linear 0s 1 normal forwards running minute39;">五十二分</span><span style="animation: 0s linear 0s 1 normal forwards running minute40;">五十三分</span><span style="animation: 0s linear 0s 1 normal forwards running minute41;">五十四分</span><span style="animation: 0s linear 0s 1 normal forwards running minute42;">五十五分</span><span style="animation: 0s linear 0s 1 normal forwards running minute43;">五十六分</span><span style="animation: 0s linear 0s 1 normal forwards running minute44;">五十七分</span><span style="animation: 0s linear 0s 1 normal forwards running minute45;">五十八分</span><span style="animation: 0s linear 0s 1 normal forwards running minute46;">五十九分</span><span style="animation: 0s linear 0s 1 normal forwards running minute47;">零分</span><span style="animation: 0s linear 0s 1 normal forwards running minute48;">一分</span><span style="animation: 0s linear 0s 1 normal forwards running minute49;">二分</span><span style="animation: 0s linear 0s 1 normal forwards running minute50;">三分</span><span style="animation: 0s linear 0s 1 normal forwards running minute51;">四分</span><span style="animation: 0s linear 0s 1 normal forwards running minute52;">五分</span><span style="animation: 0s linear 0s 1 normal forwards running minute53;">六分</span><span style="animation: 0s linear 0s 1 normal forwards running minute54;">七分</span><span style="animation: 0s linear 0s 1 normal forwards running minute55;">八分</span><span style="animation: 0s linear 0s 1 normal forwards running minute56;">九分</span><span style="animation: 0s linear 0s 1 normal forwards running minute57;">十分</span><span style="animation: 0s linear 0s 1 normal forwards running minute58;">十一分</span><span style="animation: 0s linear 0s 1 normal forwards running minute59;">十二分</span></div>
+        <div class="second" style="left: 350px; animation: 0.5s ease-in-out 0s 1 normal forwards running secondRun10;"><span class="" style="animation: 0s linear 0s 1 normal forwards running second0;">三秒</span><span class="" style="animation: 0s linear 0s 1 normal forwards running second1;">四秒</span><span class="" style="animation: 0s linear 0s 1 normal forwards running second2;">五秒</span><span class="" style="animation: 0s linear 0s 1 normal forwards running second3;">六秒</span><span class="" style="animation: 0s linear 0s 1 normal forwards running second4;">七秒</span><span class="" style="animation: 0s linear 0s 1 normal forwards running second5;">八秒</span><span class="" style="animation: 0s linear 0s 1 normal forwards running second6;">九秒</span><span class="" style="animation: 0s linear 0s 1 normal forwards running second7;">十秒</span><span class="" style="animation: 0s linear 0s 1 normal forwards running second8;">十一秒</span><span class="" style="animation: 0s linear 0s 1 normal forwards running second9;">十二秒</span><span class="current" style="animation: 0s linear 0s 1 normal forwards running second10;">十三秒</span><span style="animation: 0s linear 0s 1 normal forwards running second11;">十四秒</span><span style="animation: 0s linear 0s 1 normal forwards running second12;">十五秒</span><span style="animation: 0s linear 0s 1 normal forwards running second13;">十六秒</span><span style="animation: 0s linear 0s 1 normal forwards running second14;">十七秒</span><span style="animation: 0s linear 0s 1 normal forwards running second15;">十八秒</span><span style="animation: 0s linear 0s 1 normal forwards running second16;">十九秒</span><span style="animation: 0s linear 0s 1 normal forwards running second17;">二十秒</span><span style="animation: 0s linear 0s 1 normal forwards running second18;">二十一秒</span><span style="animation: 0s linear 0s 1 normal forwards running second19;">二十二秒</span><span style="animation: 0s linear 0s 1 normal forwards running second20;">二十三秒</span><span style="animation: 0s linear 0s 1 normal forwards running second21;">二十四秒</span><span style="animation: 0s linear 0s 1 normal forwards running second22;">二十五秒</span><span style="animation: 0s linear 0s 1 normal forwards running second23;">二十六秒</span><span style="animation: 0s linear 0s 1 normal forwards running second24;">二十七秒</span><span style="animation: 0s linear 0s 1 normal forwards running second25;">二十八秒</span><span style="animation: 0s linear 0s 1 normal forwards running second26;">二十九秒</span><span style="animation: 0s linear 0s 1 normal forwards running second27;">三十秒</span><span style="animation: 0s linear 0s 1 normal forwards running second28;">三十一秒</span><span style="animation: 0s linear 0s 1 normal forwards running second29;">三十二秒</span><span style="animation: 0s linear 0s 1 normal forwards running second30;">三十三秒</span><span style="animation: 0s linear 0s 1 normal forwards running second31;">三十四秒</span><span style="animation: 0s linear 0s 1 normal forwards running second32;">三十五秒</span><span style="animation: 0s linear 0s 1 normal forwards running second33;">三十六秒</span><span style="animation: 0s linear 0s 1 normal forwards running second34;">三十七秒</span><span style="animation: 0s linear 0s 1 normal forwards running second35;">三十八秒</span><span style="animation: 0s linear 0s 1 normal forwards running second36;">三十九秒</span><span style="animation: 0s linear 0s 1 normal forwards running second37;">四十秒</span><span style="animation: 0s linear 0s 1 normal forwards running second38;">四十一秒</span><span style="animation: 0s linear 0s 1 normal forwards running second39;">四十二秒</span><span style="animation: 0s linear 0s 1 normal forwards running second40;">四十三秒</span><span style="animation: 0s linear 0s 1 normal forwards running second41;">四十四秒</span><span style="animation: 0s linear 0s 1 normal forwards running second42;">四十五秒</span><span style="animation: 0s linear 0s 1 normal forwards running second43;">四十六秒</span><span style="animation: 0s linear 0s 1 normal forwards running second44;">四十七秒</span><span style="animation: 0s linear 0s 1 normal forwards running second45;">四十八秒</span><span style="animation: 0s linear 0s 1 normal forwards running second46;">四十九秒</span><span style="animation: 0s linear 0s 1 normal forwards running second47;">五十秒</span><span style="animation: 0s linear 0s 1 normal forwards running second48;">五十一秒</span><span style="animation: 0s linear 0s 1 normal forwards running second49;">五十二秒</span><span style="animation: 0s linear 0s 1 normal forwards running second50;">五十三秒</span><span style="animation: 0s linear 0s 1 normal forwards running second51;">五十四秒</span><span style="animation: 0s linear 0s 1 normal forwards running second52;">五十五秒</span><span style="animation: 0s linear 0s 1 normal forwards running second53;">五十六秒</span><span style="animation: 0s linear 0s 1 normal forwards running second54;">五十七秒</span><span style="animation: 0s linear 0s 1 normal forwards running second55;">五十八秒</span><span style="animation: 0s linear 0s 1 normal forwards running second56;">五十九秒</span><span style="animation: 0s linear 0s 1 normal forwards running second57;">零秒</span><span style="animation: 0s linear 0s 1 normal forwards running second58;">一秒</span><span style="animation: 0s linear 0s 1 normal forwards running second59;">二秒</span></div>
+    </div>
+
+
+
+
+</body></html>

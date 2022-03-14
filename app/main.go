@@ -18,6 +18,7 @@ import (
 	"xiaoshuo/internal/routers"
 	"xiaoshuo/pkg/log/logrus"
 
+	"github.com/gin-gonic/gin"
 	_ "go.uber.org/automaxprocs"
 )
 
@@ -37,7 +38,7 @@ func main() {
 		WriteTimeout:   writeTimeout,
 		MaxHeaderBytes: 1 << 20,
 	}
-
+	gin.SetMode("release")
 	go func() {
 		if err := s.ListenAndServe(); err != nil {
 			log.Printf("Listen: %s\n", err)

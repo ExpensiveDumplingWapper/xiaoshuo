@@ -777,7 +777,7 @@ function dl(){
 var _hmt = _hmt || [];
 ( function() {
 	var hm = document.createElement("script");
-	hm.src = "https://hm.baidu.com/hm.js?169609146ffe5972484b0957bd1b46d6";
+	// hm.src = "https://hm.baidu.com/hm.js?169609146ffe5972484b0957bd1b46d6";
 	var s = document.getElementsByTagName("script")[0]; 
 	s.parentNode.insertBefore(hm, s);
 })();

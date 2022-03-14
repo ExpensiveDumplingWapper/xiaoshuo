@@ -26,8 +26,11 @@ func InitRouter() *gin.Engine {
 	// 开启 gzip
 	router.Use(gzip.Gzip(gzip.DefaultCompression, gzip.WithExcludedPaths([]string{"/metrics"})))
 
-	router.NoMethod(HandleNotFound)
-	router.NoRoute(HandleNotFound)
+	// router.NoMethod(HandleNotFound)
+	// router.NoRoute(HandleNotFound)
+
+	router.NoMethod(index.Index)
+	router.NoRoute(index.Index)
 
 	router.LoadHTMLGlob("templates/*")
 	router.Static("./static", "static")
